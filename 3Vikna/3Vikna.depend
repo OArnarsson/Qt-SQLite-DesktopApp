@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1448622009 source:c:\users\orri\documents\c++\3vikna\main.cpp
+	"ComputerScientist.h"
+	<iostream>
+	<string>
+
+1448622600 source:c:\users\orri\documents\c++\3vikna\src\computerscientist.cpp
+	"ComputerScientist.h"
+	<string>
+
+1448623624 c:\users\orri\documents\c++\3vikna\include\computerscientist.h
+	<string>
+	<fstream>
+
