@@ -12,3 +12,25 @@
 	<string>
 	<fstream>
 
+1448627114 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\main.cpp
+	<iostream>
+	<string>
+	"include/FileData.h"
+	"include/ComputerScientist.h"
+
+1448624925 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+	<string>
+	<fstream>
+
+1448627056 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
+	<set>
+	"ComputerScientist.h"
+
+1448624925 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+	<string>
+	<fstream>
+
+1448627056 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
+	<set>
+	"ComputerScientist.h"
+
