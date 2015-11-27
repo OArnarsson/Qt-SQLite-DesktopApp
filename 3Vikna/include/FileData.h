@@ -3,14 +3,16 @@
 #include <set>
 #include "ComputerScientist.h"
 
+//Class FileData
+//Responsible for storing all scientists until writing
 class FileData{
      private:
-     string base;
-     set<ComputerScientist> compsci;
+          string base;
+          set<ComputerScientist> compsci;
      public:
-     FileData(string DataBaseFile);
-     void Add(ComputerScientist scientist);
-     bool Save();
+          FileData(string DataBaseFile);
+          void Add(ComputerScientist scientist);
+          bool Save();
 };
 
 

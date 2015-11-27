@@ -18,7 +18,7 @@
 	<iostream>
 	<string>
 
-1448630279 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+1448636398 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
 	<string>
 	<fstream>
 
@@ -26,7 +26,7 @@
 	<set>
 	"ComputerScientist.h"
 
-1448630279 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+1448636398 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
 	<string>
 	<fstream>
 
@@ -34,14 +34,14 @@
 	<set>
 	"ComputerScientist.h"
 
-1448630165 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\filedatabase.cpp
+1448636375 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\filedatabase.cpp
 	<iostream>
 	<fstream>
 	<set>
 	"../include/FileData.h"
 	"../include/ComputerScientist.h"
 
-1448629978 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\computerscientist.cpp
+1448636419 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\computerscientist.cpp
 	"../include/ComputerScientist.h"
 	<string>
 	<sstream>

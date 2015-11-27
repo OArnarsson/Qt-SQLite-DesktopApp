@@ -8,7 +8,7 @@ using namespace std;
 class ComputerScientist
 {
     public:
-        string ToString();
+        string ToString() const;
         string const LastName();
         ComputerScientist();
         ComputerScientist(string first, string middle, string last, string gen, int born, int died);

@@ -54,7 +54,7 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     diedYear = 0;
 }
 
-string ComputerScientist::ToString(){
+string ComputerScientist::ToString() const{
     stringstream ret;
     ret << firstName << ",";
     ret << middleName << ",";
@@ -83,5 +83,6 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     {
         outs << "First name: " << myScientist.firstName << endl;
     }
+    return outs;
 }
 
