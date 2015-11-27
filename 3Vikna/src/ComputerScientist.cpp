@@ -1,5 +1,6 @@
-#include "ComputerScientist.h"
+#include "../include/ComputerScientist.h"
 #include <string>
+#include <sstream>
 using namespace std;
 
 ComputerScientist::ComputerScientist()
@@ -53,6 +54,19 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     diedYear = 0;
 }
 
+string ComputerScientist::ToString(){
+    stringstream ret;
+    ret << firstName << ",";
+    ret << middleName << ",";
+    ret << lastName << ",";
+    ret << gender << ",";
+    ret << bornYear << ",";
+    ret << diedYear << "\n";
+    return ret.str();
+}
+string  const ComputerScientist::LastName() {
+    return lastName;
+}
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
 {
     outs << "First name: " << myScientist.firstName << endl;

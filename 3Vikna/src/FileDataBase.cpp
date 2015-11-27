@@ -4,8 +4,14 @@
 #include "../include/FileData.h"
 #include "../include/ComputerScientist.h"
 
-FileData::FileData(string DataBaseFile)
+
+FileData::FileData(string DataBaseFile){
      base = DataBaseFile;
-     ifstream in;
+     //TODO
+     //Add loading the database
 }
-kl
+
+void FileData::Add(ComputerScientist scientist){
+     compsci.insert(scientist);
+
+}
