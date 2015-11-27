@@ -15,3 +15,4 @@ Tim Cook, Male, 55. 1960.
 Donald Knuth, Male, 77. 1938. 
 Margaret Hamilton, Female, 79. 1963.
 Grace Hopper, Female, 85. 1906, 1992.
+John Vincent Atanasoff, Male, 91. 1903, 1995.
