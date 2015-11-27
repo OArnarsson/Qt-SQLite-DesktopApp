@@ -16,3 +16,68 @@ Donald Knuth, Male, 77. 1938.
 Margaret Hamilton, Female, 79. 1963.
 Grace Hopper, Female, 85. 1906, 1992.
 John Vincent Atanasoff, Male, 91. 1903, 1995.
+Charles Babbage, Male, 79. 1791, 1871.
+John Backus, Male. 82. 1924, 2007.
+Jean Bartik, Female, 86. 1924, 2011.
+Tim Berners-Lee, Male, 60. 1955.
+Nikolay Brusentsov, Male, 89. 1925, 2014.
+Vannevar Bush, Male, 84. 1890, 1974.
+David Caminer, Male, 92. 1915, 2008.
+Vint Cerf, Male, 72. 1943.
+Noam Chomsky, Male, 86. 1928.
+Alonzo Church, Male, 92. 1903, 1995.
+Wesley Allison Clark, Male, 88. 1927.
+Edmund Melson Clarke, Male, 70. 1945.
+Edgar Frank Codd, Male, 79. 1923, 2003.
+Stephen Arthur Cook, Male, 75. 1939.
+James William Cooley, Male, 89. 1926.
+Ole-Johan Dahl, Male, 70. 1931, 2002.
+Edsger Wybe Dijkstra, Male, 72. 1930, 2002.
+John Adam Presper Eckert, Male, 76. 1919, 1995.
+Ernest Allen Emerson, Male, 61. 1954.
+Douglas Carl Engelbart, Male, 88. 1925, 2013.
+Thomas Harold Flowers, Male, 92. 1905, 1998.
+Gottlob Frege, Male, 76. 1848, 1925.
+Seymour Ginsburg, Male, 76. 1927, 2004.
+Kurt Friedrich Gšdel, Male, 71. 1907, 1978.
+Lois Haibt, Male, 81. 1934.
+Margaret Hamilton, Female, 79. 1936.
+Charles Antony Richard Hoare, Male, 81. 1934.
+Herman Hollerith, Male, 69. 1860, 1929.
+Cuthbert Corwin Hurd, Male, 84. 1911, 1996.
+Kenneth Eugene Iverson, Male, 83. 1920, 2004.
+Joseph Marie Jacquard, Male, 82. 1752, 1834.
+Maurice Karnaugh, Female, 91. 1924.
+Jacek Karpinski, Male, 82. 1927, 2010.
+Alan Curtis Kay, Male, 75. 1940.
+Stephen Cole Kleene, Male, 85. 1909, 1994.
+Sergey Alexeyevich Lebdev, Male, 72. 1902, 1974.
+Gottfreid Wilhelm Leibniz, Male, 70. 1646, 1716.
+Joseph Carl Robnett Licklider, Male, 75. 1915, 1990.
+Ramon Llull, Male, 82. 1232, 1315.
+Augusta Ada Lovelace, Female, 36. 1815, 1852.
+John William Mauchly, Male, 72. 1907, 1980.
+John McCarthy, Male, 84. 1927, 2011.
+Marvin Lee Minsky, 88. 1927.
+Peter Naur, Male, 87. 1928.
+Maxwell Herman Alexander Newman, Male, 87. 1897, 1984.
+John von Neumann, Male, 53. 1903, 1957.
+Kristen Nygaard, Male, 75. 1926, 2002.
+Blaise Pascal, Male, 39. 1623, 1662.
+Emil Leon Post, Male, 67. 1897, 1954.
+Dennis MacAlistair Ritchie, Male, 70. 1941, 2011.
+Saul Rosen, Male, 69. 1922, 1991.
+Bertrand Arthur William Russel, Male, 97. 1872, 1970.
+Gerard Salton, Male, 68. 1927, 1995.
+Claude Elwood Shannon, Male, 84. 1916, 2001.
+Herbert Alexander Simon, Male, 84. 1916, 2001.
+Ivan Edward Sutherland, Male, 77. 1938.
+John Wilder Turkey, Male, 85. 1915, 2000.
+Willis Howard Ware, Male, 93. 1920, 2013.
+Adriaan van Wijngaarden, Male, 70. 1916, 1987.
+Maurice Vincent Wilkes, Male, 97. 1913, 2010.
+Sophie Wilson, Female, 57. 1957.
+Niklaus Emil Wirth, Male, 81. 1934.
+Konrad Zuse, Male, 85. 1910, 1995.
+
+
