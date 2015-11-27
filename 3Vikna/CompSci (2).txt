@@ -1,0 +1,17 @@
+George Boole, Male, 49. 1815, 1864.
+David A. Huffman, Male, 74. 1945, 1985.
+Paul Hudak, Male, 62. 1952, 2015.
+Ada Lovelace, Female, 36. 1815, 1852.
+Leslie Lamport, Male, 74. 1941
+Bjarne Stroustrup, Male, 64. 1950.
+Larry Page, Male, 42. 1973.
+Éva Tardos, Female, 58. 1957.
+Anita Borg, Female, 54. 1949. 
+Alan Turing, Male, 41. 1912, 1954.
+Bill Gates, Male, 60. 1955.
+Linus Torvalds, Male, 45. 1969.
+Steve Wozniak, Male, 65. 1950.
+Tim Cook, Male, 55. 1960.
+Donald Knuth, Male, 77. 1938. 
+Margaret Hamilton, Female, 79. 1963.
+Grace Hopper, Female, 85. 1906, 1992.
