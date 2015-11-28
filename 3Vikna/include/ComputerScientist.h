@@ -8,8 +8,8 @@ using namespace std;
 class ComputerScientist
 {
     public:
-        string ToString() const;
-        string const LastName();
+        string ToString(bool LastNameFirst) const;
+        string const OrderedName();
         ComputerScientist();
         ComputerScientist(string first, string middle, string last, string gen, int born, int died);
         ComputerScientist(string first, string middle, string last, string gen, int born);
@@ -18,7 +18,7 @@ class ComputerScientist
         friend ostream& operator <<(ostream& outs, const ComputerScientist myScientist);
         bool operator<(ComputerScientist other) const
             {
-                return lastName < other.LastName();
+                return firstName + " "+ middleName +  " " + lastName < other.OrderedName();
             }
 
 

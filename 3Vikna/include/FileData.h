@@ -1,6 +1,7 @@
 #ifndef FILEDATA_H_INCLUDED
 #define FILEDATA_H_INCLUDED
 #include <set>
+#include <vector>
 #include "ComputerScientist.h"
 
 //Class FileData
@@ -13,6 +14,8 @@ class FileData{
           FileData(string DataBaseFile);
           void Add(ComputerScientist scientist);
           bool Save();
+          bool Load();
+          vector<string> explode(const string s, char delim);
 };
 
 

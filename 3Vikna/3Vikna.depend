@@ -12,36 +12,41 @@
 	<string>
 	<fstream>
 
-1448629113 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\main.cpp
+1448734973 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\main.cpp
 	"include/ComputerScientist.h"
 	"include/FileData.h"
 	<iostream>
 	<string>
 
-1448636398 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+1448739589 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
 	<string>
 	<fstream>
 
-1448630165 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
+1448725122 c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
 	<set>
+	<vector>
 	"ComputerScientist.h"
 
-1448636398 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
+1448646315 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\computerscientist.h
 	<string>
 	<fstream>
 
-1448630165 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
+1448725122 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\include\filedata.h
 	<set>
+	<vector>
 	"ComputerScientist.h"
 
-1448636375 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\filedatabase.cpp
+1448738948 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\filedatabase.cpp
 	<iostream>
 	<fstream>
 	<set>
+	<sstream>
+	<algorithm>
+	<vector>
 	"../include/FileData.h"
 	"../include/ComputerScientist.h"
 
-1448636419 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\computerscientist.cpp
+1448738993 source:c:\users\magnús magnússon\desktop\hopur9-3vikna\3vikna\src\computerscientist.cpp
 	"../include/ComputerScientist.h"
 	<string>
 	<sstream>

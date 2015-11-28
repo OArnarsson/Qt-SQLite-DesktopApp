@@ -54,18 +54,29 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     diedYear = 0;
 }
 
-string ComputerScientist::ToString() const{
+string ComputerScientist::ToString(bool LastNameFirst = false) const{
     stringstream ret;
-    ret << firstName << ",";
-    ret << middleName << ",";
-    ret << lastName << ",";
+    string First,Mid,Last;
+    if(LastNameFirst){
+        First = lastName;
+        Mid = firstName;
+        Last = middleName;
+    }
+    else{
+        First = firstName;
+        Mid = middleName;
+        Last = lastName;
+    }
+    ret << ((First != "") ? (First + " "):"");
+    ret << ((Mid != "") ? (Mid + " "):"");
+    ret << ((Last != "") ? (Last + ","):",");
     ret << gender << ",";
     ret << bornYear << ",";
-    ret << diedYear << "\n";
+    ret << diedYear;
     return ret.str();
 }
-string  const ComputerScientist::LastName() {
-    return lastName;
+string  const ComputerScientist::OrderedName() {
+    return firstName + " "+ middleName +  " " + lastName;
 }
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
 {
