@@ -7,7 +7,7 @@
 #include "../include/FileData.h"
 #include "../include/ComputerScientist.h"
 
-
+const int DEFAULT_YEAR = -2015;
 //Exceptions
 class BadlyFormattedDataBaseException{};
 //Constructor.
@@ -68,12 +68,13 @@ bool FileData::Load(){
                //Born: Birth and death year
                string info[4];
                int born[2];
+               t+=" ";
                //Default values if not present
                for(int i = 0; i < 4; i++){
                     info[i] = "";
                }
                for(int i = 0; i < 2; i++){
-                    born[i] = -1;
+                    born[i] = DEFAULT_YEAR;
                }
                //Reads in informations and groups them
                vector<string> result;
@@ -81,6 +82,7 @@ bool FileData::Load(){
                if(result.size() != 4){
                     //Bad Data
                     //Too much or too little information in this line
+                    //cout << "Something is wrong with " << t <<" : "<< result.size() << endl;
                     continue;
                }
                //Reads in the name and splits it up
@@ -107,10 +109,14 @@ bool FileData::Load(){
                SS >> born[1];
                //Trims all spaces from the string values
                for(int i = 0; i < 4; i++){
-                    info[i].erase(remove(info[i].begin(), info[i].end(), ' '), info[i].end());
+                    int first = info[i].find_first_not_of(" ");
+                    int last = info[i].find_last_not_of(" ");
+                    if(first > 0){
+                         info[i] = info[i].substr(first,last);
+                    }
                }
                //Creates entry and adds to the database
-               ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0], born[1]);
+               ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0],born[1]);
                compsci.insert(Entry);
                //Success! Increments
                N++;

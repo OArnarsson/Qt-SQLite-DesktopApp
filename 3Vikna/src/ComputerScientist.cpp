@@ -1,7 +1,16 @@
 #include "../include/ComputerScientist.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 using namespace std;
+const int DEFAULT_YEAR = -2015;
+string ItoS(int a){
+    stringstream Proxy;
+    Proxy << a;
+    string Prox;
+    Proxy >> Prox;
+    return Prox;
+}
 
 ComputerScientist::ComputerScientist()
 {
@@ -68,11 +77,11 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const{
         Last = lastName;
     }
     ret << ((First != "") ? (First + " "):"");
-    ret << ((Mid != "") ? (Mid + " "):"");
+    ret << ((Mid != "") ? (Mid + ""):"");
     ret << ((Last != "") ? (Last + ","):",");
     ret << gender << ",";
-    ret << bornYear << ",";
-    ret << diedYear;
+    ret << ((bornYear != DEFAULT_YEAR) ? ItoS(bornYear):"") << ",";
+    ret << ((diedYear != DEFAULT_YEAR) ? ItoS(diedYear):"");
     return ret.str();
 }
 string  const ComputerScientist::OrderedName() {
