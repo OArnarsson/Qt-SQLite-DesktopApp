@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-const int DEFAULT_YEAR = -2015;
+const string DEFAULT_YEAR = "-2015";
 string ItoS(int a){
     stringstream Proxy;
     Proxy << a;
@@ -21,8 +21,8 @@ ComputerScientist::ComputerScientist()
     middleName = "";
     lastName = "";
     gender = "None";
-    bornYear = 0;
-    diedYear = 0;
+    bornYear = "0";
+    diedYear = "0";
 }
 ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died,string nation,string field)
 {
@@ -53,7 +53,7 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     lastName = last;
     gender = gen;
     bornYear = born;
-    diedYear = 0;
+    diedYear = "0";
 }
 
 
@@ -74,7 +74,7 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     lastName = last;
     gender = gen;
     bornYear = born;
-    diedYear = 0;
+    diedYear = "0";
 }
 
 string ComputerScientist::getFirst()
@@ -109,8 +109,8 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const{
     ret << ((Mid != "") ? (Mid + ""):"");
     ret << ((Last != "") ? (Last + ","):",");
     ret << gender << ",";
-    ret << ((bornYear != DEFAULT_YEAR) ? ItoS(bornYear):"") << ",";
-    ret << ((diedYear != DEFAULT_YEAR) ? ItoS(diedYear):"");
+    ret << bornYear << ",";
+    ret << diedYear;
     return ret.str();
 }
 string ComputerScientist::OrderedName() const {
@@ -128,9 +128,9 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     outs << "Gender: " << myScientist.gender << endl;
     outs << "Born: " << myScientist.bornYear << endl;
 
-    if(myScientist.diedYear > 1)
+    if(stoi(myScientist.diedYear) > 1)
     {
-        outs << "First name: " << myScientist.firstName << endl;
+        outs << "Died: " << myScientist.diedYear << endl;
     }
     return outs;
 }
@@ -150,32 +150,37 @@ vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVec
     return foundDudes;
 }
 
-vector <ComputerScientist> ComputerScientist::SortFirst(vector <ComputerScientist> theList)
+string ComputerScientist::field(const int whatField)
 {
-
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
+    if(whatField == 1)
     {
-        lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].firstName < theList[lowestFirst].firstName)
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
+        return firstName;
+    }
+    else if(whatField == 2)
+    {
+        return middleName;
+    }
+    else if(whatField == 3)
+    {
+        return lastName;
+    }
+    else if(whatField == 4)
+    {
+       return gender;
+    }
+    else if(whatField == 5)
+    {
+        return bornYear;
+    }
+    else if(whatField == 6)
+    {
+        return diedYear;
     }
 
-        return theList;
+    else return "Error";
 }
 
-vector <ComputerScientist> ComputerScientist::SortMiddle(vector <ComputerScientist> theList)
+vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> theList, const int whatField)
 {
 
     int lowestFirst;
@@ -183,109 +188,9 @@ vector <ComputerScientist> ComputerScientist::SortMiddle(vector <ComputerScienti
     for (unsigned int j = 0; j < theList.size(); j++)
     {
         lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
+        for (unsigned int i = j+1; i < theList.size(); i++)
             {
-                if (theList[i].middleName < theList[lowestFirst].middleName)
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
-    }
-
-        return theList;
-}
-
-vector <ComputerScientist> ComputerScientist::SortLast(vector <ComputerScientist> theList)
-{
-
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
-    {
-        lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].lastName < theList[lowestFirst].lastName)
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
-    }
-
-        return theList;
-}
-
-vector <ComputerScientist> ComputerScientist::SortGender(vector <ComputerScientist> theList)
-{
-
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
-    {
-        lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].gender < theList[lowestFirst].gender)
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
-    }
-
-        return theList;
-}
-
-vector <ComputerScientist> ComputerScientist::SortBorn(vector <ComputerScientist> theList)
-{
-
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
-    {
-        lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].bornYear < theList[lowestFirst].bornYear)
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
-    }
-
-        return theList;
-}
-
-vector <ComputerScientist> ComputerScientist::SortDied(vector <ComputerScientist> theList)
-{
-
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
-    {
-        lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].diedYear < theList[lowestFirst].diedYear)
+                if (theList[i].field(whatField) < theList[lowestFirst].field(whatField))
                 {
                     lowestFirst = i;
                 }
