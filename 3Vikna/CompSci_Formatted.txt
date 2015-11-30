@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Ada Lovelace,Female,1815,1852,British/mathematics/computer science.
 Adriaan van Wijngaarden,Male,1916,1987,Dutch,Numerical mathematics/computer science. 
 Alan Turing,Male,1912,1954,British,mathematics/cryptanalysis/logic/computer science/mathematical/theoretical biology.
@@ -24,6 +23,7 @@ Edmund Melson Clarke,Male,1945,American,mathematics/computer science.
 Edsger Wybe Dijkstra,Male,1930,2002,Dutch,mathematics/computer science.
 Emil Leon Post,Male,1897,1954,Russian,mathematics.
 Ernest Allen Emerson,Male,1954,American,computer science.
+Eva Tardos,Female,1957,Hungarian,mathematics.
 George Boole,Male,1815,1864,British,mathematics/philosophy/logical.
 Gerard Salton,Male,1927,1995,Dutch,mathematics.
 Gottfried Wilhelm Leibniz,Male,1646,1716,German,polymath/philosopher.
@@ -34,85 +34,93 @@ Herman Hollerith,Male,1860,1929,American,inventor/businessman.
 Ivan Edward Sutherland,Male,1938,American,computer science/computer grapics.
 Jacek Karpinski,Male,1927,2010,Polish,computer engineering/computer science.
 James William Cooley,Male,1926,American,mathematics.
-=======
-Ada Lovelace,Female,1815,1852.
-Adriaan van Wijngaarden,Male,1916,1987.
-Alan Turing,Male,1912,1954.
-Alan Curtis Kay,Male,1940,.
-Alonzo Church,Male,1903,1995.
-Anita Borg,Female,1949,.
-Augusta Ada Lovelace,Female,1815,1852.
-Bertrand Arthur William Russel,Male,1872,1970.
-Bill Gates,Male,1955,.
-Bjarne Stroustrup,Male,1950,.
-Blaise Pascal,Male,1623,1662.
-Charles Babbage,Male,1791,1871.
-Charles Antony Richard Hoare,Male,1934,.
-Claude Elwood Shannon,Male,1916,2001.
-Cuthbert Corwin Hurd,Male,1911,1996.
-David Caminer,Male,1915,2008.
-David A Huffman,Male,1945,1985.
-Dennis MacAlistair Ritchie,Male,1941,2011.
-Donald Knuth,Male,1938,.
-Douglas Carl Engelbart,Male,1925,2013.
-Edgar Frank Codd,Male,1923,2003.
-Edmund Melson Clarke,Male,1945,.
-Edsger Wybe Dijkstra,Male,1930,2002.
-Emil Leon Post,Male,1897,1954.
-Ernest Allen Emerson,Male,1954,.
-George Boole,Male,1815,1864.
-Gerard Salton,Male,1927,1995.
-Gottfreid Wilhelm Leibniz,Male,1646,1716.
-Gottlob Frege,Male,1848,1925.
-Grace Hopper,Female,1906,1992.
-Herbert Alexander Simon,Male,1916,2001.
-Herman Hollerith,Male,1860,1929.
-Ivan Edward Sutherland,Male,1938,.
-Jacek Karpinski,Male,1927,2010.
-James William Cooley,Male,1926,.
->>>>>>> d10f2807b9598f60ecfc52dfd65f6aed124ffda3
-Jean Bartik,Female,1924,2011.
-John Backus,Male,1924,2007.
-John McCarthy,Male,1927,2011.
-John Adam Presper Eckert,Male,1919,1995.
-John Vincent Atanasoff,Male,1903,1995.
-John Wilder Turkey,Male,1915,2000.
-John William Mauchly,Male,1907,1980.
-John von Neumann,Male,1903,1957.
-Joseph Carl Robnett Licklider,Male,1915,1990.
-Joseph Marie Jacquard,Male,1752,1834.
-Kenneth Eugene Iverson,Male,1920,2004.
-Konrad Zuse,Male,1910,1995.
-Kristen Nygaard,Male,1926,2002.
-Kurt Friedrich Gšdel,Male,1907,1978.
-Larry Page,Male,1973,.
-Leslie Lamport,Male,1941,.
-Linus Torvalds,Male,1969,.
-Lois Haibt,Male,1934,.
-Margaret Hamilton,Female,1963,.
-Marvin Lee Minsky,Male,1927,.
-Maurice Karnaugh,Female,1924,.
-Maurice Vincent Wilkes,Male,1913,2010.
-Maxwell Herman Alexander Newman,Male,1897,1984.
-Niklaus Emil Wirth,Male,1934,.
-Nikolay Brusentsov,Male,1925,2014.
-Noam Chomsky,Male,1928,.
-Ole-Johan Dahl,Male,1931,2002.
-Paul Hudak,Male,1952,2015.
-Peter Naur,Male,1928,.
-Ramon Llull,Male,1232,1315.
-Saul Rosen,Male,1922,1991.
-Sergey Alexeyevich Lebdev,Male,1902,1974.
-Seymour Ginsburg,Male,1927,2004.
-Sophie Wilson,Female,1957,.
-Stephen Arthur Cook,Male,1939,.
-Stephen Cole Kleene,Male,1909,1994.
-Steve Wozniak,Male,1950,.
-Thomas Harold Flowers,Male,1905,1998.
-Tim Berners-Lee,Male,1955,.
-Tim Cook,Male,1960,.
-Vannevar Bush,Male,1890,1974.
-Vint Cerf,Male,1943,.
-Wesley Allison Clark,Male,1927,.
-Willis Howard Ware,Male,1920,2013.
-Éva Tardos,Female,1957,.
+James William Cooley,Male,1926,American,mathematician.
+Jean Bartik,Female,1924,2011,American,programmer.
+John Backus,Male,1924,2007,American,computer science.
+John McCarthy,Male,1927,2011,American,computer science/cognitive science.
+John Adam Presper Eckert,Male,1919,1995,American,electrical engineering.
+John Vincent Atanasoff,Male,1903,1995,American,physics.
+John Wilder Turkey,Male,1915,2000,American,mathematician.
+John William Mauchly,Male,1907,1980,American,physics.
+John von Neumann,Male,1903,1957,Hungarian,mathematics/physics/statistics/economics.
+Joseph Carl Robnett Licklider,Male,1915,1990,American,psychologist/computer science.
+Joseph Marie Jacquard,Male,1752,1834,French,weaver/merchant.
+Kenneth Eugene Iverson,Male,1920,2004,Canadian,computer science.
+Konrad Zuse,Male,1910,1995,German,computer science/computer engineering.
+Kristen Nygaard,Male,1926,2002,Norwegian,computer science/programming language/politician.
+Kurt Friedrich Gšdel,Male,1907,1978,American,mathematics/mathematical logic.
+Larry Page,Male,1973,American,computer science/internet entrepreneur.
+Leslie Lamport,Male,1941,American,computer science.
+Linus Torvalds,Male,1969,Finnish,software engineering.
+Lois Haibt,Male,1934,American,computer science.
+Margaret Hamilton,Female,1963,American,computer science/systems engineering.
+Marvin Lee Minsky,Male,1927,American,cognitive science/computer science/artificial intelligence/philosophy of mind.
+Maurice Karnaugh,Female,1924,American,physics/mathematics.
+Maurice Vincent Wilkes,Male,1913,2010,British,computer science.
+Maxwell Herman Alexander Newman,Male,1897,1984,British,mathematics.
+Niklaus Emil Wirth,Male,1934,Swiss,computer scientist.
+Nikolay Brusentsov,Male,1925,2014,Russian,computer science.
+Noam Chomsky,Male,1928,American,linguist/philosopher/cognitive scientist/logician.
+Ole-Johan Dahl,Male,1931,2002,Norwegian,computer science.
+Paul Hudak,Male,1952,2015,American,computer science.
+Peter Naur,Male,1928,Danish,computer science.
+Ramon Llull,Male,1232,1315,Spanish,philosopher/logician/writer.
+Saul Rosen,Male,1922,1991,American,software transllator.
+Sergey Alexeyevich Lebdev,Male,1902,1974,Russian,electrical engineering/computer science.
+Seymour Ginsburg,Male,1927,2004,American,computer science.
+Sophie Wilson,Female,1957,British,computer scientist/software engineering.
+Stephen Arthur Cook,Male,1939,American,computer science.
+Stephen Cole Kleene,Male,1909,1994,American,mathematics.
+Steve Wozniak,Male,1950,American,electronic engineering/computer engineering.
+Thomas Harold Flowers,Male,1905,1998,British,engineering.
+Tim Berners-Lee,Male,1955,British,computer science.
+Tim Cook,Male,1960,American,industrial engineering.
+Vannevar Bush,Male,1890,1974,American,electrical engineering.
+Vint Cerf,Male,1943,America,telecommunications.
+Wesley Allison Clark,Male,1927,American, computer engineering.
+Willis Howard Ware,Male,1920,2013,American,computer science.
+James William Cooley,Male,1926,American,mathematician.
+Jean Bartik,Female,1924,2011,American,programmer.
+John Backus,Male,1924,2007,American,computer science.
+John McCarthy,Male,1927,2011,American,computer science/cognitive science.
+John Adam Presper Eckert,Male,1919,1995,American,electrical engineering.
+John Vincent Atanasoff,Male,1903,1995,American,physics.
+John Wilder Turkey,Male,1915,2000,American,mathematician.
+John William Mauchly,Male,1907,1980,American,physics.
+John von Neumann,Male,1903,1957,Hungarian,mathematics/physics/statistics/economics.
+Joseph Carl Robnett Licklider,Male,1915,1990,American,psychologist/computer science.
+Joseph Marie Jacquard,Male,1752,1834,French,weaver/merchant.
+Kenneth Eugene Iverson,Male,1920,2004,Canadian,computer science.
+Konrad Zuse,Male,1910,1995,German,computer science/computer engineering.
+Kristen Nygaard,Male,1926,2002,Norwegian,computer science/programming language/politician.
+Kurt Friedrich Gšdel,Male,1907,1978,American,mathematics/mathematical logic.
+Larry Page,Male,1973,American,computer science/internet entrepreneur.
+Leslie Lamport,Male,1941,American,computer science.
+Linus Torvalds,Male,1969,Finnish,software engineering.
+Lois Haibt,Male,1934,American,computer science.
+Margaret Hamilton,Female,1963,American,computer science/systems engineering.
+Marvin Lee Minsky,Male,1927,American,cognitive science/computer science/artificial intelligence/philosophy of mind.
+Maurice Karnaugh,Female,1924,American,physics/mathematics.
+Maurice Vincent Wilkes,Male,1913,2010,British,computer science.
+Maxwell Herman Alexander Newman,Male,1897,1984,British,mathematics.
+Niklaus Emil Wirth,Male,1934,Swiss,computer scientist.
+Nikolay Brusentsov,Male,1925,2014,Russian,computer science.
+Noam Chomsky,Male,1928,American,linguist/philosopher/cognitive scientist/logician.
+Ole-Johan Dahl,Male,1931,2002,Norwegian,computer science.
+Paul Hudak,Male,1952,2015,American,computer science.
+Peter Naur,Male,1928,Danish,computer science.
+Ramon Llull,Male,1232,1315,Spanish,philosopher/logician/writer.
+Saul Rosen,Male,1922,1991,American,software transllator.
+Sergey Alexeyevich Lebdev,Male,1902,1974,Russian,electrical engineering/computer science.
+Seymour Ginsburg,Male,1927,2004,American,computer science.
+Sophie Wilson,Female,1957,British,computer scientist/software engineering.
+Stephen Arthur Cook,Male,1939,American,computer science.
+Stephen Cole Kleene,Male,1909,1994,American,mathematics.
+Steve Wozniak,Male,1950,American,electronic engineering/computer engineering.
+Thomas Harold Flowers,Male,1905,1998,British,engineering.
+Tim Berners-Lee,Male,1955,British,computer science.
+Tim Cook,Male,1960,American,industrial engineering.
+Vannevar Bush,Male,1890,1974,American,electrical engineering.
+Vint Cerf,Male,1943,America,telecommunications.
+Wesley Allison Clark,Male,1927,American, computer engineering.
+Willis Howard Ware,Male,1920,2013,American,computer science.
