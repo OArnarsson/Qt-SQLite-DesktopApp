@@ -124,11 +124,7 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     return outs;
 }
 
-<<<<<<< HEAD
-vector <ComputerScientist> ComputerScientist::Find(string mySearch, vector<ComputerScientist> myVector)
-=======
 vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector)
->>>>>>> origin/master
 {
     vector <ComputerScientist> foundDudes;
 
