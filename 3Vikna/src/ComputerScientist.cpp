@@ -24,6 +24,7 @@ ComputerScientist::ComputerScientist()
     bornYear = "0";
     diedYear = "0";
 }
+
 ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died,string nation,string field)
 {
     firstName = first;
@@ -92,15 +93,18 @@ string ComputerScientist::getLast()
     return lastName;
 }
 
-string ComputerScientist::ToString(bool LastNameFirst = false) const{
+string ComputerScientist::ToString(bool LastNameFirst = false) const
+{
     stringstream ret;
     string First,Mid,Last;
-    if(LastNameFirst){
+    if(LastNameFirst)
+    {
         First = lastName;
         Mid = firstName;
         Last = middleName;
     }
-    else{
+    else
+    {
         First = firstName;
         Mid = middleName;
         Last = lastName;
@@ -113,9 +117,12 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const{
     ret << diedYear;
     return ret.str();
 }
-string ComputerScientist::OrderedName() const {
+
+string ComputerScientist::OrderedName() const
+{
     return firstName + " "+ middleName +  " " + lastName;
 }
+
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
 {
     outs << "First name: " << myScientist.firstName << endl;
@@ -182,7 +189,6 @@ string ComputerScientist::field(const int whatField)
 
 vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> theList, const int whatField)
 {
-
     int lowestFirst;
 
     for (unsigned int j = 0; j < theList.size(); j++)
@@ -201,6 +207,5 @@ vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> th
             swap(theList[j], theList[lowestFirst]);
         }
     }
-
         return theList;
 }
