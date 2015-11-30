@@ -6,8 +6,7 @@ using namespace std;
 
 int main()
 {
-     FileData F("LOL");
-     ComputerScientist Turing("Alan","","Turing","male",1889,1934);
-     F.Add(Turing);
+     FileData F("LOL.txt");
+     F.Save("TESTING.txt");
     return 0;
 }

@@ -13,8 +13,8 @@ class FileData{
      public:
           FileData(string DataBaseFile);
           void Add(ComputerScientist scientist);
-          bool Save();
-          bool Load();
+          bool Save(string filename = "");
+          bool Load(string filename = "");
           vector<string> explode(const string s, char delim);
 };
 
