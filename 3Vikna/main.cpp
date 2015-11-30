@@ -83,13 +83,15 @@ int main()
         cout << "----- 2 to search entries." << endl;
         cout << "----- 3 to list all entries." << endl;
         cout << "----- 4 for sorting options." << endl;
-        cout << "----- Any other to quit." << endl;
+        cout << "----- Q to quit." << endl;
         char operation = getChar();
 
         if (operation == '1') addToList();
         if (operation == '2') searchList();
         if (operation == '3') printList();
         if (operation == '4') sortOptions();
+        if (operation == 'q' || operation == 'Q');
+
         else break;
     }
     return 0;
