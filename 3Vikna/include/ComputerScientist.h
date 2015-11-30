@@ -1,10 +1,6 @@
 #ifndef COMPUTERSCIENTIST_H
 #define COMPUTERSCIENTIST_H
 #include <string>
-<<<<<<< HEAD
-=======
-#include <set>
->>>>>>> origin/master
 #include <vector>
 #include <fstream>
 
@@ -28,12 +24,7 @@ class ComputerScientist
             {
                 return firstName + " "+ middleName +  " " + lastName < other.OrderedName();
             }
-<<<<<<< HEAD
-        vector<ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector);
-=======
         vector <ComputerScientist> Find(string mySearch, vector <ComputerScientist> myVector);
-
->>>>>>> origin/master
 
     protected:
     private:
