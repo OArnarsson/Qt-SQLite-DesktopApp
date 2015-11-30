@@ -11,19 +11,20 @@ int main()
     while(input.length() > 1)
     {
         cin >> input;
+
         myStuff.push_back(input);
     }
 
     int lowestFirst;
 
-    for (j = 0; j < myStuff.size(); j++)
+    for (unsigned int j = 0; j < myStuff.size(); j++)
     {
         lowestFirst = j;
-        for ( i = j+1; i < myStuff.size(); i++)
+        for (int i = j+1; i < myStuff.size(); i++)
             {
                 if (myStuff[i] < myStuff[lowestFirst])
                 {
-                    iMin = i;
+                    lowestFirst = i;
                 }
             }
 

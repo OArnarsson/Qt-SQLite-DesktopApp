@@ -12,7 +12,6 @@ const int DEFAULT_YEAR = -2015;
 class BadlyFormattedDataBaseException{};
 //Constructor.
 //Reads from the database on the file (if exists)
-//Note: Unimplemented feature: Load from disk
 FileData::FileData(string DataBaseFile){
      base = DataBaseFile;
      Load();
@@ -28,10 +27,11 @@ void FileData::Add(ComputerScientist scientist){
 //Save()
 //Writes all stored computer scientists to disk
 //Returns true if successful, False otherwise
-bool FileData::Save(){
+bool FileData::Save(string filename){
      //Local variables
      ofstream Outstream;
-     Outstream.open(base);
+     filename = (filename == "") ? base:filename;
+     Outstream.open(filename);
      //Saving
      if(Outstream.is_open()){
           //Friendly Warning message
@@ -51,10 +51,11 @@ bool FileData::Save(){
 //Reads all entries from the database
 //Returns true if opening the database worked
 //Writes out to Stdout how many entries were loaded for debugging purposes
-bool FileData::Load(){
+bool FileData::Load(string filename){
    //local variables
      ifstream InStream;
-     InStream.open(base);
+     filename = (filename == "") ? base:filename;
+     InStream.open(filename);
      compsci.clear();
      int N;
      string t;
@@ -138,4 +139,8 @@ vector<string> FileData::explode(const string s, char delim){
           ret.push_back(temp);
      }
      return ret;
+}
+
+set<ComputerScientist> FileData::DataSet(){
+    return compsci;
 }
