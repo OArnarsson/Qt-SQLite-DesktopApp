@@ -150,7 +150,7 @@ vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVec
     return foundDudes;
 }
 
-vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> theList)
+vector <ComputerScientist> ComputerScientist::SortFirst(vector <ComputerScientist> theList)
 {
 
     int lowestFirst;
@@ -158,9 +158,134 @@ vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> th
     for (unsigned int j = 0; j < theList.size(); j++)
     {
         lowestFirst = j;
-        for (unsigned int i = j+1; i < theList.size(); i++)
+        for (int i = j+1; i < theList.size(); i++)
             {
-                if (theList[i] < theList[lowestFirst])
+                if (theList[i].firstName < theList[lowestFirst].firstName)
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
+
+vector <ComputerScientist> ComputerScientist::SortMiddle(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].middleName < theList[lowestFirst].middleName)
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
+
+vector <ComputerScientist> ComputerScientist::SortLast(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].lastName < theList[lowestFirst].lastName)
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
+
+vector <ComputerScientist> ComputerScientist::SortGender(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].gender < theList[lowestFirst].gender)
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
+
+vector <ComputerScientist> ComputerScientist::SortBorn(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].bornYear < theList[lowestFirst].bornYear)
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
+
+vector <ComputerScientist> ComputerScientist::SortDied(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].diedYear < theList[lowestFirst].diedYear)
                 {
                     lowestFirst = i;
                 }
