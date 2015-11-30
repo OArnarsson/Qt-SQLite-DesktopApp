@@ -52,22 +52,24 @@ void printList() {
     cout << "//Prints everything";
 }
 
-void sortOptions() {
+void sortOptions(int &howToSort) {
     while (true) {
         cout << "Sort alphabetically or alphanumeracally by:" << endl;
         cout << "First name, last name, sex, year of birth or year of death." << endl;
         cout << "----- 1 First name." << endl;
-        cout << "----- 2 Last name." << endl;
-        cout << "----- 3 Gender." << endl;
-        cout << "----- 4 Year of birth." << endl;
-        cout << "----- 5 Year of death." << endl;
+        cout << "----- 2 Middle name." << endl;
+        cout << "----- 3 Last name." << endl;
+        cout << "----- 4 Gender." << endl;
+        cout << "----- 5 Year of birth." << endl;
+        cout << "----- 6 Year of death." << endl;
         cout << "----- Any other to go back." << endl;
         char operation = getChar();
-        if (operation == '1') break;
-        if (operation == '2') break;
-        if (operation == '3') break;
-        if (operation == '4') break;
-        if (operation == '5') break;
+        if (operation == '1') howToSort = 1;
+        if (operation == '2') howToSort = 2;
+        if (operation == '3') howToSort = 3;
+        if (operation == '4') howToSort = 4;
+        if (operation == '5') howToSort = 5;
+        if (operation == '6') howToSort = 6;
         else break;
     }
 }
@@ -76,6 +78,7 @@ int main()
 {
     FileData F("LOL.txt");
     F.Save("TESTING.txt");
+    int howToSort;
 
     while (true) {
         cout << "This is a Computer Scientist database." << endl;
@@ -89,7 +92,7 @@ int main()
         if (operation == '1') addToList();
         if (operation == '2') searchList();
         if (operation == '3') printList();
-        if (operation == '4') sortOptions();
+        if (operation == '4') sortOptions(howToSort);
         if (operation == 'q' || operation == 'Q');
 
         else break;
