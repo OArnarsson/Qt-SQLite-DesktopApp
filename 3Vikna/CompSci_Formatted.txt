@@ -8,31 +8,31 @@ Augusta Ada Lovelace,Female,1815,1852,British,mathematics/programmer.
 Bertrand Arthur William Russel,Male,1872,1970,mathematics/philosophy/logic.
 Bill Gates,Male,1955,American,philanthropist/investor/programmer.
 Bjarne Stroustrup,Male,1950,Danish,mathematics/computer science.
-Blaise Pascal,Male,1623,1662,French,mathematics/physicist/inventor,writer.
-Charles Babbage,Male,1791,1871,English,mathematics,engineering,political economy,computer science.
+Blaise Pascal,Male,1623,1662,French,mathematics/physicist/inventor/writer.
+Charles Babbage,Male,1791,1871,English,mathematics/engineering/political economy/computer science.
 Charles Antony Richard Hoare,Male,1934,British,computer science.
-Claude Elwood Shannon,Male,1916,2001,American,mathematics,electronic engineering.
-Cuthbert Corwin Hurd,Male,1911,1996,American,computer scientist,entrepreneur.
+Claude Elwood Shannon,Male,1916,2001,American/mathematics/electronic engineering.
+Cuthbert Corwin Hurd,Male,1911,1996,American,computer scientist/entrepreneur.
 David Caminer,Male,1915,2008,British,system analyst.
-David A Huffman,Male,1945,1985,American,information theory,coding theory.
+David A Huffman,Male,1945,1985,American,information theory/coding theory.
 Dennis MacAlistair Ritchie,Male,1941,2011,American,computer science.
-Donald Knuth,Male,1938,American, mathematics,computer science.
-Douglas Carl Engelbart,Male,1925,2013,American,inventor, programmer.
+Donald Knuth,Male,1938,American, mathematics/computer science.
+Douglas Carl Engelbart,Male,1925,2013,American,inventor/programmer.
 Edgar Frank Codd,Male,1923,2003,British,computer science.
-Edmund Melson Clarke,Male,1945,American,mathematics,computer science.
-Edsger Wybe Dijkstra,Male,1930,2002,Dutch,mathematics,computer science.
+Edmund Melson Clarke,Male,1945,American,mathematics/computer science.
+Edsger Wybe Dijkstra,Male,1930,2002,Dutch,mathematics/computer science.
 Emil Leon Post,Male,1897,1954,Russian,mathematics.
 Ernest Allen Emerson,Male,1954,American,computer science.
-George Boole,Male,1815,1864,British,mathematics,philosophy,logical.
+George Boole,Male,1815,1864,British,mathematics/philosophy/logical.
 Gerard Salton,Male,1927,1995,Dutch,mathematics.
-Gottfreid Wilhelm Leibniz,Male,1646,1716,Dutch
-Gottlob Frege,Male,1848,1925.
-Grace Hopper,Female,1906,1992.
-Herbert Alexander Simon,Male,1916,2001.
-Herman Hollerith,Male,1860,1929.
-Ivan Edward Sutherland,Male,1938,.
-Jacek Karpinski,Male,1927,2010.
-James William Cooley,Male,1926,.
+Gottfried Wilhelm Leibniz,Male,1646,1716,German,polymath/philosopher.
+Gottlob Frege,Male,1848,1925,German,philosophy/logical/mathematics.
+Grace Hopper,Female,1906,1992,American,computer scientist.
+Herbert Alexander Simon,Male,1916,2001,American,artificial intelligence/cognitive psychology/computer science/economics/political science.
+Herman Hollerith,Male,1860,1929,American,inventor/businessman.
+Ivan Edward Sutherland,Male,1938,American,computer science/computer grapics.
+Jacek Karpinski,Male,1927,2010,Polish,computer engineering/computer science.
+James William Cooley,Male,1926,American,mathematics.
 Jean Bartik,Female,1924,2011.
 John Backus,Male,1924,2007.
 John McCarthy,Male,1927,2011.
