@@ -25,6 +25,7 @@ class ComputerScientist
                 return firstName + " "+ middleName +  " " + lastName < other.OrderedName();
             }
         vector <ComputerScientist> Find(string mySearch, vector <ComputerScientist> myVector);
+        vector <ComputerScientist> Sort(vector <ComputerScientist> theList);
 
     protected:
     private:
