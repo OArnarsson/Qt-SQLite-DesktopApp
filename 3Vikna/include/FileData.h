@@ -15,6 +15,7 @@ class FileData{
           void Add(ComputerScientist scientist);
           bool Save(string filename = "");
           bool Load(string filename = "");
+          set<ComputerScientist> DataSet();
           vector<string> explode(const string s, char delim);
 };
 

@@ -140,3 +140,7 @@ vector<string> FileData::explode(const string s, char delim){
      }
      return ret;
 }
+
+set<ComputerScientist> FileData::DataSet(){
+    return compsci;
+}
