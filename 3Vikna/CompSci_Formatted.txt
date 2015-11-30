@@ -23,7 +23,7 @@ Edmund Melson Clarke,Male,1945,American,mathematics,computer science.
 Edsger Wybe Dijkstra,Male,1930,2002,Dutch,mathematics,computer science.
 Emil Leon Post,Male,1897,1954,Russian,mathematics.
 Ernest Allen Emerson,Male,1954,American,computer science.
-Eva Tardos,Female,1957,.
+Eva Tardos,Female,1957,Hungarian,mathematics.
 George Boole,Male,1815,1864,British,mathematics,philosophy,logical.
 Gerard Salton,Male,1927,1995,Dutch,mathematics.
 Gottfreid Wilhelm Leibniz,Male,1646,1716,Dutch
