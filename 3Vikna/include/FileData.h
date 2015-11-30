@@ -9,13 +9,13 @@
 class FileData{
      private:
           string base;
-          set<ComputerScientist> compsci;
+          vector<ComputerScientist> compsci;
      public:
           FileData(string DataBaseFile);
           void Add(ComputerScientist scientist);
           bool Save(string filename = "");
           bool Load(string filename = "");
-          set<ComputerScientist> DataSet();
+          vector<ComputerScientist>DataSet();
           vector<string> explode(const string s, char delim);
 };
 

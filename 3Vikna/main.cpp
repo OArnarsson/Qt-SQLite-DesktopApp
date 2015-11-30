@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-     FileData F("LOL.txt");
+     FileData F("TESTING.txt");
      F.Save("TESTING.txt");
     return 0;
 }
