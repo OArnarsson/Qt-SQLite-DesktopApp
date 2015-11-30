@@ -1,31 +1,31 @@
-Ada Lovelace,Female,1815,1852.
-Adriaan van Wijngaarden,Male,1916,1987.
-Alan Turing,Male,1912,1954.
-Alan Curtis Kay,Male,1940,.
-Alonzo Church,Male,1903,1995.
-Anita Borg,Female,1949,.
-Augusta Ada Lovelace,Female,1815,1852.
-Bertrand Arthur William Russel,Male,1872,1970.
-Bill Gates,Male,1955,.
-Bjarne Stroustrup,Male,1950,.
-Blaise Pascal,Male,1623,1662.
-Charles Babbage,Male,1791,1871.
-Charles Antony Richard Hoare,Male,1934,.
-Claude Elwood Shannon,Male,1916,2001.
-Cuthbert Corwin Hurd,Male,1911,1996.
-David Caminer,Male,1915,2008.
-David A Huffman,Male,1945,1985.
-Dennis MacAlistair Ritchie,Male,1941,2011.
-Donald Knuth,Male,1938,.
-Douglas Carl Engelbart,Male,1925,2013.
-Edgar Frank Codd,Male,1923,2003.
-Edmund Melson Clarke,Male,1945,.
-Edsger Wybe Dijkstra,Male,1930,2002.
-Emil Leon Post,Male,1897,1954.
-Ernest Allen Emerson,Male,1954,.
-George Boole,Male,1815,1864.
-Gerard Salton,Male,1927,1995.
-Gottfreid Wilhelm Leibniz,Male,1646,1716.
+Ada Lovelace,Female,1815,1852,British/mathematics/computer science.
+Adriaan van Wijngaarden,Male,1916,1987,Dutch,Numerical mathematics/computer science. 
+Alan Turing,Male,1912,1954,British,mathematics/cryptanalysis/logic/computer science/mathematical/theoretical biology.
+Alan Curtis Kay,Male,1940,American,computer science. 
+Alonzo Church,Male,1903,1995,American, mathematics,logic.
+Anita Borg,Female,1949,American,programmer.
+Augusta Ada Lovelace,Female,1815,1852,British,mathematics/programmer.
+Bertrand Arthur William Russel,Male,1872,1970,mathematics/philosophy/logic.
+Bill Gates,Male,1955,American,philanthropist/investor/programmer.
+Bjarne Stroustrup,Male,1950,Danish,mathematics/computer science.
+Blaise Pascal,Male,1623,1662,French,mathematics/physicist/inventor,writer.
+Charles Babbage,Male,1791,1871,English,mathematics,engineering,political economy,computer science.
+Charles Antony Richard Hoare,Male,1934,British,computer science.
+Claude Elwood Shannon,Male,1916,2001,American,mathematics,electronic engineering.
+Cuthbert Corwin Hurd,Male,1911,1996,American,computer scientist,entrepreneur.
+David Caminer,Male,1915,2008,British,system analyst.
+David A Huffman,Male,1945,1985,American,information theory,coding theory.
+Dennis MacAlistair Ritchie,Male,1941,2011,American,computer science.
+Donald Knuth,Male,1938,American, mathematics,computer science.
+Douglas Carl Engelbart,Male,1925,2013,American,inventor, programmer.
+Edgar Frank Codd,Male,1923,2003,British,computer science.
+Edmund Melson Clarke,Male,1945,American,mathematics,computer science.
+Edsger Wybe Dijkstra,Male,1930,2002,Dutch,mathematics,computer science.
+Emil Leon Post,Male,1897,1954,Russian,mathematics.
+Ernest Allen Emerson,Male,1954,American,computer science.
+George Boole,Male,1815,1864,British,mathematics,philosophy,logical.
+Gerard Salton,Male,1927,1995,Dutch,mathematics.
+Gottfreid Wilhelm Leibniz,Male,1646,1716,Dutch
 Gottlob Frege,Male,1848,1925.
 Grace Hopper,Female,1906,1992.
 Herbert Alexander Simon,Male,1916,2001.
