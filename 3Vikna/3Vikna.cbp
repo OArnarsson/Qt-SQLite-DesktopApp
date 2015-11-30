@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ComputerScientist.h" />
+		<Unit filename="include/FileData.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ComputerScientist.cpp" />
+		<Unit filename="src/FileDataBase.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
