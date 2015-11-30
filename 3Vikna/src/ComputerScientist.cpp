@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <vector>
 using namespace std;
 const int DEFAULT_YEAR = -2015;
 string ItoS(int a){
@@ -106,3 +107,17 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     return outs;
 }
 
+vector <ComputerScientist> ComputerScientist::Find(string mySearch, vector<ComputerScientist> myVector)
+{
+    vector <ComputerScientist> foundDudes;
+
+    for (unsigned int i = 0; i < myVector.size(); i++)
+    {
+       if(myVector[i].OrderedName().find(mySearch) != -1)
+       {
+          foundDudes.push_back(myVector[i]);
+       }
+    }
+
+    return foundDudes;
+}

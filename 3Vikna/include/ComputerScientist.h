@@ -1,6 +1,7 @@
 #ifndef COMPUTERSCIENTIST_H
 #define COMPUTERSCIENTIST_H
 #include <string>
+#include <vector>
 #include <fstream>
 
 using namespace std;
@@ -20,7 +21,7 @@ class ComputerScientist
             {
                 return firstName + " "+ middleName +  " " + lastName < other.OrderedName();
             }
-
+        vector<ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector);
 
     protected:
     private:
