@@ -8,8 +8,7 @@
 #include "../include/ComputerScientist.h"
 // , Nationality, Fields
 const int DEFAULT_YEAR = -2015;
-//Exceptions
-class BadlyFormattedDataBaseException{};
+const int NUMBER_OF_COLUMNS = 6;
 //Constructor.
 //Reads from the database on the file (if exists)
 FileData::FileData(string DataBaseFile){
@@ -67,7 +66,7 @@ bool FileData::Load(string filename){
           while(getline(InStream,t,'.') && InStream.getline(newline,2,'\n')){
                //Info: All information except birth and deathyear
                //Born: Birth and death year
-               string info[6];
+               string info[4];
                int born[2];
                t+=" ";
                //Default values if not present
@@ -86,7 +85,7 @@ bool FileData::Load(string filename){
                 * [3] = dead
                 * [4] = nationality
                 * [5] = fields */
-               if(result.size() != 4){
+               if(result.size() != NUMBER_OF_COLUMNS){
                     //Bad Data
                     //Too much or too little information in this line
                     //cout << "Something is wrong with " << t <<" : "<< result.size() << endl;
@@ -115,7 +114,7 @@ bool FileData::Load(string filename){
                stringstream SS(result[3]);
                SS >> born[1];
                //Trims all spaces from the string values
-               for(int i = 0; i < 4; i++){
+               for(int i = 0; i < NUMBER_OF_COLUMNS; i++){
                     int first = info[i].find_first_not_of(" ");
                     int last = info[i].find_last_not_of(" ");
                     if(first > 0){
@@ -123,7 +122,7 @@ bool FileData::Load(string filename){
                     }
                }
                //Creates entry and adds to the database
-               ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0],born[1]);
+               ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0],born[1],info[4],info[5]);
                compsci.push_back(Entry);
                //Success! Increments
                N++;
@@ -141,7 +140,7 @@ vector<string> FileData::explode(const string s, char delim){
      vector<string> ret;
      stringstream stream(s);
      string temp;
-     while(getline(stream,temp,delim)){
+     while(getline(stream, temp, delim)){
           ret.push_back(temp);
      }
      return ret;

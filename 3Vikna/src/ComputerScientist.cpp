@@ -24,6 +24,17 @@ ComputerScientist::ComputerScientist()
     bornYear = 0;
     diedYear = 0;
 }
+ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died,string nation,string field)
+{
+    firstName = first;
+    middleName = middle;
+    lastName = last;
+    gender = gen;
+    nationality = nation;
+    fields = field;
+    bornYear = born;
+    diedYear = died;
+}
 
 ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died)
 {
@@ -147,7 +158,7 @@ vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> th
     for (unsigned int j = 0; j < theList.size(); j++)
     {
         lowestFirst = j;
-        for (int i = j+1; i < theList.size(); i++)
+        for (unsigned int i = j+1; i < theList.size(); i++)
             {
                 if (theList[i] < theList[lowestFirst])
                 {
