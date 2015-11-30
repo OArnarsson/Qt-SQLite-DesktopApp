@@ -18,7 +18,7 @@ char getChar(){
 
 void addToList() {
     while (true) {
-        cout << "Enter name, sex year of birth, year of death(if applicable)." << endl;
+        cout << "Enter name, gender, year of birth, year of death(if applicable)." << endl;
         cout << "In this format: Blaise Pascal,Male,1623,1662." << endl;
         cout << "//Computer scientist added." << endl;
         cout << "----- 1 to add another computer scientist." << endl;
@@ -58,7 +58,7 @@ void sortOptions() {
         cout << "First name, last name, sex, year of birth or year of death." << endl;
         cout << "----- 1 First name." << endl;
         cout << "----- 2 Last name." << endl;
-        cout << "----- 3 Sex." << endl;
+        cout << "----- 3 Gender." << endl;
         cout << "----- 4 Year of birth." << endl;
         cout << "----- 5 Year of death." << endl;
         cout << "----- Any other to go back." << endl;
