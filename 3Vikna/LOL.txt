@@ -23,6 +23,7 @@ Edmund Melson Clarke,Male,1945,.
 Edsger Wybe Dijkstra,Male,1930,2002.
 Emil Leon Post,Male,1897,1954.
 Ernest Allen Emerson,Male,1954,.
+Eva Tardos,Female,1957,.
 George Boole,Male,1815,1864.
 Gerard Salton,Male,1927,1995.
 Gottfreid Wilhelm Leibniz,Male,1646,1716.
@@ -46,7 +47,7 @@ Joseph Marie Jacquard,Male,1752,1834.
 Kenneth Eugene Iverson,Male,1920,2004.
 Konrad Zuse,Male,1910,1995.
 Kristen Nygaard,Male,1926,2002.
-Kurt Friedrich Gšdel,Male,1907,1978.
+Kurt Friedrich Godel,Male,1907,1978.
 Larry Page,Male,1973,.
 Leslie Lamport,Male,1941,.
 Linus Torvalds,Male,1969,.
@@ -77,4 +78,4 @@ Vannevar Bush,Male,1890,1974.
 Vint Cerf,Male,1943,.
 Wesley Allison Clark,Male,1927,.
 Willis Howard Ware,Male,1920,2013.
-Éva Tardos,Female,1957,.
+
