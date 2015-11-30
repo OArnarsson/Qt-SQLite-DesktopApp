@@ -138,3 +138,28 @@ vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVec
 
     return foundDudes;
 }
+
+vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> theList)
+{
+
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i] < theList[lowestFirst])
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+
+        return theList;
+}
