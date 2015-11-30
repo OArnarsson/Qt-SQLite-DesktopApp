@@ -6,7 +6,7 @@
 #include <vector>
 #include "../include/FileData.h"
 #include "../include/ComputerScientist.h"
-
+// , Nationality, Fields
 const int DEFAULT_YEAR = -2015;
 //Exceptions
 class BadlyFormattedDataBaseException{};
@@ -21,7 +21,7 @@ FileData::FileData(string DataBaseFile){
 //Accepts a ComputerScientist class
 //Stores it in memory until ready to write to disk
 void FileData::Add(ComputerScientist scientist){
-     compsci.insert(scientist);
+     compsci.push_back(scientist);
 }
 
 //Save()
@@ -37,8 +37,8 @@ bool FileData::Save(string filename){
           //Friendly Warning message
           //Outstream << "Please do not alter this file manually. \n";
           //Iterates trough the entire set; printing each entry to the file in turn
-          for (set<ComputerScientist>::iterator it=compsci.begin(); it!=compsci.end(); ++it){
-               Outstream << (*it).ToString(false) << "." << "\n";
+          for (unsigned int i = 0; i<compsci.size();i++){
+               Outstream << compsci[i].ToString(false) << "." << "\n";
           }
           Outstream.close();
           return true;
@@ -67,7 +67,7 @@ bool FileData::Load(string filename){
           while(getline(InStream,t,'.') && InStream.getline(newline,2,'\n')){
                //Info: All information except birth and deathyear
                //Born: Birth and death year
-               string info[4];
+               string info[6];
                int born[2];
                t+=" ";
                //Default values if not present
@@ -80,6 +80,12 @@ bool FileData::Load(string filename){
                //Reads in informations and groups them
                vector<string> result;
                result = explode(string(t),',');
+               /*[0] = name
+                * [1] = gender
+                * [2] = born
+                * [3] = dead
+                * [4] = nationality
+                * [5] = fields */
                if(result.size() != 4){
                     //Bad Data
                     //Too much or too little information in this line
@@ -118,7 +124,7 @@ bool FileData::Load(string filename){
                }
                //Creates entry and adds to the database
                ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0],born[1]);
-               compsci.insert(Entry);
+               compsci.push_back(Entry);
                //Success! Increments
                N++;
           }
@@ -141,6 +147,6 @@ vector<string> FileData::explode(const string s, char delim){
      return ret;
 }
 
-set<ComputerScientist> FileData::DataSet(){
+vector<ComputerScientist> FileData::DataSet(){
     return compsci;
 }
