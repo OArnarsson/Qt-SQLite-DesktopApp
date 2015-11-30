@@ -1,5 +1,7 @@
 #include "../include/ComputerScientist.h"
+#include <set>
 #include <string>
+#include <vector>
 #include <sstream>
 #include <iostream>
 #include <vector>
@@ -64,6 +66,21 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     diedYear = 0;
 }
 
+string ComputerScientist::getFirst()
+{
+    return firstName;
+}
+
+string ComputerScientist::getMiddle()
+{
+    return middleName;
+}
+
+string ComputerScientist::getLast()
+{
+    return lastName;
+}
+
 string ComputerScientist::ToString(bool LastNameFirst = false) const{
     stringstream ret;
     string First,Mid,Last;
@@ -85,7 +102,7 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const{
     ret << ((diedYear != DEFAULT_YEAR) ? ItoS(diedYear):"");
     return ret.str();
 }
-string  const ComputerScientist::OrderedName() {
+string ComputerScientist::OrderedName() const {
     return firstName + " "+ middleName +  " " + lastName;
 }
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
@@ -107,7 +124,11 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     return outs;
 }
 
+<<<<<<< HEAD
 vector <ComputerScientist> ComputerScientist::Find(string mySearch, vector<ComputerScientist> myVector)
+=======
+vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector)
+>>>>>>> origin/master
 {
     vector <ComputerScientist> foundDudes;
 
