@@ -7,7 +7,7 @@
 #include "../include/FileData.h"
 #include "../include/ComputerScientist.h"
 // , Nationality, Fields
-const int DEFAULT_YEAR = -2015;
+const string DEFAULT_YEAR = "-2015";
 const int NUMBER_OF_COLUMNS = 6;
 //Constructor.
 //Reads from the database on the file (if exists)
@@ -66,11 +66,11 @@ bool FileData::Load(string filename){
           while(getline(InStream,t,'.') && InStream.getline(newline,2,'\n')){
                //Info: All information except birth and deathyear
                //Born: Birth and death year
-               string info[4];
-               int born[2];
+               string info[6];
+               string born[2];
                t+=" ";
                //Default values if not present
-               for(int i = 0; i < 4; i++){
+               for(int i = 0; i < 6; i++){
                     info[i] = "";
                }
                for(int i = 0; i < 2; i++){
@@ -109,10 +109,17 @@ bool FileData::Load(string filename){
                //Gender is located in result[1]
                info[3] = result[1];
                //I became lazy; reads the birth and death year and converts to int
-               stringstream S(result[2]);
-               S >> born[0];
-               stringstream SS(result[3]);
-               SS >> born[1];
+
+               born[0] = result[2];
+               born[1] = result[3];
+               if(born[1].length() < 3){
+                    born[1] = DEFAULT_YEAR;
+               }
+               if(born[0].length() < 3){
+                    born[0] = DEFAULT_YEAR;
+               }
+               info[4] = result[4];
+                       info[5] = result[5];
                //Trims all spaces from the string values
                for(int i = 0; i < NUMBER_OF_COLUMNS; i++){
                     int first = info[i].find_first_not_of(" ");
@@ -120,9 +127,14 @@ bool FileData::Load(string filename){
                     if(first > 0){
                          info[i] = info[i].substr(first,last);
                     }
+                    else{
+                        if(last < info[i].size() - 2){
+                            info[i] = info[i].substr(0,last + 2);
+                        }
+                    }
                }
                //Creates entry and adds to the database
-               ComputerScientist Entry(info[0], info[1], info[2], info[3], born[0],born[1],info[4],info[5]);
+               ComputerScientist Entry(info[0] , info[1], info[2], info[3], born[0],born[1],info[4],info[5]);
                compsci.push_back(Entry);
                //Success! Increments
                N++;

@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <fstream>
-
 using namespace std;
 
 class ComputerScientist
@@ -12,11 +11,10 @@ class ComputerScientist
         string ToString(bool LastNameFirst) const;
         string OrderedName() const;
         ComputerScientist();
-        ComputerScientist(string first, string middle, string last, string gen, int born, int died,string nation,string field);
-        ComputerScientist(string first, string middle, string last, string gen, int born, int died);
-        ComputerScientist(string first, string middle, string last, string gen, int born);
-        ComputerScientist(string first, string last, string gen, int born, int died);
-        ComputerScientist(string first, string last, string gen, int born);
+        ComputerScientist(string first, string middle, string last, string gen, string born, string died,string nation,string field);
+        ComputerScientist(string first, string middle, string last, string gen, string born, string died);
+        ComputerScientist(string first, string last, string gen, string born, string died);
+        ComputerScientist(string first, string last, string gen, string born);
         friend ostream& operator <<(ostream& outs, const ComputerScientist myScientist);
         string getFirst();
         string getMiddle();

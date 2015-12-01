@@ -21,11 +21,11 @@ ComputerScientist::ComputerScientist()
     middleName = "";
     lastName = "";
     gender = "None";
-    bornYear = "0";
-    diedYear = "0";
+    bornYear = DEFAULT_YEAR;
+    diedYear = DEFAULT_YEAR;
 }
 
-ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died,string nation,string field)
+ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, string born, string died,string nation,string field)
 {
     firstName = first;
     middleName = middle;
@@ -37,7 +37,7 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     diedYear = died;
 }
 
-ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born, int died)
+ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, string born, string died)
 {
     firstName = first;
     middleName = middle;
@@ -47,18 +47,8 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     diedYear = died;
 }
 
-ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, int born)
-{
-    firstName = first;
-    middleName = middle;
-    lastName = last;
-    gender = gen;
-    bornYear = born;
-    diedYear = "0";
-}
 
-
-ComputerScientist::ComputerScientist(string first, string last, string gen, int born, int died)
+ComputerScientist::ComputerScientist(string first, string last, string gen, string born, string died)
 {
     firstName = first;
     middleName = "";
@@ -68,7 +58,7 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, int 
     diedYear = died;
 }
 
-ComputerScientist::ComputerScientist(string first, string last, string gen, int born)
+ComputerScientist::ComputerScientist(string first, string last, string gen, string born)
 {
     firstName = first;
     middleName = "";
@@ -113,8 +103,10 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const
     ret << ((Mid != "") ? (Mid + ""):"");
     ret << ((Last != "") ? (Last + ","):",");
     ret << gender << ",";
-    ret << bornYear << ",";
-    ret << diedYear;
+    ret << ((bornYear != DEFAULT_YEAR) ? bornYear:"") << ",";
+    ret << ((diedYear != DEFAULT_YEAR) ? diedYear:"") << ",";
+    ret << nationality << ",";
+    ret << fields;
     return ret.str();
 }
 
@@ -133,12 +125,18 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
 
     outs << "Last name: " << myScientist.lastName << endl;
     outs << "Gender: " << myScientist.gender << endl;
-    outs << "Born: " << myScientist.bornYear << endl;
+    outs << "Nationality: " << myScientist.nationality << endl;
+    if(stoi(myScientist.bornYear) > 1)
+    {
+        outs << "Born: " << myScientist.bornYear << endl;
+    }
 
     if(stoi(myScientist.diedYear) > 1)
     {
         outs << "Died: " << myScientist.diedYear << endl;
     }
+
+    outs << "Fields: " << myScientist.fields << endl;
     return outs;
 }
 
