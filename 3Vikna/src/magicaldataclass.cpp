@@ -29,6 +29,9 @@ void MagicalDataClass::SetSort(int option){
 }
 
 void MagicalDataClass::Add(vector<string> entry){
+    for(int i = 0; i < 8; i++){
+        entry[i] += " ";
+    }
     ComputerScientist newEntry(entry[0],entry[1],entry[2],entry[3],entry[4],entry[5],entry[6],entry[7]);
     (*Database).Add(newEntry);
     (*Database).Save();

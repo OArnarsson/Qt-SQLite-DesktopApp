@@ -126,12 +126,12 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     outs << "Last name: " << myScientist.lastName << endl;
     outs << "Gender: " << myScientist.gender << endl;
     outs << "Nationality: " << myScientist.nationality << endl;
-    if(stoi(myScientist.bornYear) > 1)
+    if(myScientist.bornYear != DEFAULT_YEAR)
     {
         outs << "Born: " << myScientist.bornYear << endl;
     }
 
-    if(stoi(myScientist.diedYear) > 1)
+    if(myScientist.diedYear != DEFAULT_YEAR)
     {
         outs << "Died: " << myScientist.diedYear << endl;
     }

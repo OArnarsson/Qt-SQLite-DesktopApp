@@ -50,6 +50,13 @@ class UI{
                 entering.push_back(string(entry));
                 cin.clear();
             }
+            for(int i = 0; i < 8; i++){
+                for(unsigned int n = 0; n < entering[i].size(); n++){
+                   if(entering[i][n] == ','){
+                       entering[i][n] = ' ';
+                   }
+                }
+            }
             (*MyDataLayer).Add(entering);
             cout << "//Computer scientist added." << endl;
             cout << "----- 1 to add another computer scientist." << endl;
