@@ -9,7 +9,7 @@ using namespace std;
 class UI{
     public:
     UI(){
-        MyDataLayer = new MagicalDataClass("CompSci_Formatted.txt");
+        MyDataLayer = new MagicalDataClass("CompSci.data");
     }
     void start(){
         while (true) {
