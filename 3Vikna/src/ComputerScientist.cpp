@@ -112,7 +112,7 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const
 
 string ComputerScientist::OrderedName() const
 {
-    return firstName + " "+ middleName +  " " + lastName;
+    return firstName + " "+ middleName +  " " + lastName + " " + gender + " " + nationality + " " + bornYear + " " + diedYear + " " + fields;
 }
 
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
