@@ -65,7 +65,7 @@ class UI{
             cout << "Please enter the name you wish to search for" << endl;
             /*cout << "What do you want to search for?" << endl;
             cout << "----- 1 Name." << endl;
-            cout << "----- 2 Sex." << endl;
+            cout << "----- 2 Gender." << endl;
             cout << "----- 3 Year of birth." << endl;
             cout << "----- 4 Year of death." << endl;
             cout << "----- Any other to go back." << endl;
@@ -98,7 +98,7 @@ class UI{
     void sortOptions() {
         while (true) {
             cout << "Sort alphabetically or alphanumeracally by:" << endl;
-            cout << "First name, last name, sex, year of birth or year of death." << endl;
+            cout << "First name, last name, gender, year of birth or year of death." << endl;
             cout << "----- 1 First name." << endl;
             cout << "----- 2 Middle name." << endl;
             cout << "----- 3 Last name." << endl;
