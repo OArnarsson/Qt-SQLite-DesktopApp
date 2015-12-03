@@ -1,8 +1,12 @@
-TEMPLATE = app
-CONFIG += console c++11
-CONFIG -= app_bundle
-CONFIG -= qt
+QT += core
 QT += sql
+QT -= gui
+TARGET = untitled
+CONFIG += console
+CONFIG -= app_bundle
+
+TEMPLATE = app
+
 
 SOURCES += main.cpp \
     src/ComputerScientist.cpp \
@@ -19,7 +23,6 @@ HEADERS += \
 
 DISTFILES += \
     LOL.txt \
-    sqlite3.dll \
     Lib/sqlite3.dll \
     Lib/sqlite3.def
 
