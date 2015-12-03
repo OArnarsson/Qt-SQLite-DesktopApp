@@ -17,7 +17,7 @@ int main()
     QString lol = "CompDataBase.sqlite";
     db.setDatabaseName(lol);
     cout << db.open() << endl;
-    QSqlQuery query = db.exec(QString("Select * from Computerscientists;"));
+    QSqlQuery query = db.exec(QString("Select * from Scientists;"));
     QSqlError err = query.lastError();
     cout << err.text().toStdString() << endl;
     while(query.next()){
