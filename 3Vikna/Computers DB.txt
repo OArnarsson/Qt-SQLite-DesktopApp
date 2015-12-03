@@ -1,0 +1,71 @@
+Colossus,1943,computer,true,UK
+ENIAC,1946,computer,true,USA
+Manchester small-scale experimental machine,1948,computer,true,UK	
+EDSAC;1949,computer,true,UK
+Manchester Mark 1,1949,computer,true,UK
+BINAC,1949,computer,true,USA
+CSIRAC,1949,computer,true,Australia
+SEAC,1950,computer,true,USA
+ERA Atlas,1950,computer,USA
+SWAC,1950,computer,true,USA
+Magnetic drum digital differential analyzer,1950,computer,true,USA
+Harvard Mark III,1950,computer,trueUSA
+Pilot ACE,1950,computer,true,UK
+Ferranti Mark,1951,computer,true,UK
+EDVAC,1951,computer,true,USA
+Harwell Dekatron computer,1951,computer,true,British
+Whirlwhind,1951,computer,true,USA
+UNIVAC I,1951,computer,true,USA
+ORDVAC,1951,computer,true,USA
+LEO I,1951,computer,true,UK
+Remington Rand 409,1952,computer,true,USA
+Harvard Mark IV,1952,computer,true,USA
+IAS machine,1952,computer,true,USA
+ILLIAC I,1952,computer,true,USA
+MANIAC I,1952,computer,true,USA
+IBM 701,1952,computer,true,USA
+BESM,1952,computer,true,Soviet Union
+AVIDAC,1953,computer,true,USA
+FLAC,1953,computer,true,USA
+JOHNNIAC,1953,computer,true,USA
+IBM 702,1953,computer,true,USA
+UNIVAC 1103,1953,computer,true,USA
+RAYDAC,1953,computer,true,USA
+Strela Computer,1953,computer,true,Soviet Union
+IBM 650,1954,computer,true,USA
+IBM 704,1954,computer,true,USA
+IBM 708,1954,computer,true,USA
+BESK,1954,computer,true,Sweden
+IBM Naval ordnance research calculator,1954,computer,true,USA
+REAC C-400 series,1954,computer,true,USA
+UNIVAC 1102,1954,computer,true,USA
+DYSEAC,1954,computer,true,USA
+Wisconsin Integrally synchronized computer,1954,computer,true,USA
+CALDIC,1955,computer,true,USA
+English Electric DEUCE,1955,computer,true,UK
+ICT 1200,1955,computer,true,USA
+WEIZAC,1955,computer,true,Israel
+IBM 305 RAMAC,1956,true,USA
+PERM,1956,computer,true,Germany
+SMIL,1956,computer,true,Sweden
+Bendix G-15,1956,computer,true,USA
+LGP-30,1956,computer,true,USA
+UNIVAC 1103A,1956,computer,true,USA
+FUJIC,1956,computer,true,Japan
+Ferranti Pegasus,1956,computer,true,UK
+SILLIAC,1956,computer,true,Australia
+RCA,1956,computer,true,USA
+Z22,1957,computer,true,Germany
+DASK,1957,computer,true,Denmark
+MISTIC,1957,computer,true,USA
+MUSASINO-1,1957,computer,true,Japan
+Sandia,1957,computer,true,USA
+AN/FSQ-7 combat direction central,1958,computer,true,USA
+Ural Series,1959,computer,true,Soviet Union
+ZEBRA,1958,computer,true,Netherlands
+Rice Institute computer,1959,computer,true,USA
+TIFRAC,1960,computer,true,India
+CER-10,1960,computer,true,Yugoslavia
+Sumlock ANITA calculator,1961,computer,true,Germany
+UMC-1,1962,computer,true,Poland
+BRLESC,1962,computer,true,USA
