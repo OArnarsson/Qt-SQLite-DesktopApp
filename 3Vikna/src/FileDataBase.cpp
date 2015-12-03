@@ -30,7 +30,7 @@ bool FileData::Save(string filename){
      //Local variables
      ofstream Outstream;
      filename = (filename == "") ? base:filename;
-     Outstream.open(filename);
+     Outstream.open(filename.c_str());
      //Saving
      if(Outstream.is_open()){
           //Friendly Warning message
@@ -54,7 +54,7 @@ bool FileData::Load(string filename){
    //local variables
      ifstream InStream;
      filename = (filename == "") ? base:filename;
-     InStream.open(filename);
+     InStream.open(filename.c_str());
      compsci.clear();
      int N;
      string t;
