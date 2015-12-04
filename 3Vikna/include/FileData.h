@@ -3,17 +3,20 @@
 #include <set>
 #include <vector>
 #include "ComputerScientist.h"
+#include <QtSql>
 
 //Class FileData
 //Responsible for storing all scientists until writing
 class FileData{
      private:
           string base;
-          vector<ComputerScientist> compsci;
+          QSqlDatabase connection;
+          bool valid;
+          bool open();
      public:
           FileData(string DataBaseFile);
-          void Add(ComputerScientist scientist);
-          bool Save(string filename = "");
+          bool Add(ComputerScientist scientist);
+
           bool Load(string filename = "");
           vector<ComputerScientist>DataSet();
           vector<string> explode(const string s, char delim);

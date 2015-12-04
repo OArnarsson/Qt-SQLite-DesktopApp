@@ -25,5 +25,4 @@ DISTFILES += \
     LOL.txt \
     Lib/sqlite3.dll \
     Lib/sqlite3.def \
-    SQL/CompDataBase.sqlite \
 

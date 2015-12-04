@@ -9,7 +9,7 @@ using namespace std;
 class UI{
     public:
     UI(){
-        MyDataLayer = new MagicalDataClass("CompSci.data");
+        MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
     }
     void start(){
         while (true) {
