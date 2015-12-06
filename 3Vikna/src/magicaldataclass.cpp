@@ -76,15 +76,12 @@ vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> the
         return theList;
 }
 
-vector<ComputerScientist> MagicalDataClass::GetAll(){
-    vector<ComputerScientist> Ret = (*Database).DataSet();
-    Ret = Sort(Ret,sortingOption);
-    return Ret;
+void MagicalDataClass::GetAll(vector<ComputerScientist>& vec){
+    vec = (*Database).DataSet(0);
 }
-vector <ComputerScientist> MagicalDataClass::Search(string SubName){
-    vector<ComputerScientist> Ret = (*Database).DataSet();
-    Ret = Find(SubName,Ret);
+void MagicalDataClass::Search(vector<ComputerScientist>&, string substring){
+    vector<ComputerScientist> Ret = (*Database).DataSet(0);
+    Ret = Find(substring,Ret);
     Ret = Sort(Ret,sortingOption);
-    return Ret;
 }
 

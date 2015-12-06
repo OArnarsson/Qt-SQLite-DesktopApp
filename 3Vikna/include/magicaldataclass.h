@@ -6,6 +6,7 @@
 #include <string>
 #include "../include/ComputerScientist.h"
 #include "../include/FileData.h"
+#include "../include/computer.h"
 
 using namespace std;
 
@@ -18,8 +19,10 @@ class MagicalDataClass{
     public:
     MagicalDataClass();
     MagicalDataClass(string filename);
-    vector <ComputerScientist> GetAll();
-    vector <ComputerScientist> Search(string SubName);
+    void GetAll(vector<ComputerScientist>& vec);
+    void GetAll(vector<computer>& vect);
+    void Search(vector<ComputerScientist>&, string substring);
+    void Search(vector<computer>& vec, string substring);
     void Add(vector<string> entry);
     void SetSort(int option);
 

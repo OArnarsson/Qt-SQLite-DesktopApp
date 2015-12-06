@@ -181,29 +181,12 @@ string ComputerScientist::field(const int whatField)
     {
         return diedYear;
     }
-
+    else if(whatField == 7){
+        return nationality;
+    }
+    else if(whatField == 8){
+        return fields;
+    }
     else return "Error";
 }
 
-vector <ComputerScientist> ComputerScientist::Sort(vector <ComputerScientist> theList, const int whatField)
-{
-    int lowestFirst;
-
-    for (unsigned int j = 0; j < theList.size(); j++)
-    {
-        lowestFirst = j;
-        for (unsigned int i = j+1; i < theList.size(); i++)
-            {
-                if (theList[i].field(whatField) < theList[lowestFirst].field(whatField))
-                {
-                    lowestFirst = i;
-                }
-            }
-
-        if(lowestFirst != j)
-        {
-            swap(theList[j], theList[lowestFirst]);
-        }
-    }
-        return theList;
-}

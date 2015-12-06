@@ -9,8 +9,11 @@ using namespace std;
 
 int main()
 {
-    UI ui;
-    ui.start();
+   /* UI ui;
+    ui.start();*/
+    FileData files("CompDataBase.sqlite");
+    ComputerScientist tt("test","s","isgood","Male","1943","1978","Irish","Deead");
+    files.Add(tt);
 }
 
 

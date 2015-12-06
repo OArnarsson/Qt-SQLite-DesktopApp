@@ -5,9 +5,18 @@
 #include <algorithm>
 #include <vector>
 #include "../include/FileData.h"
-#include <regex>
 #include "../include/ComputerScientist.h"
+#include "../include/computer.h"
 
+const string DEFAULT_YEAR = "-2015";
+const int NUMBER_OF_COLUMNS = 6;
+
+
+//********************************************
+//sanitize(string pointer)
+//Removes "," , ";", and "'" from input to make a very crude and primitive escape string
+//We don't want SQL injections, now do we?
+//********************************************
 void sanitize(string* String){
     for(unsigned int j = 0; j < (*String).size();j++){
         if((*String)[j] == ',' || (*String)[j] == '"' || (*String)[j] == ';'){
@@ -16,14 +25,23 @@ void sanitize(string* String){
     }
 }
 
+//********************************************
+// IsNumber....does exactly what you'd expect,
+//Takes string, returns if it's a positive integer
+//********************************************
 bool isNumber(string num){
-    return regex_match(num,regex("[(-|+)|][0-9]+"));
+    for(unsigned int i = 0; i < num.size(); i++){
+        if(!isdigit(num[i])){
+            return false;
+        }
+    }
+    return true;
 }
 
-const string DEFAULT_YEAR = "-2015";
-const int NUMBER_OF_COLUMNS = 6;
+//****************************************
 //Constructor.
 //Reads from the database on the file (if exists)
+//***************************************
 FileData::FileData(string DataBaseFile){
      base = DataBaseFile;
      valid = open();
@@ -32,6 +50,11 @@ FileData::FileData(string DataBaseFile){
      }
 }
 
+//********************************************
+//open()
+//Establishes a connection to the SQL database
+//Returns true on success
+//********************************************
 bool FileData::open(){
     connection = QSqlDatabase::addDatabase("QSQLITE");
     connection.setDatabaseName(QString::fromStdString(base));
@@ -39,24 +62,26 @@ bool FileData::open(){
     return success;
 }
 
-//Add
+//*******************************************
+//Add(ComputerScientist
 //Accepts a ComputerScientist class
-//Stores it in memory until ready to write to disk
+//Stores it in SQL database
+//*******************************************
 bool FileData::Add(ComputerScientist scientist){
      if(valid){
          string info[8];
          for(int i = 0; i < 8; i++){
-             info[i] = scientist.field(i);
+             info[i] = scientist.field(i+1);
              sanitize(&info[i]);
          }
          QSqlQuery query(connection);
-         query.prepare("INSERT INTO SCIENTISTS(FirstName,MiddleName,LastName,Gender,YearOfBirth,YearOfDeath,Nationality,Field) "
+         query.prepare("INSERT INTO Scientists(FirstName,MiddleName,LastName,Gender,YearOfBirth,YearOfDeath,Nationality,Field) "
                        "VALUES (?,?,?,?,?,?,?,?);");
          for(int i = 0; i < 8; i++){
              if(info[i] == ""){
                  info[i] = "NULL";
              }
-             if(i >= 5 && i < 7){
+             if(i >= 4 && i < 6){
                  if(!isNumber(info[i])){
                      info[i] = "NULL";
                  }
@@ -64,9 +89,12 @@ bool FileData::Add(ComputerScientist scientist){
             query.bindValue(i,QString::fromStdString(info[i]));
          }
          query.exec();
+         cout << "HERE" << endl;
+         cout << query.lastError().text().toStdString() << endl;
          return(query.lastError().text().size() < 2);
      }
      else{
+         cout << "INVALID"<<endl;
          valid = open();
          if(valid){
              Add(scientist);
@@ -75,12 +103,54 @@ bool FileData::Add(ComputerScientist scientist){
          return false;
      }
 }
+//*********************************
+// Add(Computer comp
+// Takes information from a computer class and enters into the SQL database
+//*********************************
 
+bool FileData::Add(computer mycomp){
+     if(valid){
+         string info[8];
+         for(int i = 0; i < 8; i++){
+             info[i] = mycomp.field(i+1);
+             sanitize(&info[i]);
+         }
+         QSqlQuery query(connection);
+         query.prepare("INSERT INTO Computers(Name,Year,Type,Built,Location)"
+                       "VALUES (?,?,?,?,?);");
+         for(int i = 0; i < 5; i++){
+             if(info[i] == ""){
+                 info[i] = "NULL";
+             }
+             if(i == 1){
+                 if(!isNumber(info[i])){
+                     info[i] = "NULL";
+                 }
+             }
+            query.bindValue(i,QString::fromStdString(info[i]));
+         }
+         query.exec();
+         cout << "HERE" << endl;
+         cout << query.lastError().text().toStdString() << endl;
+         return(query.lastError().text().size() < 2);
+     }
+     else{
+         cout << "INVALID"<<endl;
+         valid = open();
+         if(valid){
+             Add(mycomp);
+             return true;
+         }
+         return false;
+     }
+}
 
+//****************************************************************
 //Load()
 //Reads all entries from the database
 //Returns true if opening the database worked
 //Writes out to Stdout how many entries were loaded for debugging purposes
+//****************************************************************
 bool FileData::Load(string filename){
     if(!valid) cout << "ERROR!";
     QSqlQuery query(connection);
@@ -103,6 +173,11 @@ bool FileData::Load(string filename){
     }
 }
 
+//****************************************************************
+//Explode()
+//takes a string and delimeter.
+//Breaks the substrings into a vector grouped by delimiter
+//****************************************************************
 vector<string> FileData::explode(const string s, char delim){
      vector<string> ret;
      stringstream stream(s);
@@ -113,6 +188,13 @@ vector<string> FileData::explode(const string s, char delim){
      return ret;
 }
 
-vector<ComputerScientist> FileData::DataSet(){
+//****************************************************************
+//Returns everything in the database
+//Mode = 0: returns all computerscientists
+//Mode = 1: Returns all computers
+//Mode = 2: Returns all connections
+//****************************************************************
+vector<ComputerScientist> FileData::DataSet(int mode = 0){
+    mode++;
     return vector<ComputerScientist>();
 }

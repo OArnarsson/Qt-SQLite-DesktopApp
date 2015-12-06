@@ -3,6 +3,7 @@
 #include <set>
 #include <vector>
 #include "ComputerScientist.h"
+#include "computer.h"
 #include <QtSql>
 
 //Class FileData
@@ -16,9 +17,9 @@ class FileData{
      public:
           FileData(string DataBaseFile);
           bool Add(ComputerScientist scientist);
-
+          bool Add(computer scientist);
           bool Load(string filename = "");
-          vector<ComputerScientist>DataSet();
+          vector<ComputerScientist>DataSet(int mode);
           vector<string> explode(const string s, char delim);
 };
 

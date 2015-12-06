@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ComputerScientist.h"
 #include "magicaldataclass.h"
+#include "computer.h"
 
 using namespace std;
 class UI{
@@ -84,7 +85,9 @@ class UI{
             else  break;*/
             string term;
             cin >> term;
-            printList((*MyDataLayer).Search(term));
+            vector<ComputerScientist> vec;
+            (*MyDataLayer).Search(vec,term);
+            printList(vec);
     }
 
     void printList(vector<ComputerScientist> list) {
@@ -99,7 +102,9 @@ class UI{
     }
 
     void PrintAll(){
-        printList((*MyDataLayer).GetAll());
+        vector<ComputerScientist> vec;
+        (*MyDataLayer).GetAll(vec);
+        printList(vec);
     }
 
     void sortOptions() {

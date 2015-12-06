@@ -12,7 +12,8 @@ SOURCES += main.cpp \
     src/ComputerScientist.cpp \
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
-    src/dbtest.cpp
+    src/dbtest.cpp \
+    src/computer.cpp
 
 HEADERS += \
     include/ComputerScientist.h \
@@ -20,6 +21,7 @@ HEADERS += \
     include/magicaldataclass.h \
     include/ui.h \
     include/dbtest.h \
+    include/computer.h
 
 DISTFILES += \
     LOL.txt \
