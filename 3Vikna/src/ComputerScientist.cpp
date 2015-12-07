@@ -15,6 +15,9 @@ string ItoS(int a){
     return Prox;
 }
 
+//****************************************************************
+//Constructor
+//****************************************************************
 ComputerScientist::ComputerScientist()
 {
     firstName = "";
@@ -25,6 +28,9 @@ ComputerScientist::ComputerScientist()
     diedYear = DEFAULT_YEAR;
 }
 
+//****************************************************************
+//Constructor
+//****************************************************************
 ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, string born, string died,string nation,string field)
 {
     firstName = first;
@@ -37,6 +43,9 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     diedYear = died;
 }
 
+//****************************************************************
+//Constructor
+//****************************************************************
 ComputerScientist::ComputerScientist(string first, string middle, string last, string gen, string born, string died)
 {
     firstName = first;
@@ -47,7 +56,9 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     diedYear = died;
 }
 
-
+//****************************************************************
+//Constructor
+//****************************************************************
 ComputerScientist::ComputerScientist(string first, string last, string gen, string born, string died)
 {
     firstName = first;
@@ -58,6 +69,9 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, stri
     diedYear = died;
 }
 
+//****************************************************************
+//Constructor
+//****************************************************************
 ComputerScientist::ComputerScientist(string first, string last, string gen, string born)
 {
     firstName = first;
@@ -68,21 +82,33 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, stri
     diedYear = "0";
 }
 
+//****************************************************************
+//Returns the first name
+//****************************************************************
 string ComputerScientist::getFirst()
 {
     return firstName;
 }
 
+//****************************************************************
+//Returns the middle name
+//****************************************************************
 string ComputerScientist::getMiddle()
 {
     return middleName;
 }
 
+//****************************************************************
+//Returns the last name
+//****************************************************************
 string ComputerScientist::getLast()
 {
     return lastName;
 }
 
+//****************************************************************
+//Converts the class into a string
+//****************************************************************
 string ComputerScientist::ToString(bool LastNameFirst = false) const
 {
     stringstream ret;
@@ -110,11 +136,17 @@ string ComputerScientist::ToString(bool LastNameFirst = false) const
     return ret.str();
 }
 
+//****************************************************************
+//Converts the class into a string used in the search function
+//****************************************************************
 string ComputerScientist::OrderedName() const
 {
     return firstName + " "+ middleName +  " " + lastName + " " + gender + " " + nationality + " " + bornYear + " " + diedYear + " " + fields;
 }
 
+//****************************************************************
+//Overloads the "<<" operator for output
+//****************************************************************
 ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
 {
     outs << "First name: " << myScientist.firstName << endl;
@@ -140,6 +172,9 @@ ostream& operator <<(ostream& outs, const ComputerScientist myScientist)
     return outs;
 }
 
+//****************************************************************
+//The search function
+//****************************************************************
 vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector)
 {
     vector <ComputerScientist> foundDudes;
@@ -155,6 +190,9 @@ vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVec
     return foundDudes;
 }
 
+//****************************************************************
+//Function used for defining the field used in search and sort
+//****************************************************************
 string ComputerScientist::field(const int whatField)
 {
     if(whatField == 1)

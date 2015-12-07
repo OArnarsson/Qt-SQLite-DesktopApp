@@ -18,11 +18,11 @@ class computer{
     computer(string Name = "", string Year = "", string Type = "", string Built = "true", string Location = "");
     string field(int whatField) const;
     string OrderedName() const;
-    bool operator < (computer other) const{
+    bool operator < (computer other) const
+    {
             return OrderedName() < other.OrderedName();
     }
     friend ostream& operator <<(ostream& outs, const computer mycomp);
 };
 
 #endif // COMPUTER
-
