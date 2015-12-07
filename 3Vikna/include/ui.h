@@ -7,7 +7,7 @@
 #include "computer.h"
 
 using namespace std;
-class UI{/*
+class UI{
     public:
     UI(){
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
@@ -20,8 +20,8 @@ class UI{/*
             cout << "----- q to quit" << endl;
             char operation = getChar();
     
-            if (operation == '1') compSci();
-            if (operation == '2') computer();
+            if (operation == '1')compSci(); else
+            if (operation == '2') _computer(); else
             if (operation == 'q' || operation == 'Q') break;
             else cout << "Please choose a valid option." << endl;
         }
@@ -80,7 +80,7 @@ class UI{/*
             cout << "----- 1 to add another computer scientist." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-            if (operation == '1')addToList();
+            if (operation == '1') addToCompSci();
             else break;
             //ToDo: impliment this
         }
@@ -92,18 +92,20 @@ class UI{/*
             cin >> term;
             vector<ComputerScientist> vec;
             (*MyDataLayer).Search(vec,term);
-            printList(vec);
+            printCompSci(vec);
     }
 
     void printCompSci(vector<ComputerScientist> list) {
-        cout << "***********************************" << endl;
-        cout << "        "<<list.size()<< " matching entries!"<<endl;
-        cout << "***********************************" << endl;
+        cout << endl;
+        cout <<"______________________________"<<endl;
         for(unsigned int i = 0; i < list.size(); i++){
             cout << list[i] << endl;
             cout <<"______________________________"<<endl;
         }
         cout << endl;
+        cout << "***********************************" << endl;
+        cout << "        "<<list.size()<< " matching entries!"<<endl;
+        cout << "***********************************" << endl << endl;
     }
 
     void printCompSci(){
@@ -188,18 +190,20 @@ class UI{/*
         cin >> term;
         vector<computer> vec;
         (*MyDataLayer).Search(vec,term);
-        printList(vec);
+        printComputer(vec);
     }
 
     void printComputer(vector<computer> list) {
-        cout << "***********************************" << endl;
-        cout << "        "<<list.size()<< " matching entries!"<<endl;
-        cout << "***********************************" << endl;
+        cout << endl;
+        cout <<"______________________________"<<endl;
         for(unsigned int i = 0; i < list.size(); i++){
             cout << list[i] << endl;
             cout <<"______________________________"<<endl;
         }
         cout << endl;
+        cout << "***********************************" << endl;
+        cout << "        "<<list.size()<< " matching entries!"<<endl;
+        cout << "***********************************" << endl << endl;;
     }
 
     void printComputer() {
@@ -218,12 +222,12 @@ class UI{/*
             cout << "----- 4 Location." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-            if (operation == '1') {};
-            if (operation == '2') {};
-            if (operation == '3') {};
-            if (operation == '4') {};
-            else break;
+            if (operation == '1') {} else
+            if (operation == '2') {} else
+            if (operation == '3') {} else
+            if (operation == '4') {} else
+            break;
     }
-    }*/
+    }
 };
 #endif // UI_H
