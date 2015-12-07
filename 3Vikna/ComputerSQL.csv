@@ -6,10 +6,10 @@
 ,BINAC,1949,computer,true,USA
 ,CSIRAC,1949,computer,true,Australia
 ,SEAC,1950,computer,true,USA
-,ERA Atlas,1950,computer,USA
+,ERA Atlas,1950,computer,,USA
 ,SWAC,1950,computer,true,USA
 ,Magnetic drum digital differential analyzer,1950,computer,true,USA
-,Harvard Mark III,1950,computer,trueUSA
+,Harvard Mark III,1950,computer,true,USA
 ,Pilot ACE,1950,computer,true,UK
 ,Ferranti Mark,1951,computer,true,UK
 ,EDVAC,1951,computer,true,USA
@@ -45,7 +45,7 @@
 ,English Electric DEUCE,1955,computer,true,UK
 ,ICT 1200,1955,computer,true,USA
 ,WEIZAC,1955,computer,true,Israel
-,IBM 305 RAMAC,1956,true,USA
+,IBM 305 RAMAC,1956,,true,USA
 ,PERM,1956,computer,true,Germany
 ,SMIL,1956,computer,true,Sweden
 ,Bendix G-15,1956,computer,true,USA
