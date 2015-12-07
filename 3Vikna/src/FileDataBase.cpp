@@ -145,7 +145,7 @@ bool FileData::Add(computer mycomp){
      }
 }
 
-void FileData::Search(string myString)
+void FileData::SearchComputers(string myString)
 {
     QSqlQuery query(connection);
     query.prepare("SELECT * FROM Computers WHERE Name LIKE  '%?%' OR Year LIKE  '%?%' "
@@ -160,7 +160,23 @@ void FileData::Search(string myString)
     query.exec();
 }
 
-void FileData::Remove(string myString)
+void FileData::SearchScientists(string myString)
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE  '%?%' OR MiddleName LIKE  '%?%' "
+                  "OR Type LastName  '%?%' OR Gender LIKE  '%?%' OR YearOfBirth LIKE  '%?%' "
+                  "OR YearOfDeath LIKE  '%?%' OR Nationality LIKE  '%?%' OR Field LIKE  '%?%'");
+
+    for(int i = 0; i < 8; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
+
+
+    query.exec();
+}
+
+void FileData::RemoveComputers(string myString)
 {
     QSqlQuery query(connection);
     query.prepare("DELETE FROM Computers WHERE Name='?';");
@@ -171,10 +187,32 @@ void FileData::Remove(string myString)
     }
 }
 
-void FileData::Sort(string myString)
+void FileData::RemoveScientists(string myString)
+{
+    QSqlQuery query(connection);
+    query.prepare("DELETE FROM Scientists WHERE Name='?';");
+
+    for(int i = 0; i < 1; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
+}
+
+void FileData::SortComputers(string myString)
 {
     QSqlQuery query(connection);
     query.prepare("SELECT * FROM Computers ORDER BY ? ASC;");
+
+    for(int i = 0; i < 1; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
+}
+
+void FileData::SortScientists(string myString)
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT * FROM Scientists ORDER BY ? ASC;");
 
     for(int i = 0; i < 1; i++)
     {

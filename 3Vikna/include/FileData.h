@@ -21,9 +21,12 @@ class FileData{
           bool Load(string filename = "");
           vector< vector<string> > DataSet(int mode);
           vector<string> explode(const string s, char delim);
-          void Search(string myString);
-          void Remove(string myString);
-          void Sort(string myString);
+          void SearchComputers(string myString);
+          void SearchScientists(string myString);
+          void RemoveComputers(string myString);
+          void RemoveScientists(string myString);
+          void SortComputers(string myString);
+          void SortScientists(string myString);
 };
 
 
