@@ -162,7 +162,9 @@ vector< vector<string> > FileData::SearchComputers(string myString){
     return result;
 }
 
-
+/************************************************
+ * Search function for the scientists
+ * ***********************************************/
 vector< vector<string> > FileData::SearchScientists(string myString)
 {
     int numberofcolumns = 9;
@@ -208,6 +210,10 @@ void FileData::RemoveComputers(string myString)
     }
 }
 
+
+/************************************************
+ * Remove function for the scientists
+ * ***********************************************/
 void FileData::RemoveScientists(string myString, string myLastString)
 {
     QSqlQuery query(connection);
@@ -221,9 +227,9 @@ void FileData::RemoveScientists(string myString, string myLastString)
     }
 }
 
-
-
-
+/*******************************************************
+ * Shows the connection between computers and scientists
+ * *****************************************************/
 void FileData::JoinTables()
 {
     QSqlQuery query(connection);
