@@ -7,7 +7,7 @@
 #include "computer.h"
 
 using namespace std;
-class UI{
+class UI{/*
     public:
     UI(){
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
@@ -17,7 +17,7 @@ class UI{
             cout << "Which database would you like to access?" << endl;
             cout << "----- 1 Computer scientists." << endl;
             cout << "----- 2 Computers." << endl;
-            cout << "----- q to quit"
+            cout << "----- q to quit" << endl;
             char operation = getChar();
     
             if (operation == '1') compSci();
@@ -134,7 +134,7 @@ class UI{
         }
     }
 
-    void computer() {
+    void _computer() {
         while (true) {
             cout << "This is a Computer database." << endl;
             cout << "----- 1 to add an entry." << endl;
@@ -218,11 +218,12 @@ class UI{
             cout << "----- 4 Location." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-            if (operation == '1') ();
-            if (operation == '2') ();
-            if (operation == '3') ();
-            if (operation == '4') ();
+            if (operation == '1') {};
+            if (operation == '2') {};
+            if (operation == '3') {};
+            if (operation == '4') {};
             else break;
     }
+    }*/
 };
 #endif // UI_H
