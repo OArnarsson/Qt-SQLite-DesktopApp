@@ -145,35 +145,61 @@ bool FileData::Add(computer mycomp){
      }
 }
 
-void FileData::SearchComputers(string myString)
+/************************************************
+ * Search<stuff>
+ * Takes in a serch term, returns this very cute matrix of strings
+ * ***********************************************/
+vector< vector<string> > FileData::SearchComputers(string myString)
 {
-    QSqlQuery query(connection);
-    query.prepare("SELECT * FROM Computers WHERE Name LIKE  '%?%' OR Year LIKE  '%?%' "
-                  "OR Type LIKE  '%?%' OR Built LIKE  '%?%' OR Location LIKE  '%?%'");
+    int numberofcolumns = 6;
+    vector< vector<string> > result;
 
-    for(int i = 0; i < 5; i++)
+    QSqlQuery query(connection);
+    query.prepare("SELECT * FROM Computers WHERE Name LIKE  ? OR Year LIKE  ? "
+                  "OR Type LIKE  ? OR Built LIKE  ? OR Location LIKE  ?");
+
+    myString = '%' + myString + '%';
+    for(int i = 0; i < numberofcolumns-1; i++)
     {
         query.bindValue(i, QString::fromStdString(myString));
     }
 
-
     query.exec();
+
+        while(query.next()){
+            vector<string> row;
+            for(int i = 0; i < numberofcolumns; i++){
+                row.push_back(query.value(i).toString().toStdString());
+            }
+            result.push_back(row);
+        }
+        return result;
 }
 
-void FileData::SearchScientists(string myString)
+vector< vector<string> > FileData::SearchScientists(string myString)
 {
+    int numberofcolumns = 9;
+    vector< vector<string> > result;
     QSqlQuery query(connection);
-    query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE  '%?%' OR MiddleName LIKE  '%?%' "
-                  "OR Type LastName  '%?%' OR Gender LIKE  '%?%' OR YearOfBirth LIKE  '%?%' "
-                  "OR YearOfDeath LIKE  '%?%' OR Nationality LIKE  '%?%' OR Field LIKE  '%?%'");
+    query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE  ? OR MiddleName LIKE  ? "
+                  "OR LastName LIKE ? OR Gender LIKE  ? OR YearOfBirth LIKE  ? "
+                  "OR YearOfDeath LIKE  ? OR Nationality LIKE  ? OR Field LIKE  ?");
 
-    for(int i = 0; i < 8; i++)
+    myString = '%' + myString + '%';
+    for(int i = 0; i < numberofcolumns-1; i++)
     {
-        query.bindValue(i, QString::fromStdString(myString));
+        query.bindValue(i,QString::fromStdString(myString));
     }
 
-
     query.exec();
+        while(query.next()){
+            vector<string> row;
+            for(int i = 0; i < numberofcolumns; i++){
+                row.push_back(query.value(i).toString().toStdString());
+            }
+            result.push_back(row);
+        }
+        return result;
 }
 
 void FileData::RemoveComputers(string myString)
@@ -263,6 +289,7 @@ vector<string> FileData::explode(const string s, char delim){
      return ret;
 }
 
+
 //****************************************************************
 //Returns everything in the database
 //Mode = 0: returns all computerscientists
@@ -284,9 +311,16 @@ vector<vector<string> > FileData::DataSet(int mode = 0){
     QSqlQuery query(connection);
     switch(mode){
         case 0:{
-            numberOfColumns = 8;
+            numberOfColumns = 9;
             query.prepare("Select * from Scientists");
             query.exec();
+            break;
+        }
+        case 1:{
+            numberOfColumns = 6;
+            query.prepare("Select * from Computers");
+            query.exec();
+            break;
         }
     }
     while(query.next()){
