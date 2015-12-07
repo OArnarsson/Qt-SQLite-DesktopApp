@@ -159,6 +159,21 @@ void FileData::Search(string myString)
 
     query.exec();
 }
+
+void FileData::Remove(string myString)
+{
+    QSqlQuery query(connection);
+    query prepare("DELETE FROM Computers WHERE Name='?';")
+    query.bindValue(myString);
+}
+
+void FileDate::Sort(string myString)
+{
+    QSqlQuery query(connection);
+    query prepare("SELECT * FROM Computers ORDER BY ? ASC;")
+    query.bindValue(myString);
+}
+
 //****************************************************************
 //Load()
 //Reads all entries from the database

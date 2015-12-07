@@ -22,6 +22,8 @@ class FileData{
           vector< vector<string> > DataSet(int mode);
           vector<string> explode(const string s, char delim);
           void Search(string myString);
+          void Remove(string myString);
+          void Sort(string myString);
 };
 
 
