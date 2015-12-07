@@ -194,7 +194,32 @@ vector<string> FileData::explode(const string s, char delim){
 //Mode = 1: Returns all computers
 //Mode = 2: Returns all connections
 //****************************************************************
-vector<ComputerScientist> FileData::DataSet(int mode = 0){
-    mode++;
-    return vector<ComputerScientist>();
+vector<vector<string>> FileData::DataSet(int mode = 0){
+    vector<vector<string>> result;
+    int numberOfColumns = 0;
+    //Test if there is a valid connection
+    if(!valid){
+        if(open()){
+            return DataSet(mode);
+        }
+        else{
+            return result;
+        }
+    }
+    QSqlQuery query(connection);
+    switch(mode){
+        case 0:{
+            numberOfColumns = 8;
+            query.prepare("Select * from Scientists");
+            query.exec();
+        }
+    }
+    while(query.next()){
+        vector<string> row;
+        for(int i = 0; i < numberOfColumns; i++){
+            row.push_back(query.value(i).toString().toStdString());
+        }
+        result.push_back(row);
+    }
+    return result;
 }

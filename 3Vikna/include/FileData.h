@@ -19,7 +19,7 @@ class FileData{
           bool Add(ComputerScientist scientist);
           bool Add(computer scientist);
           bool Load(string filename = "");
-          vector<ComputerScientist>DataSet(int mode);
+          vector<vector<string>> DataSet(int mode);
           vector<string> explode(const string s, char delim);
 };
 
