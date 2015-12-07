@@ -1,3 +1,24 @@
+40 - 
+41 - 
+42 -
+43 - 
+44 -
+45 - 
+46 -
+47 - Chaim L. Pekeris
+48 - 
+49 - Hans Piloty, Robert Sauer
+50 - Carl-Erik Froberg
+51 - 
+52 - Dr. Okazaki Bunji
+53 - 
+54 - Christopher Strachey
+55 - 
+56 - 
+57 - 
+58 - Kondrad Zuse
+59 - 
+60 - 
 61 - 
 62 - 
 63 - 
