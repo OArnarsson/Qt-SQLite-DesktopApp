@@ -145,6 +145,20 @@ bool FileData::Add(computer mycomp){
      }
 }
 
+void FileData::Search(string myString)
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT * FROM Computers WHERE Name LIKE  '%?%' OR Year LIKE  '%?%' "
+                  "OR Type LIKE  '%?%' OR Built LIKE  '%?%' OR Location LIKE  '%?%'");
+
+    for(int i = 0; i < 5; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
+
+
+    query.exec();
+}
 //****************************************************************
 //Load()
 //Reads all entries from the database
@@ -194,8 +208,8 @@ vector<string> FileData::explode(const string s, char delim){
 //Mode = 1: Returns all computers
 //Mode = 2: Returns all connections
 //****************************************************************
-vector<vector<string>> FileData::DataSet(int mode = 0){
-    vector<vector<string>> result;
+vector<vector<string> > FileData::DataSet(int mode = 0){
+    vector<vector<string> > result;
     int numberOfColumns = 0;
     //Test if there is a valid connection
     if(!valid){
