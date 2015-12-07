@@ -82,13 +82,14 @@ vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> the
  * Fills in the entire database worth of scientists or comuters
  * *******************************************************************************/
 void MagicalDataClass::GetAll(vector<ComputerScientist>& vec){
-    vector<vector<string>> MyQuery;
+    vector< vector<string> > MyQuery;
     MyQuery = (*Database).DataSet(0);
     vec = stringtoscientist(MyQuery);
 }
 /***************/
 void MagicalDataClass::GetAll(vector<computer>& vect){
-    vector<vector<string>> MyQuery;
+    cout << 91<<endl;
+    vector< vector<string> > MyQuery;
     MyQuery = (*Database).DataSet(1);
     vect = stringtocomputer(MyQuery);
 }
@@ -99,39 +100,54 @@ void MagicalDataClass::GetAll(vector<computer>& vect){
  * populates a vector with all the computers/scientists that fit the term
  * ******************************************************************************/
 void MagicalDataClass::Search(vector<computer>& vect, string substring){
-    vector<vector<string>> MyQuery;
-    //MyQuery = (*Database).find(0,substring);
-    //TODO IMPLEMENT FILEDATA::Find
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).SearchComputers(substring);
+
     for(unsigned int i = 0; i < MyQuery.size(); i++){
         string info[8];
         for(unsigned int j = 0; j < MyQuery[i].size();j++){
-            info[i] = MyQuery[i][j];
+            info[j] = MyQuery[i][j];
         }
-        computer compsci(info[0],info[1],info[2],info[3],info[4]);
+        computer compsci(info[1],info[2],info[3],info[4],info[5]);
         vect.push_back(compsci);
     }
+    vect = stringtocomputer(MyQuery);
 }
 
+
+void MagicalDataClass::Search(vector<ComputerScientist>& vect, string substring){
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).SearchScientists(substring);
+    for(unsigned int i = 0; i < MyQuery.size(); i++){
+        string info[9];
+        for(unsigned int j = 0; j < MyQuery[i].size();j++){
+            info[j] = MyQuery[i][j];
+        }
+        ComputerScientist compsci(info[1],info[2],info[3],info[4],info[5],info[6],info[7],info[8]);
+        vect.push_back(compsci);
+    }
+    vect = stringtoscientist(MyQuery);
+}
 //****************************************************************************
-//StringToScientist(vector<vector<string>>)
+//StringToScientist(vector< vector<string> >)
 //Takes a string matrix and jams it into a vector of computerscientist
 //****************************************************************************
 
 vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<string> > MyQuery){
     vector<ComputerScientist> vec;
     for(unsigned int i = 0; i < MyQuery.size(); i++){
-        string info[8];
+        string info[9];
         for(unsigned int j = 0; j < MyQuery[i].size();j++){
-            info[i] = MyQuery[i][j];
+            info[j] = MyQuery[i][j];
         }
-        ComputerScientist compsci(info[0],info[1],info[2],info[3],info[4],info[5],info[6],info[7]);
+        ComputerScientist compsci(info[1],info[2],info[3],info[4],info[5],info[6],info[7],info[8]);
         vec.push_back(compsci);
     }
     return vec;
 }
 
 //****************************************************************************
-//StringTocomputer(vector<vector<string>>)
+//StringTocomputer(vector< vector<string> >)
 //Takes a string matrix and jams it into a vector of computers
 //****************************************************************************
 
@@ -139,11 +155,11 @@ vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<stri
 vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec){
     vector<computer> ret;
     for(unsigned int i = 0; i < vec.size(); i++){
-        string info[8];
+        string info[6];
         for(unsigned int j = 0; j < vec[i].size();j++){
-            info[i] = vec[i][j];
+            info[j] = vec[i][j];
         }
-        computer compsci(info[0],info[1],info[2],info[3],info[4]);
+        computer compsci(info[1],info[2],info[3],info[4],info[5]);
         ret.push_back(compsci);
     }
     return ret;

@@ -25,8 +25,8 @@ class MagicalDataClass{
     void Search(vector<computer>& vec, string substring);
     void Add(vector<string> entry);
     void SetSort(int option);
-    vector<ComputerScientist> stringtoscientist(vector<vector<string>> vect);
-    vector<computer> stringtocomputer(vector<vector<string>> vect);
+    vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
+    vector<computer> stringtocomputer(vector< vector<string> > vect);
 
 };
 

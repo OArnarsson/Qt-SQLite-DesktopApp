@@ -7,7 +7,7 @@ using namespace std;
 //****************************************************************
 //Constructor
 //****************************************************************
-computer::computer(string Name = "", string Year = "", string Type = "", string Built = "true", string Location = ""){
+computer::computer(string Name, string Year, string Type, string Built, string Location){
     name = Name;
     year = Year;
     type = Type;

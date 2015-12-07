@@ -15,7 +15,7 @@ class computer{
     string nationality;
 
     public:
-    computer(string Name, string Year, string Type, string Built, string Location);
+    computer(string Name = "", string Year = "", string Type = "", string Built = "true", string Location = "");
     string field(int whatField) const;
     string OrderedName() const;
     bool operator < (computer other) const{
