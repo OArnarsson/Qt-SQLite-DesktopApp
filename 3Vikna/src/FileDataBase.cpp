@@ -246,6 +246,18 @@ void FileData::SortScientists(string myString)
     }
 }
 
+
+/*
+ * ---Hér er SQL commandið sem joinar töflurnar saman. Ég er ekki enn búinn að finna út hvernig við getum notað það hér ennþá---
+ *
+void FileData::JoinTables()
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ID = Scientists.ID
+    INNER JOIN Computers ON Owners.ID = Computers.ID");
+}
+*/
+
 //****************************************************************
 //Load()
 //Reads all entries from the database
