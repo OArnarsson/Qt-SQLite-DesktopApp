@@ -1,4 +1,8 @@
-76 - 
+71 - 
+72 - Konrad Zuse
+73 - Charles Babbage
+74 - 
+75 - Howard Aiken
 77 - Rodney Marchant & Alfred Marchant
 78 - Bill Phillips
 79 - Blaise Pascal
