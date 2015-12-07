@@ -167,6 +167,13 @@ void FileData::Remove(string myString)
     query.bindValue(myString);
 }
 
+void FileDate::Sort(string myString)
+{
+    QSqlQuery query(connection);
+    query prepare("SELECT * FROM Computers ORDER BY ? ASC;")
+    query.bindValue(myString);
+}
+
 //****************************************************************
 //Load()
 //Reads all entries from the database
