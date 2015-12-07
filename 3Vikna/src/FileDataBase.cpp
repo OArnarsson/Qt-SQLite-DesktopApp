@@ -163,15 +163,23 @@ void FileData::Search(string myString)
 void FileData::Remove(string myString)
 {
     QSqlQuery query(connection);
-    query prepare("DELETE FROM Computers WHERE Name='?';")
-    query.bindValue(myString);
+    query.prepare("DELETE FROM Computers WHERE Name='?';");
+
+    for(int i = 0; i < 1; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
 }
 
-void FileDate::Sort(string myString)
+void FileData::Sort(string myString)
 {
     QSqlQuery query(connection);
-    query prepare("SELECT * FROM Computers ORDER BY ? ASC;")
-    query.bindValue(myString);
+    query.prepare("SELECT * FROM Computers ORDER BY ? ASC;");
+
+    for(int i = 0; i < 1; i++)
+    {
+        query.bindValue(i, QString::fromStdString(myString));
+    }
 }
 
 //****************************************************************
