@@ -76,15 +76,75 @@ vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> the
         return theList;
 }
 
+/**********************************************************************************
+ * GetAll()
+ * Takes inn an (empty) vector of either scientists or computers and populates it
+ * Fills in the entire database worth of scientists or comuters
+ * *******************************************************************************/
 void MagicalDataClass::GetAll(vector<ComputerScientist>& vec){
-    //vec = (*Database).DataSet(0);
+    vector<vector<string>> MyQuery;
+    MyQuery = (*Database).DataSet(0);
+    vec = stringtoscientist(MyQuery);
 }
-void MagicalDataClass::GetAll(vector<computer>& vec){
-   // vec = (*Database).DataSet(1);
-}
-void MagicalDataClass::Search(vector<ComputerScientist>&, string substring){
-    /*vector<ComputerScientist> Ret = (*Database).DataSet(0);
-    Ret = Find(substring,Ret);
-    Ret = Sort(Ret,sortingOption);*/
+/***************/
+void MagicalDataClass::GetAll(vector<computer>& vect){
+    vector<vector<string>> MyQuery;
+    MyQuery = (*Database).DataSet(1);
+    vect = stringtocomputer(MyQuery);
 }
 
+/********************************************************************************
+ * Search()
+ * Takes in a substring
+ * populates a vector with all the computers/scientists that fit the term
+ * ******************************************************************************/
+void MagicalDataClass::Search(vector<computer>& vect, string substring){
+    vector<vector<string>> MyQuery;
+    //MyQuery = (*Database).find(0,substring);
+    //TODO IMPLEMENT FILEDATA::Find
+    for(unsigned int i = 0; i < MyQuery.size(); i++){
+        string info[8];
+        for(unsigned int j = 0; j < MyQuery[i].size();j++){
+            info[i] = MyQuery[i][j];
+        }
+        computer compsci(info[0],info[1],info[2],info[3],info[4]);
+        vect.push_back(compsci);
+    }
+}
+
+//****************************************************************************
+//StringToScientist(vector<vector<string>>)
+//Takes a string matrix and jams it into a vector of computerscientist
+//****************************************************************************
+
+vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<string> > MyQuery){
+    vector<ComputerScientist> vec;
+    for(unsigned int i = 0; i < MyQuery.size(); i++){
+        string info[8];
+        for(unsigned int j = 0; j < MyQuery[i].size();j++){
+            info[i] = MyQuery[i][j];
+        }
+        ComputerScientist compsci(info[0],info[1],info[2],info[3],info[4],info[5],info[6],info[7]);
+        vec.push_back(compsci);
+    }
+    return vec;
+}
+
+//****************************************************************************
+//StringTocomputer(vector<vector<string>>)
+//Takes a string matrix and jams it into a vector of computers
+//****************************************************************************
+
+
+vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec){
+    vector<computer> ret;
+    for(unsigned int i = 0; i < vec.size(); i++){
+        string info[8];
+        for(unsigned int j = 0; j < vec[i].size();j++){
+            info[i] = vec[i][j];
+        }
+        computer compsci(info[0],info[1],info[2],info[3],info[4]);
+        ret.push_back(compsci);
+    }
+    return ret;
+}

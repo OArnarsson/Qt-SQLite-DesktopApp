@@ -12,7 +12,6 @@ SOURCES += main.cpp \
     src/ComputerScientist.cpp \
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
-    src/dbtest.cpp \
     src/computer.cpp
 
 HEADERS += \
@@ -20,7 +19,6 @@ HEADERS += \
     include/FileData.h \
     include/magicaldataclass.h \
     include/ui.h \
-    include/dbtest.h \
     include/computer.h
 
 DISTFILES += \

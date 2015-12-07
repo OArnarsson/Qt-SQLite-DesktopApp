@@ -21,10 +21,12 @@ class MagicalDataClass{
     MagicalDataClass(string filename);
     void GetAll(vector<ComputerScientist>& vec);
     void GetAll(vector<computer>& vect);
-    void Search(vector<ComputerScientist>&, string substring);
+    void Search(vector<ComputerScientist>&vec, string substring);
     void Search(vector<computer>& vec, string substring);
     void Add(vector<string> entry);
     void SetSort(int option);
+    vector<ComputerScientist> stringtoscientist(vector<vector<string>> vect);
+    vector<computer> stringtocomputer(vector<vector<string>> vect);
 
 };
 
