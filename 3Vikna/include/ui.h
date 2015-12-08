@@ -149,14 +149,11 @@ private:
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<ComputerScientist> vec;
-        (*MyDataLayer).Search(vec,newSearchTerm[0]);
+        (*MyDataLayer).Search(vec,term);
 
-        cout << vec.size() << endl;
         for(int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
-
-            cout << vec.size() << endl;
         }
         printCompSci(vec);
     }
@@ -220,13 +217,30 @@ private:
         }
     }
     
-    void connectCompsci() {
-        
+    void connectCompSci() {
+        while (true) {
+            cout << "Do you want to search connections or add a new connection?" << endl;
+            cout << "----- 1 Search connections" << endl;
+            cout << "----- 2 Add a new connection" << endl;
+            cout << "----- Any other to go back." << endl;
+            char operation = getChar();
+            if (operation == '1') searchConnectionCompSci();
+            if (operation == '2') addConnectionCompSci();
+            break;
+        }
+    }
+
+    void searchConnectionCompSci() {
+
+    }
+
+    void addConnectionCompSci() {
+
     }
     
     /*********************************************************************************
      *                      COMPUTER DATABASE SECTION
-     * ********************************************************************************/
+     * *******************************************************************************/
     
     /************************************************
      * _computer
@@ -294,16 +308,18 @@ private:
     void searchComputer() {
         cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
-        cin.ignore(10000,'\n');
+        //cin.ignore(10000,'\n');
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<computer> vec;
-        (*MyDataLayer).Search(vec,newSearchTerm[0]);
+        (*MyDataLayer).Search(vec,term);
+
         for(int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
-        cin.clear();
+        //cin.clear();
+        //cin.ignore(10000,'\n');
 
         printComputer(vec);
     }
@@ -380,7 +396,24 @@ private:
     }
     
     void connectComputer() {
-        
+        while (true) {
+            cout << "Do you want to search connections or add a new connection?" << endl;
+            cout << "----- 1 Search connections" << endl;
+            cout << "----- 2 Add a new connection" << endl;
+            cout << "----- Any other to go back." << endl;
+            char operation = getChar();
+            if (operation == '1') searchConnectionComputer();
+            if (operation == '2') addConnectionComputer();
+            break;
+        } 
+    }
+
+    void searchConnectionComputer() {
+
+    }
+
+    void addConnectionComputer() {
+
     }
     
 };
