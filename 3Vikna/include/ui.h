@@ -12,6 +12,11 @@ class UI{
     UI(){
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
     }
+
+    /************************************************
+     * start
+     * actually runs the program
+     * ***********************************************/
     void start(){
         while (true) {
             cout << "Which database would you like to access?" << endl;
@@ -30,12 +35,22 @@ class UI{
     private:
     MagicalDataClass* MyDataLayer;
     
+
+    /************************************************
+     * getChar()
+     * get's a single character form Stdin
+     * ***********************************************/
     char getChar() { 
         char c;
         cin >> c;
         return c;
     }
 
+
+    /************************************************
+     * compSci()
+     * The computer scientist database menu
+     * ***********************************************/
     void compSci() {
         while (true) {
             cout << "This is a Computer Scientist database." << endl;
@@ -55,6 +70,10 @@ class UI{
 
     }
 
+    /************************************************
+     * addToCompSci
+     * Adds a name to the computer scientist databse
+     * ***********************************************/
     void addToCompSci() {
         while (true) {
             string info[8] = {"First name","Middle name(s)","Last Name","Gender","Birth Year","Death Year","Nationality","Fields of profession"};
@@ -86,6 +105,13 @@ class UI{
         }
     }
 
+
+    /************************************************
+     * SearchCompSci
+     * Asks the database for a vector of all scientist matching a term
+     * Prints it to StdOut
+     * ***********************************************/
+
     void searchCompSci() {
             cout << "Please enter the name you wish to search for." << endl;
             string term;
@@ -94,7 +120,10 @@ class UI{
             (*MyDataLayer).Search(vec,term);
             printCompSci(vec);
     }
-
+    /************************************************
+     * PrintCompSci
+     * prints a vector
+     * ***********************************************/
     void printCompSci(vector<ComputerScientist> list) {
         cout << endl;
         cout <<"______________________________"<<endl;
@@ -114,6 +143,10 @@ class UI{
         printCompSci(vec);
     }
 
+    /************************************************
+     * sortCompSci
+     * Changes the sorting pattern
+     * ***********************************************/
     void sortCompSci() {
         while (true) {
             cout << "Sort alphabetically or alphanumeracally by:" << endl;
@@ -135,7 +168,14 @@ class UI{
             break;
         }
     }
+/*********************************************************************************
+ *                      COMPUTER DATABASE SECTION
+ * ********************************************************************************/
 
+    /************************************************
+     * _computer
+     * the computer database menu
+     * ***********************************************/
     void _computer() {
         while (true) {
             cout << "This is a Computer database." << endl;
@@ -153,7 +193,10 @@ class UI{
             else break;
         }
     }
-
+    /************************************************
+     * addToComputer();
+     * Adds a computer to the database
+     * ***********************************************/
     void addToComputer() {
         while (true) {
             string info[5] = {"the Name","the Year","the Type","if it was built","the Location"};
@@ -184,8 +227,12 @@ class UI{
         }
     }
 
+    /************************************************
+     * SearchComputer
+     * Searches and prints the database for computers
+     * ***********************************************/
     void searchComputer() {
-        cout << "Please enter the copmuter you wish to search for." << endl;
+        cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
         cin >> term;
         vector<computer> vec;
@@ -193,6 +240,10 @@ class UI{
         printComputer(vec);
     }
 
+    /************************************************
+     * printComputer
+     * prints to the stdout
+     * ***********************************************/
     void printComputer(vector<computer> list) {
         cout << endl;
         cout <<"______________________________"<<endl;
@@ -212,6 +263,9 @@ class UI{
         printComputer(vec);
     }
 
+    /************************************************
+     * Sets Sorting Options
+     * ***********************************************/
     void sortComputer() {
         while (true) {
             cout << "Sort alphabetically or alphanumeracally by:" << endl;

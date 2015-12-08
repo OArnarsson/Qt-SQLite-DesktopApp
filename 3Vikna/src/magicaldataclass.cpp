@@ -5,22 +5,22 @@
 #include "../include/FileData.h"
 #include "../include/magicaldataclass.h"
 
-string ToLower(string s){
-    for(unsigned int i = 0; i < s.length(); i++){
-        s[i] = tolower(s[i]);
-    }
-   return s;
-}
 
+//Default Constructor
 MagicalDataClass::MagicalDataClass(){
     sortingOption = 1;
 }
 
+//Constructor
 MagicalDataClass::MagicalDataClass(string filename){
     Database = new FileData(filename);
     sortingOption = 1;
 }
 
+/*******************************************
+ * SetSort()
+ * Used to tell the datalayer how the results should be sorted
+ * ****************************************/
 void MagicalDataClass::SetSort(int option){
     if(option < 1){
         option = 1;
@@ -28,6 +28,11 @@ void MagicalDataClass::SetSort(int option){
     sortingOption = option % 7;
 }
 
+/*******************************************
+ * Add()
+ * Takes a stringvector, sees if it fits to any datatype,
+ * and passes it down to FileData for SQL storage
+ * ****************************************/
 void MagicalDataClass::Add(vector<string> entry){
     for(int i = 0; i < entry.size(); i++){
         entry[i] += " ";
@@ -42,25 +47,13 @@ void MagicalDataClass::Add(vector<string> entry){
     }
 }
 
-vector <ComputerScientist> MagicalDataClass::Find(string mySearch, vector<ComputerScientist> myVector)
-{
-    vector <ComputerScientist> foundDudes;
 
-    for (unsigned int i = 0; i < myVector.size(); i++)
-    {
-       string seek = ToLower((myVector[i]).OrderedName());
-       if(seek.find(ToLower(mySearch)) != -1)
-       {
-          foundDudes.push_back(myVector[i]);
-       }
-    }
-
-    return foundDudes;
-}
-
-
-vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> theList, const int whatField)
-{
+/*******************************************
+ * Sort()
+ * Remnant from project one.
+ * Do we want to do something with this in week 2?
+ * ****************************************/
+vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> theList, const int whatField){
     int lowestFirst;
 
     for (unsigned int j = 0; j < theList.size(); j++)
@@ -120,6 +113,7 @@ void MagicalDataClass::Search(vector<computer>& vect, string substring){
     vect = stringtocomputer(MyQuery);
 }
 
+//******************
 
 void MagicalDataClass::Search(vector<ComputerScientist>& vect, string substring){
     vector< vector<string> > MyQuery;
@@ -156,7 +150,6 @@ vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<stri
 //StringTocomputer(vector< vector<string> >)
 //Takes a string matrix and jams it into a vector of computers
 //****************************************************************************
-
 
 vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec){
     vector<computer> ret;

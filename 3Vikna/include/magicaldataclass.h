@@ -14,7 +14,6 @@ class MagicalDataClass{
     private:
     FileData* Database;
     int sortingOption;
-    vector <ComputerScientist> Find(string mySearch, vector<ComputerScientist> myVector);
     vector <ComputerScientist> Sort(vector <ComputerScientist> theList, const int whatField);
     public:
     MagicalDataClass();
