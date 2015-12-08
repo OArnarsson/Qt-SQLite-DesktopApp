@@ -208,14 +208,16 @@ void FileData::RemoveComputers(string myString)
     }
 }
 
-void FileData::RemoveScientists(string myString)
+void FileData::RemoveScientists(string myString, string myLastString)
 {
     QSqlQuery query(connection);
-    query.prepare("DELETE FROM Scientists WHERE FirstName = ?;");
+    query.prepare("DELETE FROM Scientists WHERE FirstName = ? AND WHERE LastName = ?;");
+
+    string myStrings[2] = (myString, myLastString);
 
     for(int i = 0; i < 1; i++)
     {
-        query.bindValue(i, QString::fromStdString(myString));
+        query.bindValue(i, QString::fromStdString(myStrings[i]));
     }
 }
 
