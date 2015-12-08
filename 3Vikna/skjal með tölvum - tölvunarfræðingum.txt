@@ -1,42 +1,82 @@
+1 -
+2 -
+3 -
+4 - Maurice Vincent Wilkes 
+5 -
+6 -
+7 -
+8 -
+9 -
+10 -
+11 -
+12 -
+13 -
+14 -
+15 - John Von Newman 
+16 -
+17 -
+18 -
+19 - John Von Newman 
+20 - David Caminer 
+21 -
+22 -
+23 - John Von Newman 
+24 - John Von Newman 
+25 -
+26 -
+27 - 
+28 - John Von Newman 
+29 -
+30 -
+31 -
+32 -
+33 -
+34 - 
+35 -
+36 -
+37 -
+38 -
+39 -
+40 -
 40 - 
 41 - 
 42 -
 43 - 
 44 -
 45 - 
-46 -
-47 - Chaim L. Pekeris
+46 - 
+47 - Chaim L. Pekeris  , John Von Newman 
 48 - 
-49 - Hans Piloty, Robert Sauer
-50 - Carl-Erik Froberg
+49 - Hans Piloty  , Robert Sauer  
+50 - Carl-Erik Froberg 
 51 - 
-52 - Dr. Okazaki Bunji
+52 - Dr. Okazaki Bunji  
 53 - 
-54 - Christopher Strachey
+54 - Christopher Strachey 
 55 - 
 56 - 
 57 - 
-58 - Kondrad Zuse
+58 - Kondrad Zuse 
 59 - 
 60 - 
 61 - 
 62 - 
 63 - 
 64 - 
-65 - William van der Poel
+65 - William van der Poel 
 66 - 
 67 - 
 68 - 
 69 - 
-70 - Elwro
+70 - Elwro 
 71 - 
-72 - Konrad Zuse
-73 - Charles Babbage
+72 - Konrad Zuse 
+73 - Charles Babbage 
 74 - 
-75 - Howard Aiken
+75 - Howard Aiken 
 77 - Rodney Marchant & Alfred Marchant
 78 - Bill Phillips
-79 - Blaise Pascal
+79 - Blaise Pascal 
 80 - Gottfried Wilhelm Leibniz
 81 - Konrad Zuse
 82 - 
