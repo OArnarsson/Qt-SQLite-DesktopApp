@@ -10,7 +10,8 @@
 
 using namespace std;
 
-class MagicalDataClass{
+class MagicalDataClass
+{
     private:
     FileData* Database;
     int sortingOption;

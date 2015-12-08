@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class computer{
+class computer
+{
     private:
     string name;
     string year;
