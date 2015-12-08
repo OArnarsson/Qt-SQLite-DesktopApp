@@ -324,3 +324,47 @@ vector<vector<string> > FileData::DataSet(int mode = 0){
     }
     return result;
 }
+
+
+/************************************************************************
+ * AddConnection(Scientist,Computer)
+ * Adds connection between the two specified entries
+ * **********************************************************************/
+
+void FileData::addConnection(ComputerScientist compsci, computer comp){
+    QSqlQuery query(connection);
+    query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
+    for(int i = 0; i < 2; i++){
+       query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
+    }
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next()){
+        return;
+    }
+    QString sciid;
+    sciid = query.value(0).toString();
+
+    query = QSqlQuery(connection);
+
+    query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
+    for(int i = 0; i < 3; i++){
+       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
+    }
+    query.exec();
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next()){
+        return;
+    }
+    QString compid;
+    compid = query.value(0).toString();
+
+    query = QSqlQuery(connection);
+    query.prepare("Insert into Owners(ScientistID,ComputerID) values (?,?);");
+    query.bindValue(0,sciid);
+    query.bindValue(1,compid);
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+}

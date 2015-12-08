@@ -8,7 +8,11 @@
 
 
 int main()
-{
+{/*
    UI ui;
-    ui.start();
+    ui.start();*/
+    FileData F("CompDataBase.sqlite");
+    ComputerScientist one("Alan","","Turing","","","","","");
+    computer two("Turing","1936","Transistorized");
+    F.addConnection(one,two);
 }

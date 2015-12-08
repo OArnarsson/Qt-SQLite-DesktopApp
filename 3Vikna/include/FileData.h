@@ -8,8 +8,7 @@
 
 //Class FileData
 //Responsible for storing all scientists until writing
-class FileData
-{
+class FileData{
      private:
           string base;
           QSqlDatabase connection;
@@ -24,6 +23,7 @@ class FileData
           vector<string> explode(const string s, char delim);
           vector< vector<string> > SearchComputers(string myString);
           vector< vector<string> > SearchScientists(string myString);
+          void addConnection(ComputerScientist compsci, computer comp);
           void RemoveComputers(string myString);
           void RemoveScientists(string myString, string myLastString);
           void JoinTables();
