@@ -29,11 +29,17 @@ void MagicalDataClass::SetSort(int option){
 }
 
 void MagicalDataClass::Add(vector<string> entry){
-    for(int i = 0; i < 8; i++){
+    for(int i = 0; i < entry.size(); i++){
         entry[i] += " ";
     }
-    ComputerScientist newEntry(entry[0],entry[1],entry[2],entry[3],entry[4],entry[5],entry[6],entry[7]);
-    (*Database).Add(newEntry);
+    if(entry.size() == 8){
+         ComputerScientist newEntry(entry[0],entry[1],entry[2],entry[3],entry[4],entry[5],entry[6],entry[7]);
+             (*Database).Add(newEntry);
+    }
+    else if(entry.size() == 5){
+        computer newEntry(entry[0],entry[1],entry[2],entry[3]);
+            (*Database).Add(newEntry);
+    }
 }
 
 vector <ComputerScientist> MagicalDataClass::Find(string mySearch, vector<ComputerScientist> myVector)

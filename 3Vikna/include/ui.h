@@ -156,18 +156,18 @@ class UI{
 
     void addToComputer() {
         while (true) {
-            string info[4] = {"Name","Year","Type","Location"};
+            string info[5] = {"the Name","the Year","the Type","if it was built","the Location"};
             vector<string> entering;
 
-            for(int i = 0; i < 4; i++){
-                cout << "Please enter the " << info[i] << " of the scientist you're adding.\n Leave blank if no information is to be entered\n";
+            for(int i = 0; i < 5; i++){
+                cout << "Please enter " << info[i] << " of the computer you're adding.\n Leave blank if no information is to be entered\n";
                 char entry[64];
                 cin.ignore(256,'\n');
                 cin.get(entry,64);
                 entering.push_back(string(entry));
                 cin.clear();
             }
-            for(int i = 0; i < 4; i++){
+            for(int i = 0; i < 5; i++){
                 for(unsigned int n = 0; n < entering[i].size(); n++){
                    if(entering[i][n] == ','){
                        entering[i][n] = ' ';

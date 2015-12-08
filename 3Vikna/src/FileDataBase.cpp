@@ -78,14 +78,6 @@ bool FileData::Add(ComputerScientist scientist){
          query.prepare("INSERT INTO Scientists(FirstName,MiddleName,LastName,Gender,YearOfBirth,YearOfDeath,Nationality,Field) "
                        "VALUES (?,?,?,?,?,?,?,?);");
          for(int i = 0; i < 8; i++){
-             if(info[i] == ""){
-                 info[i] = "NULL";
-             }
-             if(i >= 4 && i < 6){
-                 if(!isNumber(info[i])){
-                     info[i] = "NULL";
-                 }
-             }
             query.bindValue(i,QString::fromStdString(info[i]));
          }
          query.exec();
@@ -109,28 +101,22 @@ bool FileData::Add(ComputerScientist scientist){
 //*********************************
 
 bool FileData::Add(computer mycomp){
+    cout << 104;
      if(valid){
-         string info[8];
-         for(int i = 0; i < 8; i++){
+         string info[5];
+         for(int i = 0; i < 5; i++){
              info[i] = mycomp.field(i+1);
              sanitize(&info[i]);
          }
+         cout << 111;
          QSqlQuery query(connection);
          query.prepare("INSERT INTO Computers(Name,Year,Type,Built,Location)"
-                       "VALUES (?,?,?,?,?);");
+                       "VALUES (?,?,?,?,?)");
          for(int i = 0; i < 5; i++){
-             if(info[i] == ""){
-                 info[i] = "NULL";
-             }
-             if(i == 1){
-                 if(!isNumber(info[i])){
-                     info[i] = "NULL";
-                 }
-             }
+             cout <<" ? = " << info[i] << endl;
             query.bindValue(i,QString::fromStdString(info[i]));
          }
          query.exec();
-         cout << "HERE" << endl;
          cout << query.lastError().text().toStdString() << endl;
          return(query.lastError().text().size() < 2);
      }
@@ -182,7 +168,7 @@ vector< vector<string> > FileData::SearchScientists(string myString)
     vector< vector<string> > result;
     QSqlQuery query(connection);
     query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE  ? OR MiddleName LIKE  ? "
-                  "OR LastName LIKE ? OR Gender LIKE  ? OR YearOfBirth LIKE  ? "
+                  "OR LastName  ? OR Gender LIKE  ? OR YearOfBirth LIKE  ? "
                   "OR YearOfDeath LIKE  ? OR Nationality LIKE  ? OR Field LIKE  ?");
 
     myString = '%' + myString + '%';
