@@ -7,7 +7,8 @@
 #include <vector>
 using namespace std;
 const string DEFAULT_YEAR = "-2015";
-string ItoS(int a){
+string ItoS(int a)
+{
     stringstream Proxy;
     Proxy << a;
     string Prox;

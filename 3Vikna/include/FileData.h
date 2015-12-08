@@ -8,7 +8,8 @@
 
 //Class FileData
 //Responsible for storing all scientists until writing
-class FileData{
+class FileData
+{
      private:
           string base;
           QSqlDatabase connection;
