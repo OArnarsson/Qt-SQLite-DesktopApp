@@ -6,6 +6,18 @@
 #include "../include/magicaldataclass.h"
 
 
+/***************************************
+ * ToLower; Helper function
+ * Takes in a string and returns a lowercase version
+ * ***************************************/
+string ToLower(string s){
+    for(unsigned int i = 0; i < s.length(); i++){
+        s[i] = tolower(s[i]);
+    }
+   return s;
+}
+
+
 //Default Constructor
 MagicalDataClass::MagicalDataClass(){
     sortingOption = 1;
@@ -162,4 +174,50 @@ vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec
         ret.push_back(compsci);
     }
     return ret;
+}
+
+/******************************************************************
+ * Thin()
+ * Takes in a vector and does a standard search
+ * removes all entries NOT matching this search
+ * ****************************************************************/
+void MagicalDataClass::thin(vector<computer>& vec, string term){
+    vector <computer> foundDudes;
+
+    for (unsigned int i = 0; i < vec.size(); i++)
+    {
+       string seek = ToLower((vec[i]).OrderedName());
+       if(seek.find(ToLower(term)) != -1)
+       {
+          foundDudes.push_back(vec[i]);
+       }
+    }
+    vec = foundDudes;
+}
+
+void MagicalDataClass::thin(vector<ComputerScientist>& vec, string term){
+    vector <ComputerScientist> foundDudes;
+
+    for (unsigned int i = 0; i < vec.size(); i++)
+    {
+       string seek = ToLower((vec[i]).OrderedName());
+       if(seek.find(ToLower(term)) != -1)
+       {
+          foundDudes.push_back(vec[i]);
+       }
+    }
+    vec = foundDudes;
+}
+
+/******************************************************************
+ * Remove()
+ * Takes in a computer or scientist and removes them from the SQL
+ * ****************************************************************/
+
+void MagicalDataClass::remove(ComputerScientist vec){
+    (*Database).RemoveScientists(vec.field(1),vec.field(3));
+}
+
+void MagicalDataClass::remove(computer vec){
+    (*Database).RemoveComputers(vec.field(0));
 }
