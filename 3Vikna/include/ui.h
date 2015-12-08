@@ -5,6 +5,7 @@
 #include "ComputerScientist.h"
 #include "magicaldataclass.h"
 #include "computer.h"
+#include <sstream>
 
 using namespace std;
 class UI{
@@ -68,7 +69,7 @@ private:
             if (operation == '3') searchCompSci();
             if (operation == '4') printCompSci();
             if (operation == '5') sortCompSci();
-            if (operation == '6') connectCompSci();
+            //if (operation == '6') connectCompSci();
             else break;
         }
         
@@ -144,11 +145,29 @@ private:
     void searchCompSci() {
         cout << "Please enter the name you wish to search for." << endl;
         string term;
-        cin >> term;
+        cin.ignore();
+        getline(cin, term);
+        vector <string> newSearchTerm = explode(term, ' ');
         vector<ComputerScientist> vec;
         (*MyDataLayer).Search(vec,term);
+
+        for(int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vec, newSearchTerm[i]);
+        }
         printCompSci(vec);
     }
+
+    vector<string> explode(const string s, char delim){
+         vector<string> ret;
+         stringstream stream(s);
+         string temp;
+         while(getline(stream, temp, delim)){
+              ret.push_back(temp);
+         }
+         return ret;
+    }
+
     /************************************************
      * PrintCompSci
      * prints a vector
@@ -272,12 +291,23 @@ private:
     void searchComputer() {
         cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
-        cin >> term;
+        //cin.ignore(10000,'\n');
+        getline(cin, term);
+        vector <string> newSearchTerm = explode(term, ' ');
         vector<computer> vec;
         (*MyDataLayer).Search(vec,term);
+
+        for(int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vec, newSearchTerm[i]);
+        }
+        //cin.clear();
+        //cin.ignore(10000,'\n');
+
         printComputer(vec);
     }
-    
+
+
     /************************************************
      * printComputer
      * prints to the stdout
