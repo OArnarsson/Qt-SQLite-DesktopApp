@@ -7,7 +7,8 @@ using namespace std;
 //****************************************************************
 //Constructor
 //****************************************************************
-computer::computer(string Name, string Year, string Type, string Built, string Location){
+computer::computer(string Name, string Year, string Type, string Built, string Location
+{
     name = Name;
     year = Year;
     type = Type;
@@ -18,8 +19,10 @@ computer::computer(string Name, string Year, string Type, string Built, string L
 //****************************************************************
 //Returns one of the private members of the class
 //****************************************************************
-string computer::field(int whatField) const{
-    switch(whatField){
+string computer::field(int whatField) const
+{
+    switch(whatField)
+    {
         case 1: return name;
         case 2: return year;
         case 3: return type;
@@ -32,9 +35,11 @@ string computer::field(int whatField) const{
 //****************************************************************
 //Returns how the class is sorted
 //****************************************************************
-string computer::OrderedName() const{
+string computer::OrderedName() const
+{
     string ret = "";
-    for(int i = 1; i < 6; i++){
+    for(int i = 1; i < 6; i++)
+    {
         ret += field(i) + " ";
     }
     return ret;

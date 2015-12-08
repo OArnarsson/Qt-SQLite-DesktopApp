@@ -8,9 +8,11 @@
 #include <sstream>
 
 using namespace std;
-class UI{
+class UI
+{
 public:
-    UI(){
+    UI()
+    {
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
     }
     
@@ -18,8 +20,10 @@ public:
      * start
      * actually runs the program
      * ***********************************************/
-    void start(){
-        while (true) {
+    void start()
+    {
+        while (true)
+        {
             cout << "Which database would you like to access?" << endl;
             cout << "----- 1 Computer scientists." << endl;
             cout << "----- 2 Computers." << endl;
@@ -41,7 +45,8 @@ private:
      * getChar()
      * get's a single character from Stdin
      * ***********************************************/
-    char getChar() {
+    char getChar()
+    {
         char c;
         cin >> c;
         return c;
@@ -52,8 +57,10 @@ private:
      * compSci()
      * The computer scientist database menu
      * ***********************************************/
-    void compSci() {
-        while (true) {
+    void compSci()
+    {
+        while (true)
+        {
             cout << "This is a Computer Scientist database." << endl;
             cout << "----- 1 to add an entry." << endl;
             cout << "----- 2 to remove entries." << endl;
@@ -79,12 +86,15 @@ private:
      * addToCompSci
      * Adds a name to the computer scientist databse
      * ***********************************************/
-    void addToCompSci() {
-        while (true) {
+    void addToCompSci()
+    {
+        while (true)
+        {
             string info[8] = {"First name","Middle name(s)","Last Name","Gender","Birth Year","Death Year","Nationality","Fields of profession"};
             vector<string> entering;
             
-            for(int i = 0; i < 8; i++){
+            for(int i = 0; i < 8; i++)
+            {
                 cout << "Please enter the " << info[i] << " of the scientist you're adding.\n Leave blank if no information is to be entered\n";
                 char entry[64];
                 cin.ignore(256,'\n');
@@ -92,9 +102,12 @@ private:
                 entering.push_back(string(entry));
                 cin.clear();
             }
-            for(int i = 0; i < 8; i++){
-                for(unsigned int n = 0; n < entering[i].size(); n++){
-                    if(entering[i][n] == ','){
+            for(int i = 0; i < 8; i++)
+            {
+                for(unsigned int n = 0; n < entering[i].size(); n++)
+                {
+                    if(entering[i][n] == ',')
+                    {
                         entering[i][n] = ' ';
                     }
                 }
@@ -115,13 +128,15 @@ private:
      * Asks for a name to remove
      * removes it
      ********************************************************************/
-    void removeCompSci(){
+    void removeCompSci()
+    {
         string name;
         vector<ComputerScientist> compsci;
         cout << "Please enter the name or characteristic of the scientist to remove" << endl;
         cin >> name;
         (*MyDataLayer).Search(compsci,name);
-        while(compsci.size() > 1){
+        while(compsci.size() > 1)
+        {
             printCompSci(compsci);
             cout << "There is ambiguity in your choice, please type in a distinct idenifier" << endl;
             cin >> name;
@@ -131,7 +146,8 @@ private:
         cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
         char ent;
         ent = getchar();
-        if(ent == 'y' || ent == 'Y'){
+        if(ent == 'y' || ent == 'Y')
+        {
             (*MyDataLayer).remove(compsci[0]);
         }
     }
@@ -142,7 +158,8 @@ private:
      * Prints it to StdOut
      * ***********************************************/
     
-    void searchCompSci() {
+    void searchCompSci()
+    {
         cout << "Please enter the name you wish to search for." << endl;
         string term;
         cin.ignore();
@@ -158,11 +175,13 @@ private:
         printCompSci(vec);
     }
 
-    vector<string> explode(const string s, char delim){
+    vector<string> explode(const string s, char delim)
+    {
          vector<string> ret;
          stringstream stream(s);
          string temp;
-         while(getline(stream, temp, delim)){
+         while(getline(stream, temp, delim))
+         {
               ret.push_back(temp);
          }
          return ret;
@@ -172,10 +191,12 @@ private:
      * PrintCompSci
      * prints a vector
      * ***********************************************/
-    void printCompSci(vector<ComputerScientist> list) {
+    void printCompSci(vector<ComputerScientist> list)
+    {
         cout << endl;
         cout <<"______________________________"<<endl;
-        for(unsigned int i = 0; i < list.size(); i++){
+        for(unsigned int i = 0; i < list.size(); i++)
+        {
             cout << list[i] << endl;
             cout <<"______________________________"<<endl;
         }
@@ -185,7 +206,8 @@ private:
         cout << "***********************************" << endl << endl;
     }
     
-    void printCompSci(){
+    void printCompSci()
+    {
         vector<ComputerScientist> vec;
         (*MyDataLayer).GetAll(vec);
         printCompSci(vec);
@@ -195,8 +217,10 @@ private:
      * sortCompSci
      * Changes the sorting pattern
      * ***********************************************/
-    void sortCompSci() {
-        while (true) {
+    void sortCompSci()
+    {
+        while (true)
+        {
             cout << "Sort alphabetically or alphanumeracally by:" << endl;
             cout << "First name, last name, gender, year of birth or year of death." << endl;
             cout << "----- 1 First name." << endl;
@@ -217,8 +241,10 @@ private:
         }
     }
     
-    void connectCompSci() {
-        while (true) {
+    void connectCompSci()
+    {
+        while (true)
+        {
             cout << "Do you want to search connections or add a new connection?" << endl;
             cout << "----- 1 Search connections" << endl;
             cout << "----- 2 Add a new connection" << endl;
@@ -230,10 +256,12 @@ private:
         }
     }
 
-    void searchConnectionCompSci() {
+    void searchConnectionCompSci()
+    {
     }
 
-    void addConnectionCompSci() {
+    void addConnectionCompSci()
+    {
 
         vector<ComputerScientist> vec;
         cout << "Please enter the name or identifying qualifier for the Scientist:"<<endl;
@@ -247,14 +275,16 @@ private:
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
-        while(vec.size() > 1){
+        while(vec.size() > 1)
+        {
             printCompSci(vec);
             cout << "There are multiple scientists that match those criteria."<<endl;
             cout << "Please type in a more specific term:"<<endl;
             cin.ignore();
             getline(cin, term);
             newSearchTerm = explode(term, ' ');
-            for(int i = 0; i < newSearchTerm.size(); i++){
+            for(int i = 0; i < newSearchTerm.size(); i++)
+            {
                 (*MyDataLayer).thin(vec, newSearchTerm[i]);
             }
         }
@@ -270,20 +300,23 @@ private:
         {
             (*MyDataLayer).thin(vect, newSearchTerm[i]);
         }
-        while(vect.size() > 1){
+        while(vect.size() > 1)
+        {
             printComputer(vect);
             cout << "There are multiple Computers that match those criteria."<<endl;
             cout << "Please type in a more specific term:"<<endl;
             cin.ignore();
             getline(cin, term);
             vector <string> newSearchTerm = explode(term, ' ');
-            for(int i = 0; i < newSearchTerm.size(); i++){
+            for(int i = 0; i < newSearchTerm.size(); i++)
+            {
                 (*MyDataLayer).thin(vect, newSearchTerm[i]);
             }
         }
-        if(vect.size() == vec.size() && vec.size() == 1){
+        if(vect.size() == vec.size() && vec.size() == 1)
+        {
             (*MyDataLayer).AddConnection(vec[0],vect[0]);
-         }
+        }
     }
     
     /*********************************************************************************
@@ -294,8 +327,10 @@ private:
      * _computer
      * the computer database menu
      * ***********************************************/
-    void _computer() {
-        while (true) {
+    void _computer()
+    {
+        while (true)
+        {
             cout << "This is a Computer database." << endl;
             cout << "----- 1 to add an entry." << endl;
             cout << "----- 2 to remove entries." << endl;
@@ -319,12 +354,15 @@ private:
      * addToComputer();
      * Adds a computer to the database
      * ***********************************************/
-    void addToComputer() {
-        while (true) {
+    void addToComputer()
+    {
+        while (true)
+        {
             string info[5] = {"the Name","the Year","the Type","if it was built","the Location"};
             vector<string> entering;
             
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < 5; i++)
+            {
                 cout << "Please enter " << info[i] << " of the computer you're adding.\n Leave blank if no information is to be entered\n";
                 char entry[64];
                 cin.ignore(256,'\n');
@@ -332,9 +370,12 @@ private:
                 entering.push_back(string(entry));
                 cin.clear();
             }
-            for(int i = 0; i < 5; i++){
-                for(unsigned int n = 0; n < entering[i].size(); n++){
-                    if(entering[i][n] == ','){
+            for(int i = 0; i < 5; i++)
+            {
+                for(unsigned int n = 0; n < entering[i].size(); n++)
+                {
+                    if(entering[i][n] == ',')
+                    {
                         entering[i][n] = ' ';
                     }
                 }
@@ -353,7 +394,8 @@ private:
      * SearchComputer
      * Searches and prints the database for computers
      * ***********************************************/
-    void searchComputer() {
+    void searchComputer()
+    {
         cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
         //cin.ignore(10000,'\n');
@@ -377,10 +419,12 @@ private:
      * printComputer
      * prints to the stdout
      * ***********************************************/
-    void printComputer(vector<computer> list) {
+    void printComputer(vector<computer> list)
+    {
         cout << endl;
         cout <<"______________________________"<<endl;
-        for(unsigned int i = 0; i < list.size(); i++){
+        for(unsigned int i = 0; i < list.size(); i++)
+        {
             cout << list[i] << endl;
             cout <<"______________________________"<<endl;
         }
@@ -390,7 +434,8 @@ private:
         cout << "***********************************" << endl << endl;;
     }
     
-    void printComputer() {
+    void printComputer()
+    {
         vector<computer> vec;
         (*MyDataLayer).GetAll(vec);
         printComputer(vec);
@@ -399,8 +444,10 @@ private:
     /************************************************
      * Sets Sorting Options
      * ***********************************************/
-    void sortComputer() {
-        while (true) {
+    void sortComputer()
+    {
+        while (true)
+        {
             cout << "Sort alphabetically or alphanumeracally by:" << endl;
             cout << "Name, year, type or location." << endl;
             cout << "----- 1 Name." << endl;
@@ -422,13 +469,15 @@ private:
      * Asks for a name to remove
      * removes it
      ********************************************************************/
-    void removeComputer(){
+    void removeComputer()
+    {
         string name;
         vector<computer> comp;
         cout << "Please enter the name or characteristic of the computer to remove" << endl;
         cin >> name;
         (*MyDataLayer).Search(comp,name);
-        while(comp.size() > 1){
+        while(comp.size() > 1)
+        {
             printComputer(comp);
             cout << "There is ambiguity in your choice, please type in a distinct idenifier" << endl;
             cin >> name;
@@ -438,13 +487,16 @@ private:
         cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
         char ent;
         ent = getchar();
-        if(ent == 'y' || ent == 'Y'){
+        if(ent == 'y' || ent == 'Y')
+        {
             (*MyDataLayer).remove(comp[0]);
         }
     }
     
-    void connectComputer() {
-        while (true) {
+    void connectComputer()
+    {
+        while (true)
+        {
             cout << "Do you want to search connections or add a new connection?" << endl;
             cout << "----- 1 Search connections" << endl;
             cout << "----- 2 Add a new connection" << endl;
@@ -456,11 +508,13 @@ private:
         } 
     }
 
-    void searchConnectionComputer() {
+    void searchConnectionComputer()
+    {
 
     }
 
-    void addConnectionComputer() {
+    void addConnectionComputer()
+    {
 
     }
     

@@ -17,9 +17,12 @@ const int NUMBER_OF_COLUMNS = 6;
 //Removes "," , ";", and "'" from input to make a very crude and primitive escape string
 //We don't want SQL injections, now do we?
 //********************************************
-void sanitize(string* String){
-    for(unsigned int j = 0; j < (*String).size();j++){
-        if((*String)[j] == ',' || (*String)[j] == '"' || (*String)[j] == ';'){
+void sanitize(string* String)
+{
+    for(unsigned int j = 0; j < (*String).size();j++)
+    {
+        if((*String)[j] == ',' || (*String)[j] == '"' || (*String)[j] == ';')
+        {
             (*String)[j] = ' ';
         }
     }
@@ -29,9 +32,12 @@ void sanitize(string* String){
 // IsNumber....does exactly what you'd expect,
 //Takes string, returns if it's a positive integer
 //********************************************
-bool isNumber(string num){
-    for(unsigned int i = 0; i < num.size(); i++){
-        if(!isdigit(num[i])){
+bool isNumber(string num)
+{
+    for(unsigned int i = 0; i < num.size(); i++)
+    {
+        if(!isdigit(num[i]))
+        {
             return false;
         }
     }
@@ -42,10 +48,12 @@ bool isNumber(string num){
 //Constructor.
 //Reads from the database on the file (if exists)
 //***************************************
-FileData::FileData(string DataBaseFile){
+FileData::FileData(string DataBaseFile)
+{
      base = DataBaseFile;
      valid = open();
-     if(valid){
+     if(valid)
+     {
          Load();
      }
 }
@@ -55,7 +63,8 @@ FileData::FileData(string DataBaseFile){
 //Establishes a connection to the SQL database
 //Returns true on success
 //********************************************
-bool FileData::open(){
+bool FileData::open()
+{
     connection = QSqlDatabase::addDatabase("QSQLITE");
     connection.setDatabaseName(QString::fromStdString(base));
     bool success = connection.open();
@@ -67,17 +76,21 @@ bool FileData::open(){
 //Accepts a ComputerScientist class
 //Stores it in SQL database
 //*******************************************
-bool FileData::Add(ComputerScientist scientist){
-     if(valid){
+bool FileData::Add(ComputerScientist scientist)
+{
+     if(valid)
+     {
          string info[8];
-         for(int i = 0; i < 8; i++){
+         for(int i = 0; i < 8; i++)
+         {
              info[i] = scientist.field(i+1);
              sanitize(&info[i]);
          }
          QSqlQuery query(connection);
          query.prepare("INSERT INTO Scientists(FirstName,MiddleName,LastName,Gender,YearOfBirth,YearOfDeath,Nationality,Field) "
                        "VALUES (?,?,?,?,?,?,?,?);");
-         for(int i = 0; i < 8; i++){
+         for(int i = 0; i < 8; i++)
+         {
             query.bindValue(i,QString::fromStdString(info[i]));
          }
          query.exec();
@@ -85,10 +98,12 @@ bool FileData::Add(ComputerScientist scientist){
          cout << query.lastError().text().toStdString() << endl;
          return(query.lastError().text().size() < 2);
      }
-     else{
+     else
+     {
          cout << "INVALID"<<endl;
          valid = open();
-         if(valid){
+         if(valid)
+         {
              Add(scientist);
              return true;
          }
@@ -100,11 +115,14 @@ bool FileData::Add(ComputerScientist scientist){
 // Takes information from a computer class and enters into the SQL database
 //*********************************
 
-bool FileData::Add(computer mycomp){
+bool FileData::Add(computer mycomp)
+{
     cout << 104;
-     if(valid){
+     if(valid)
+     {
          string info[5];
-         for(int i = 0; i < 5; i++){
+         for(int i = 0; i < 5; i++)
+         {
              info[i] = mycomp.field(i+1);
              sanitize(&info[i]);
          }
@@ -112,7 +130,8 @@ bool FileData::Add(computer mycomp){
          QSqlQuery query(connection);
          query.prepare("INSERT INTO Computers(Name,Year,Type,Built,Location)"
                        "VALUES (?,?,?,?,?)");
-         for(int i = 0; i < 5; i++){
+         for(int i = 0; i < 5; i++)
+         {
              cout <<" ? = " << info[i] << endl;
             query.bindValue(i,QString::fromStdString(info[i]));
          }
@@ -120,10 +139,12 @@ bool FileData::Add(computer mycomp){
          cout << query.lastError().text().toStdString() << endl;
          return(query.lastError().text().size() < 2);
      }
-     else{
+     else
+     {
          cout << "INVALID"<<endl;
          valid = open();
-         if(valid){
+         if(valid)
+         {
              Add(mycomp);
              return true;
          }
@@ -136,7 +157,8 @@ bool FileData::Add(computer mycomp){
  * Takes in a serch term, returns this very cute matrix of strings
  * The Datalayer can handle it from there if it wants to cut something differently
  * ***********************************************/
-vector< vector<string> > FileData::SearchComputers(string myString){
+vector< vector<string> > FileData::SearchComputers(string myString)
+{
     int numberofcolumns = 6;
     vector< vector<string> > result;
 
@@ -152,9 +174,11 @@ vector< vector<string> > FileData::SearchComputers(string myString){
 
     query.exec();
     //We have our results, push them into the matrix and off we go
-    while(query.next()){
+    while(query.next())
+    {
         vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++){
+        for(int i = 0; i < numberofcolumns; i++)
+        {
             row.push_back(query.value(i).toString().toStdString());
         }
         result.push_back(row);
@@ -183,9 +207,11 @@ vector< vector<string> > FileData::SearchScientists(string myString)
     query.exec();
     cout << query.lastError().text().toStdString()<< endl;
     //We have our results, push them into the matrix and off we go
-    while(query.next()){
+    while(query.next())
+    {
     vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++){
+        for(int i = 0; i < numberofcolumns; i++)
+        {
             row.push_back(query.value(i).toString().toStdString());
         }
         result.push_back(row);
@@ -245,7 +271,8 @@ void FileData::JoinTables()
 //Returns true if opening the database worked
 //Writes out to Stdout how many entries were loaded for debugging purposes
 //****************************************************************
-bool FileData::Load(string filename){
+bool FileData::Load(string filename)
+{
     if(!valid) cout << "ERROR!";
     QSqlQuery query(connection);
     query.prepare("SELECT"
@@ -255,11 +282,13 @@ bool FileData::Load(string filename){
      //Done. Report success
     query.exec();
     query.first();
-    if(query.lastError().text().size() > 2){
+    if(query.lastError().text().size() > 2)
+    {
         cout << query.lastError().text().toStdString() << endl;
         return false;
     }
-    else{
+    else
+    {
         cout << query.value(0).toString().toStdString() << " Scientists loaded from database" << endl;
         cout << query.value(1).toString().toStdString() << " Computers loaded from database" << endl;
         cout << query.value(2).toString().toStdString() << " Connectons loaded from database" << endl;
@@ -272,11 +301,13 @@ bool FileData::Load(string filename){
 //takes a string and delimeter.
 //Breaks the substrings into a vector grouped by delimiter
 //****************************************************************
-vector<string> FileData::explode(const string s, char delim){
+vector<string> FileData::explode(const string s, char delim)
+{
      vector<string> ret;
      stringstream stream(s);
      string temp;
-     while(getline(stream, temp, delim)){
+     while(getline(stream, temp, delim))
+     {
           ret.push_back(temp);
      }
      return ret;
@@ -288,36 +319,45 @@ vector<string> FileData::explode(const string s, char delim){
 //Mode = 0: returns all computerscientists
 //Mode = 1: Returns all computers
 //****************************************************************
-vector<vector<string> > FileData::DataSet(int mode = 0){
+vector<vector<string> > FileData::DataSet(int mode = 0)
+{
     vector<vector<string> > result;
     int numberOfColumns = 0;
     //Test if there is a valid connection
-    if(!valid){
-        if(open()){
+    if(!valid)
+    {
+        if(open())
+        {
             return DataSet(mode);
         }
-        else{
+        else
+        {
             return result;
         }
     }
     QSqlQuery query(connection);
-    switch(mode){
-        case 0:{
+    switch(mode)
+    {
+        case 0:
+        {
             numberOfColumns = 9;
             query.prepare("Select * from Scientists");
             query.exec();
             break;
         }
-        case 1:{
+        case 1:
+        {
             numberOfColumns = 6;
             query.prepare("Select * from Computers");
             query.exec();
             break;
         }
     }
-    while(query.next()){
+    while(query.next())
+    {
         vector<string> row;
-        for(int i = 0; i < numberOfColumns; i++){
+        for(int i = 0; i < numberOfColumns; i++)
+        {
             row.push_back(query.value(i).toString().toStdString());
         }
         result.push_back(row);
@@ -331,16 +371,19 @@ vector<vector<string> > FileData::DataSet(int mode = 0){
  * Adds connection between the two specified entries
  * **********************************************************************/
 
-void FileData::addConnection(ComputerScientist compsci, computer comp){
+void FileData::addConnection(ComputerScientist compsci, computer comp)
+{
     QSqlQuery query(connection);
     query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < 2; i++)
+    {
        query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
     }
     query.exec();
 
     cout << query.lastError().text().toStdString() << endl;
-    if(!query.next()){
+    if(!query.next())
+    {
         return;
     }
     QString sciid;
@@ -349,12 +392,14 @@ void FileData::addConnection(ComputerScientist compsci, computer comp){
     query = QSqlQuery(connection);
 
     query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 3; i++)
+    {
        query.bindValue(i,QString::fromStdString(comp.field(i+1)));
     }
     query.exec();
     cout << query.lastError().text().toStdString() << endl;
-    if(!query.next()){
+    if(!query.next())
+    {
         return;
     }
     QString compid;
