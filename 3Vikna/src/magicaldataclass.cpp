@@ -183,15 +183,19 @@ vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec
  * ****************************************************************/
 void MagicalDataClass::thin(vector<computer>& vec, string term){
     vector <computer> foundDudes;
-
+    cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-" << endl;
+            cout << term << endl;
     for (unsigned int i = 0; i < vec.size(); i++)
     {
        string seek = ToLower((vec[i]).OrderedName());
-       if(seek.find(ToLower(term)) != -1)
+       cout << (vec[i]).OrderedName() << endl;
+       if(seek.find(ToLower(term)) != std::string::npos)
        {
+        cout << "FOUND"  << endl;
           foundDudes.push_back(vec[i]);
        }
     }
+    cout << "ENDL" <<endl;
     vec = foundDudes;
 }
 

@@ -149,11 +149,14 @@ private:
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<ComputerScientist> vec;
-        (*MyDataLayer).Search(vec,term);
+        (*MyDataLayer).Search(vec,newSearchTerm[0]);
 
+        cout << vec.size() << endl;
         for(int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
+
+            cout << vec.size() << endl;
         }
         printCompSci(vec);
     }
@@ -291,18 +294,16 @@ private:
     void searchComputer() {
         cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
-        //cin.ignore(10000,'\n');
+        cin.ignore(10000,'\n');
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<computer> vec;
-        (*MyDataLayer).Search(vec,term);
-
+        (*MyDataLayer).Search(vec,newSearchTerm[0]);
         for(int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
-        //cin.clear();
-        //cin.ignore(10000,'\n');
+        cin.clear();
 
         printComputer(vec);
     }

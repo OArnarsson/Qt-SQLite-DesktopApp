@@ -33,7 +33,11 @@ string computer::field(int whatField) const{
 //Returns how the class is sorted
 //****************************************************************
 string computer::OrderedName() const{
-    return name + " " + year;
+    string ret = "";
+    for(int i = 1; i < 6; i++){
+        ret += field(i) + " ";
+    }
+    return ret;
 }
 
 //****************************************************************
