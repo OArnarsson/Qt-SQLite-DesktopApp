@@ -168,7 +168,7 @@ private:
         vector<ComputerScientist> vec;
         (*MyDataLayer).Search(vec,term);
 
-        for(int i = 0; i < newSearchTerm.size(); i++)
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
@@ -251,18 +251,13 @@ private:
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
             if (operation == '1') searchConnectionCompSci();
-            if (operation == '2') addConnectionCompSci();
+            if (operation == '2') addConnection();
             break;
         }
     }
 
     void searchConnectionCompSci()
     {
-    }
-
-    void addConnectionCompSci()
-    {
-
         vector<ComputerScientist> vec;
         cout << "Please enter the name or identifying qualifier for the Scientist:"<<endl;
         string term;
@@ -271,7 +266,7 @@ private:
         vector <string> newSearchTerm = explode(term, ' ');
         (*MyDataLayer).Search(vec,term);
 
-        for(int i = 0; i < newSearchTerm.size(); i++)
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
@@ -283,7 +278,43 @@ private:
             cin.ignore();
             getline(cin, term);
             newSearchTerm = explode(term, ' ');
-            for(int i = 0; i < newSearchTerm.size(); i++)
+            for(unsigned int i = 0; i < newSearchTerm.size(); i++)
+            {
+                (*MyDataLayer).thin(vec, newSearchTerm[i]);
+            }
+        }
+        if(vec.size() == 1)
+        {
+            vector<computer> result;
+            result = (*MyDataLayer).getConnections(vec[0]);
+            cout << vec[0].field(1) <<" Is connected to the following computers: "<< endl;
+            printComputer(result);
+        }
+    }
+
+    void addConnection()
+    {
+        vector<ComputerScientist> vec;
+        cout << "Please enter the name or identifying qualifier for the Scientist:"<<endl;
+        string term;
+        cin.ignore();
+        getline(cin, term);
+        vector <string> newSearchTerm = explode(term, ' ');
+        (*MyDataLayer).Search(vec,term);
+
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vec, newSearchTerm[i]);
+        }
+        while(vec.size() > 1)
+        {
+            printCompSci(vec);
+            cout << "There are multiple scientists that match those criteria."<<endl;
+            cout << "Please type in a more specific term:"<<endl;
+            cin.ignore();
+            getline(cin, term);
+            newSearchTerm = explode(term, ' ');
+            for(unsigned int i = 0; i < newSearchTerm.size(); i++)
             {
                 (*MyDataLayer).thin(vec, newSearchTerm[i]);
             }
@@ -296,7 +327,7 @@ private:
         newSearchTerm = explode(term, ' ');
         (*MyDataLayer).Search(vect,term);
 
-        for(int i = 0; i < newSearchTerm.size(); i++)
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vect, newSearchTerm[i]);
         }
@@ -308,7 +339,7 @@ private:
             cin.ignore();
             getline(cin, term);
             vector <string> newSearchTerm = explode(term, ' ');
-            for(int i = 0; i < newSearchTerm.size(); i++)
+            for(unsigned int i = 0; i < newSearchTerm.size(); i++)
             {
                 (*MyDataLayer).thin(vect, newSearchTerm[i]);
             }
@@ -404,7 +435,7 @@ private:
         vector<computer> vec;
         (*MyDataLayer).Search(vec,term);
 
-        for(int i = 0; i < newSearchTerm.size(); i++)
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
@@ -503,7 +534,7 @@ private:
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
             if (operation == '1') searchConnectionComputer();
-            if (operation == '2') addConnectionComputer();
+            if (operation == '2') addConnection();
             break;
         } 
     }
@@ -511,12 +542,38 @@ private:
     void searchConnectionComputer()
     {
 
-    }
+        vector<computer> vec;
+        cout << "Please enter the name or identifying qualifier for the Computer:"<<endl;
+        string term;
+        cin.ignore();
+        getline(cin, term);
+        vector <string> newSearchTerm = explode(term, ' ');
+        (*MyDataLayer).Search(vec,term);
 
-    void addConnectionComputer()
-    {
-
+        for(unsigned int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vec, newSearchTerm[i]);
+        }
+        while(vec.size() > 1)
+        {
+            printComputer(vec);
+            cout << "There are multiple computers that match those criteria."<<endl;
+            cout << "Please type in a more specific term:"<<endl;
+            cin.ignore();
+            getline(cin, term);
+            newSearchTerm = explode(term, ' ');
+            for(unsigned int i = 0; i < newSearchTerm.size(); i++)
+            {
+                (*MyDataLayer).thin(vec, newSearchTerm[i]);
+            }
+        }
+        if(vec.size() == 1)
+        {
+            vector<ComputerScientist> result;
+            result = (*MyDataLayer).getConnections(vec[0]);
+            cout << vec[0].field(1) <<" Is connected to the following Scientist: "<< endl;
+            printCompSci(result);
+        }
     }
-    
 };
 #endif // UI_H

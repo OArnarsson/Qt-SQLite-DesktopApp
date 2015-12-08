@@ -27,7 +27,8 @@ class FileData
           void addConnection(ComputerScientist compsci, computer comp);
           void RemoveComputers(string myString);
           void RemoveScientists(string myString, string myLastString);
-          void JoinTables();
+          vector< vector<string > > JoinTables(ComputerScientist compsci);
+          vector< vector<string > > JoinTables(computer comp);
 };
 
 

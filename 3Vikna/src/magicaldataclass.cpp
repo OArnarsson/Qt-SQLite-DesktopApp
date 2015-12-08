@@ -259,3 +259,36 @@ void MagicalDataClass::AddConnection(ComputerScientist compsci, computer comp)
 {
     (*Database).addConnection(compsci,comp);
 }
+
+/*************************************************************************
+ * getconnection()
+ * takes in a scientist or computer
+ * returns a vector of all connected computers or vectors
+ * **********************************************************************/
+vector<ComputerScientist> MagicalDataClass::getConnections(computer comp)
+{
+    vector<ComputerScientist> results;
+   vector< vector<string> > connections;
+   connections = (*Database).JoinTables(comp);
+   for(int i = 0; i < connections.size(); i++)
+   {
+       ComputerScientist smartGuy(connections[i][3],connections[i][4],connections[i][5],connections[i][6],
+               connections[i][7], connections[i][8], connections[i][9], connections[i][10]);
+       results.push_back(smartGuy);
+   }
+   return results;
+}
+
+vector<computer> MagicalDataClass::getConnections(ComputerScientist compsci)
+{
+    vector<computer> results;
+   vector< vector<string> > connections;
+   connections = (*Database).JoinTables(compsci);
+   for(int i = 0; i < connections.size(); i++)
+   {
+       computer smartGuy(connections[i][12],connections[i][13],connections[i][14],
+               connections[i][15], connections[i][16]);
+       results.push_back(smartGuy);
+   }
+   return results;
+}

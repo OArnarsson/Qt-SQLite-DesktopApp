@@ -235,6 +235,7 @@ void FileData::RemoveComputers(string myString)
     {
         query.bindValue(i, QString::fromStdString(myString));
     }
+    query.exec();
 }
 
 
@@ -252,16 +253,97 @@ void FileData::RemoveScientists(string myString, string myLastString)
     {
         query.bindValue(i, QString::fromStdString(myStrings[i]));
     }
+    query.exec();
 }
 
 /*******************************************************
- * Shows the connection between computers and scientists
+ * JoinTables
+ * Takes in either a Scientist or computer
+ * Returns a string matrix with data on both
+ * Scientist are on column 2 - 10
+ * computers are on column 11 - 16
  * *****************************************************/
-void FileData::JoinTables()
+
+vector< vector<string> > FileData::JoinTables(ComputerScientist compsci)
 {
+
+    vector< vector<string> > ret;
     QSqlQuery query(connection);
+    query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
+    for(int i = 0; i < 2; i++)
+    {
+       query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
+    }
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next())
+    {
+        return ret;
+    }
+    QString sciid;
+    sciid = query.value(0).toString();
+
+    query = QSqlQuery(connection);
+
     query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ScientistID = Scientists.ID "
-                  "INNER JOIN Computers ON Owners.ComputerID = Computers.ID");
+                  "INNER JOIN Computers ON Owners.ComputerID = Computers.ID AND Scientists.ID = ?");
+    query.bindValue(0,sciid);
+    query.exec();
+    int numberofcolumns = 17;
+    while(query.next())
+    {
+    vector<string> row;
+        for(int i = 0; i < numberofcolumns; i++)
+        {
+            row.push_back(query.value(i).toString().toStdString());
+        }
+        ret.push_back(row);
+    }
+    return ret;
+}
+
+/****************************
+ * JoinTables for computers
+ * **************************/
+
+vector< vector<string> > FileData::JoinTables(computer comp)
+{
+
+    vector< vector<string> > ret;
+    QSqlQuery query(connection);
+    query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
+    for(int i = 0; i < 3; i++)
+    {
+       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
+    }
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next())
+    {
+        return ret;
+    }
+    QString compid;
+    compid = query.value(0).toString();
+
+    query = QSqlQuery(connection);
+
+    query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ScientistID = Scientists.ID "
+                  "INNER JOIN Computers ON Owners.ComputerID = Computers.ID AND Computers.ID = ?");
+    query.bindValue(0,compid);
+    query.exec();
+    int numberofcolumns = 17;
+    while(query.next())
+    {
+    vector<string> row;
+        for(int i = 0; i < numberofcolumns; i++)
+        {
+            row.push_back(query.value(i).toString().toStdString());
+        }
+        ret.push_back(row);
+    }
+    return ret;
 }
 
 

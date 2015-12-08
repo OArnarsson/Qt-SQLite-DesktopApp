@@ -32,6 +32,8 @@ class MagicalDataClass
     void AddConnection(ComputerScientist compsci,computer comp);
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
+    vector<computer> getConnections(ComputerScientist compsci);
+    vector<ComputerScientist> getConnections(computer comp);
 
 };
 
