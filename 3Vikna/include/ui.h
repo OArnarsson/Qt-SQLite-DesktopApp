@@ -55,16 +55,18 @@ class UI{
         while (true) {
             cout << "This is a Computer Scientist database." << endl;
             cout << "----- 1 to add an entry." << endl;
-            cout << "----- 2 to search entries." << endl;
-            cout << "----- 3 to list all entries." << endl;
-            cout << "----- 4 for sorting options." << endl;
+            cout << "----- 2 to remove entries." << endl;
+            cout << "----- 3 to search entries." << endl;
+            cout << "----- 4 to list all entries." << endl;
+            cout << "----- 5 for sorting options." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
 
             if (operation == '1') addToCompSci();
-            if (operation == '2') searchCompSci();
-            if (operation == '3') printCompSci();
-            if (operation == '4') sortCompSci();
+            if (operation == '2') removeCompSci();
+            if (operation == '3') searchCompSci();
+            if (operation == '4') printCompSci();
+            if (operation == '5') sortCompSci();
             else break;
         }
 
@@ -105,6 +107,31 @@ class UI{
         }
     }
 
+    /*********************************************************************
+     * RemoveCompsci()
+     * Asks for a name to remove
+     * removes it
+     ********************************************************************/
+    void removeCompSci(){
+        string name;
+        vector<ComputerScientist> compsci;
+        cout << "Please enter the name or characteristic of the scientist to remove" << endl;
+        cin >> name;
+        (*MyDataLayer).Search(compsci,name);
+        while(compsci.size() > 1){
+            printCompSci(compsci);
+            cout << "There is ambiguity in your choice, please type in a distinct idenifier" << endl;
+            cin >> name;
+            (*MyDataLayer).thin(compsci,name);
+        }
+        cout << compsci[0];
+        cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
+        char ent;
+        ent = getchar();
+        if(ent == 'y' || ent == 'Y'){
+            (*MyDataLayer).remove(compsci[0]);
+        }
+    }
 
     /************************************************
      * SearchCompSci
@@ -281,7 +308,34 @@ class UI{
             if (operation == '3') {} else
             if (operation == '4') {} else
             break;
+      }
     }
+
+    /*********************************************************************
+     * RemoveCompsci()
+     * Asks for a name to remove
+     * removes it
+     ********************************************************************/
+    void removeComputer(){
+        string name;
+        vector<computer> comp;
+        cout << "Please enter the name or characteristic of the computer to remove" << endl;
+        cin >> name;
+        (*MyDataLayer).Search(comp,name);
+        while(comp.size() > 1){
+            printComputer(comp);
+            cout << "There is ambiguity in your choice, please type in a distinct idenifier" << endl;
+            cin >> name;
+            (*MyDataLayer).thin(comp,name);
+        }
+        cout << comp[0];
+        cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
+        char ent;
+        ent = getchar();
+        if(ent == 'y' || ent == 'Y'){
+            (*MyDataLayer).remove(comp[0]);
+        }
     }
+
 };
 #endif // UI_H
