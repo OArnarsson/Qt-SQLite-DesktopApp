@@ -183,19 +183,14 @@ vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec
  * ****************************************************************/
 void MagicalDataClass::thin(vector<computer>& vec, string term){
     vector <computer> foundDudes;
-    cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-" << endl;
-            cout << term << endl;
     for (unsigned int i = 0; i < vec.size(); i++)
     {
        string seek = ToLower((vec[i]).OrderedName());
-       cout << (vec[i]).OrderedName() << endl;
        if(seek.find(ToLower(term)) != std::string::npos)
        {
-        cout << "FOUND"  << endl;
           foundDudes.push_back(vec[i]);
        }
     }
-    cout << "ENDL" <<endl;
     vec = foundDudes;
 }
 
@@ -224,4 +219,13 @@ void MagicalDataClass::remove(ComputerScientist vec){
 
 void MagicalDataClass::remove(computer vec){
     (*Database).RemoveComputers(vec.field(0));
+}
+
+/***********************************************************************
+ * addConnection()
+ * takes in a pair of scientist and computer and connects them
+ * ***********************************************************************/
+
+void MagicalDataClass::AddConnection(ComputerScientist compsci, computer comp){
+    (*Database).addConnection(compsci,comp);
 }

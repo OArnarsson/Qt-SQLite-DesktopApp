@@ -69,7 +69,7 @@ private:
             if (operation == '3') searchCompSci();
             if (operation == '4') printCompSci();
             if (operation == '5') sortCompSci();
-            //if (operation == '6') connectCompSci();
+            if (operation == '6') connectCompSci();
             else break;
         }
         
@@ -231,11 +231,59 @@ private:
     }
 
     void searchConnectionCompSci() {
-
     }
 
     void addConnectionCompSci() {
 
+        vector<ComputerScientist> vec;
+        cout << "Please enter the name or identifying qualifier for the Scientist:"<<endl;
+        string term;
+        cin.ignore();
+        getline(cin, term);
+        vector <string> newSearchTerm = explode(term, ' ');
+        (*MyDataLayer).Search(vec,term);
+
+        for(int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vec, newSearchTerm[i]);
+        }
+        while(vec.size() > 1){
+            printCompSci(vec);
+            cout << "There are multiple scientists that match those criteria."<<endl;
+            cout << "Please type in a more specific term:"<<endl;
+            cin.ignore();
+            getline(cin, term);
+            newSearchTerm = explode(term, ' ');
+            for(int i = 0; i < newSearchTerm.size(); i++){
+                (*MyDataLayer).thin(vec, newSearchTerm[i]);
+            }
+        }
+
+        vector<computer> vect;
+        cout << "Please enter the name or identifying qualifier for the Computer:"<<endl;
+        cin.ignore();
+        getline(cin, term);
+        newSearchTerm = explode(term, ' ');
+        (*MyDataLayer).Search(vect,term);
+
+        for(int i = 0; i < newSearchTerm.size(); i++)
+        {
+            (*MyDataLayer).thin(vect, newSearchTerm[i]);
+        }
+        while(vect.size() > 1){
+            printComputer(vect);
+            cout << "There are multiple Computers that match those criteria."<<endl;
+            cout << "Please type in a more specific term:"<<endl;
+            cin.ignore();
+            getline(cin, term);
+            vector <string> newSearchTerm = explode(term, ' ');
+            for(int i = 0; i < newSearchTerm.size(); i++){
+                (*MyDataLayer).thin(vect, newSearchTerm[i]);
+            }
+        }
+        if(vect.size() == vec.size() && vec.size() == 1){
+            (*MyDataLayer).AddConnection(vec[0],vect[0]);
+         }
     }
     
     /*********************************************************************************
