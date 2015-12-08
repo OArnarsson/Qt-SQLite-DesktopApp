@@ -8,11 +8,11 @@
 
 using namespace std;
 class UI{
-    public:
+public:
     UI(){
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
     }
-
+    
     /************************************************
      * start
      * actually runs the program
@@ -24,29 +24,29 @@ class UI{
             cout << "----- 2 Computers." << endl;
             cout << "----- q to quit" << endl;
             char operation = getChar();
-    
+            
             if (operation == '1')compSci(); else
-            if (operation == '2') _computer(); else
-            if (operation == 'q' || operation == 'Q') break;
-            else cout << "Please choose a valid option." << endl;
+                if (operation == '2') _computer(); else
+                    if (operation == 'q' || operation == 'Q') break;
+                    else cout << "Please choose a valid option." << endl;
         }
     }
-
-    private:
+    
+private:
     MagicalDataClass* MyDataLayer;
     
-
+    
     /************************************************
      * getChar()
-     * get's a single character form Stdin
+     * get's a single character from Stdin
      * ***********************************************/
-    char getChar() { 
+    char getChar() {
         char c;
         cin >> c;
         return c;
     }
-
-
+    
+    
     /************************************************
      * compSci()
      * The computer scientist database menu
@@ -59,19 +59,21 @@ class UI{
             cout << "----- 3 to search entries." << endl;
             cout << "----- 4 to list all entries." << endl;
             cout << "----- 5 for sorting options." << endl;
+            cout << "----- 6 for connections." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-
+            
             if (operation == '1') addToCompSci();
             if (operation == '2') removeCompSci();
             if (operation == '3') searchCompSci();
             if (operation == '4') printCompSci();
             if (operation == '5') sortCompSci();
+            if (operation == '6') connectCompSci();
             else break;
         }
-
+        
     }
-
+    
     /************************************************
      * addToCompSci
      * Adds a name to the computer scientist databse
@@ -80,7 +82,7 @@ class UI{
         while (true) {
             string info[8] = {"First name","Middle name(s)","Last Name","Gender","Birth Year","Death Year","Nationality","Fields of profession"};
             vector<string> entering;
-
+            
             for(int i = 0; i < 8; i++){
                 cout << "Please enter the " << info[i] << " of the scientist you're adding.\n Leave blank if no information is to be entered\n";
                 char entry[64];
@@ -91,9 +93,9 @@ class UI{
             }
             for(int i = 0; i < 8; i++){
                 for(unsigned int n = 0; n < entering[i].size(); n++){
-                   if(entering[i][n] == ','){
-                       entering[i][n] = ' ';
-                   }
+                    if(entering[i][n] == ','){
+                        entering[i][n] = ' ';
+                    }
                 }
             }
             (*MyDataLayer).Add(entering);
@@ -106,7 +108,7 @@ class UI{
             //ToDo: impliment this
         }
     }
-
+    
     /*********************************************************************
      * RemoveCompsci()
      * Asks for a name to remove
@@ -132,20 +134,20 @@ class UI{
             (*MyDataLayer).remove(compsci[0]);
         }
     }
-
+    
     /************************************************
      * SearchCompSci
      * Asks the database for a vector of all scientist matching a term
      * Prints it to StdOut
      * ***********************************************/
-
+    
     void searchCompSci() {
-            cout << "Please enter the name you wish to search for." << endl;
-            string term;
-            cin >> term;
-            vector<ComputerScientist> vec;
-            (*MyDataLayer).Search(vec,term);
-            printCompSci(vec);
+        cout << "Please enter the name you wish to search for." << endl;
+        string term;
+        cin >> term;
+        vector<ComputerScientist> vec;
+        (*MyDataLayer).Search(vec,term);
+        printCompSci(vec);
     }
     /************************************************
      * PrintCompSci
@@ -163,13 +165,13 @@ class UI{
         cout << "        "<<list.size()<< " matching entries!"<<endl;
         cout << "***********************************" << endl << endl;
     }
-
+    
     void printCompSci(){
         vector<ComputerScientist> vec;
         (*MyDataLayer).GetAll(vec);
         printCompSci(vec);
     }
-
+    
     /************************************************
      * sortCompSci
      * Changes the sorting pattern
@@ -195,10 +197,15 @@ class UI{
             break;
         }
     }
-/*********************************************************************************
- *                      COMPUTER DATABASE SECTION
- * ********************************************************************************/
-
+    
+    void connectCompsci() {
+        
+    }
+    
+    /*********************************************************************************
+     *                      COMPUTER DATABASE SECTION
+     * ********************************************************************************/
+    
     /************************************************
      * _computer
      * the computer database menu
@@ -207,16 +214,20 @@ class UI{
         while (true) {
             cout << "This is a Computer database." << endl;
             cout << "----- 1 to add an entry." << endl;
-            cout << "----- 2 to search entries." << endl;
-            cout << "----- 3 to list all entries." << endl;
-            cout << "----- 4 for sorting options." << endl;
+            cout << "----- 2 to remove entries." << endl;
+            cout << "----- 3 to search entries." << endl;
+            cout << "----- 4 to list all entries." << endl;
+            cout << "----- 5 for sorting options." << endl;
+            cout << "----- 6 for connections." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-
+            
             if (operation == '1') addToComputer();
-            if (operation == '2') searchComputer();
-            if (operation == '3') printComputer();
-            if (operation == '4') sortComputer();
+            if (operation == '2') removeComputer();
+            if (operation == '3') searchComputer();
+            if (operation == '4') printComputer();
+            if (operation == '5') sortComputer();
+            if (operation == '6') connectComputer();
             else break;
         }
     }
@@ -228,7 +239,7 @@ class UI{
         while (true) {
             string info[5] = {"the Name","the Year","the Type","if it was built","the Location"};
             vector<string> entering;
-
+            
             for(int i = 0; i < 5; i++){
                 cout << "Please enter " << info[i] << " of the computer you're adding.\n Leave blank if no information is to be entered\n";
                 char entry[64];
@@ -239,9 +250,9 @@ class UI{
             }
             for(int i = 0; i < 5; i++){
                 for(unsigned int n = 0; n < entering[i].size(); n++){
-                   if(entering[i][n] == ','){
-                       entering[i][n] = ' ';
-                   }
+                    if(entering[i][n] == ','){
+                        entering[i][n] = ' ';
+                    }
                 }
             }
             (*MyDataLayer).Add(entering);
@@ -253,7 +264,7 @@ class UI{
             else break;
         }
     }
-
+    
     /************************************************
      * SearchComputer
      * Searches and prints the database for computers
@@ -266,7 +277,7 @@ class UI{
         (*MyDataLayer).Search(vec,term);
         printComputer(vec);
     }
-
+    
     /************************************************
      * printComputer
      * prints to the stdout
@@ -283,13 +294,13 @@ class UI{
         cout << "        "<<list.size()<< " matching entries!"<<endl;
         cout << "***********************************" << endl << endl;;
     }
-
+    
     void printComputer() {
         vector<computer> vec;
         (*MyDataLayer).GetAll(vec);
         printComputer(vec);
     }
-
+    
     /************************************************
      * Sets Sorting Options
      * ***********************************************/
@@ -304,13 +315,13 @@ class UI{
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
             if (operation == '1') {} else
-            if (operation == '2') {} else
-            if (operation == '3') {} else
-            if (operation == '4') {} else
-            break;
-      }
+                if (operation == '2') {} else
+                    if (operation == '3') {} else
+                        if (operation == '4') {} else
+                            break;
+        }
     }
-
+    
     /*********************************************************************
      * RemoveCompsci()
      * Asks for a name to remove
@@ -336,6 +347,10 @@ class UI{
             (*MyDataLayer).remove(comp[0]);
         }
     }
-
+    
+    void connectComputer() {
+        
+    }
+    
 };
 #endif // UI_H
