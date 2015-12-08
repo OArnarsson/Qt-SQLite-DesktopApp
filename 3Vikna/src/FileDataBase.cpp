@@ -170,9 +170,9 @@ vector< vector<string> > FileData::SearchScientists(string myString)
     int numberofcolumns = 9;
     vector< vector<string> > result;
     QSqlQuery query(connection);
-    query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE  ? OR MiddleName LIKE  ? "
-                  "OR LastName  ? OR Gender LIKE  ? OR YearOfBirth LIKE  ? "
-                  "OR YearOfDeath LIKE  ? OR Nationality LIKE  ? OR Field LIKE  ?");
+    query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE (?) OR MiddleName LIKE  (?) "
+                  "OR LastName LIKE (?) OR Gender LIKE  (?) OR YearOfBirth LIKE  (?) "
+                  "OR YearOfDeath LIKE  (?) OR Nationality LIKE  (?) OR Field LIKE (?)");
 
     myString = '%' + myString + '%';
     for(int i = 0; i < numberofcolumns-1; i++)
@@ -181,6 +181,7 @@ vector< vector<string> > FileData::SearchScientists(string myString)
     }
 
     query.exec();
+    cout << query.lastError().text().toStdString()<< endl;
     //We have our results, push them into the matrix and off we go
     while(query.next()){
     vector<string> row;
@@ -219,7 +220,7 @@ void FileData::RemoveScientists(string myString, string myLastString)
     QSqlQuery query(connection);
     query.prepare("DELETE FROM Scientists WHERE FirstName = ? AND WHERE LastName = ?;");
 
-    string myStrings[2] = (myString, myLastString);
+    string myStrings[2] = {myString, myLastString};
 
     for(int i = 0; i < 1; i++)
     {
