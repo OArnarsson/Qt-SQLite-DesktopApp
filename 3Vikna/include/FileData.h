@@ -25,6 +25,7 @@ class FileData{
           vector< vector<string> > SearchScientists(string myString);
           void RemoveComputers(string myString);
           void RemoveScientists(string myString, string myLastString);
+          void JoinTables();
 };
 
 

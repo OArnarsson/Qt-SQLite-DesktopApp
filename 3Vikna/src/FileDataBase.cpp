@@ -223,16 +223,14 @@ void FileData::RemoveScientists(string myString, string myLastString)
 
 
 
-/*
- * ---Hér er SQL commandið sem joinar töflurnar saman. Ég er ekki enn búinn að finna út hvernig við getum notað það hér ennþá---
- *
+
 void FileData::JoinTables()
 {
     QSqlQuery query(connection);
-    query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ID = Scientists.ID
-    INNER JOIN Computers ON Owners.ID = Computers.ID");
+    query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ScientistID = Scientists.ID "
+                  "INNER JOIN Computers ON Owners.ComputerID = Computers.ID");
 }
-*/
+
 
 //****************************************************************
 //Load()
