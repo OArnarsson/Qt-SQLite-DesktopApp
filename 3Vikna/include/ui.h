@@ -161,7 +161,6 @@ private:
      * Asks the database for a vector of all scientist matching a term
      * Prints it to StdOut
      * ***********************************************/
-    
     void searchCompSci()
     {
         cout << "Please enter the name you wish to search for." << endl;
@@ -179,6 +178,10 @@ private:
         printCompSci(vec);
     }
 
+    /************************************************
+     * explode
+     *Creates a string arrray from the getline input
+     * ***********************************************/
     vector<string> explode(const string s, char delim)
     {
          vector<string> ret;
@@ -192,7 +195,7 @@ private:
     }
 
     /************************************************
-     * PrintCompSci
+     * printCompSci
      * prints a vector
      * ***********************************************/
     void printCompSci(vector<ComputerScientist> list)
@@ -210,6 +213,11 @@ private:
         cout << "***********************************" << endl << endl;
     }
     
+
+    /************************************************
+     * printCompSc
+     * Prints all computer scientists
+     * ***********************************************/
     void printCompSci()
     {
         vector<ComputerScientist> vec;
@@ -246,6 +254,11 @@ private:
         }
     }
     
+
+    /************************************************
+     * connectCompSci
+     * Connections menu
+     * ***********************************************/
     void connectCompSci()
     {
         while (true)
@@ -261,6 +274,10 @@ private:
         }
     }
 
+    /************************************************
+     * searchConnectionCompSci
+     * searches for a connection to the database
+     * ***********************************************/
     void searchConnectionCompSci()
     {
         vector<ComputerScientist> vec;
@@ -297,6 +314,10 @@ private:
         }
     }
 
+    /************************************************
+     * addConnection
+     * adds a new connection to the database
+     * ***********************************************/
     void addConnection()
     {
         vector<ComputerScientist> vec;
@@ -386,6 +407,7 @@ private:
             else break;
         }
     }
+
     /************************************************
      * addToComputer();
      * Adds a computer to the database
@@ -470,6 +492,10 @@ private:
         cout << "***********************************" << endl << endl;;
     }
     
+    /************************************************
+     * printComputer
+     * prints to the stdout, takes no parameter
+     * ***********************************************/
     void printComputer()
     {
         vector<computer> vec;
@@ -531,7 +557,11 @@ private:
             cout <<endl << comp[0].field(1) << " has been removed" << endl;
         }
     }
-    
+
+    /************************************************
+     * connectComputer
+     * adds a new connection to the database
+     * ***********************************************/
     void connectComputer()
     {
         while (true)
@@ -547,6 +577,10 @@ private:
         } 
     }
 
+    /************************************************
+     * searchConnectionComputer
+     * searches for a connection in the database
+     * ***********************************************/
     void searchConnectionComputer()
     {
 
