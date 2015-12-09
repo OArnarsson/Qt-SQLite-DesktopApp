@@ -24,6 +24,7 @@ string ToLower(string s)
 MagicalDataClass::MagicalDataClass()
 {
     sortingOption = 1;
+    compSortingOption = 1;
 }
 
 //Constructor
@@ -31,19 +32,35 @@ MagicalDataClass::MagicalDataClass(string filename)
 {
     Database = new FileData(filename);
     sortingOption = 1;
+    compSortingOption = 1;
 }
 
 /*******************************************
  * SetSort()
  * Used to tell the datalayer how the results should be sorted
  * ****************************************/
-void MagicalDataClass::SetSort(int option)
+void MagicalDataClass::SetSort(int option, int mode)
 {
-    if(option < 1)
+    switch(mode)
     {
-        option = 1;
+        case 0:
+        {
+            if(option < 1)
+            {
+                option = 1;
+            }
+            sortingOption = option % 8;
+            break;
+        }
+        case 1:
+        {
+            if(option < 1)
+            {
+                option = 1;
+            }
+            compSortingOption = option % 6;
+        }
     }
-    sortingOption = option % 7;
 }
 
 /*******************************************
@@ -53,7 +70,7 @@ void MagicalDataClass::SetSort(int option)
  * ****************************************/
 void MagicalDataClass::Add(vector<string> entry)
 {
-    for(int i = 0; i < entry.size(); i++)
+    for(unsigned int i = 0; i < entry.size(); i++)
     {
         entry[i] += " ";
     }
@@ -69,13 +86,35 @@ void MagicalDataClass::Add(vector<string> entry)
     }
 }
 
+/************************************************-
+ * Sort
+ * Returns the passed vector sorted according to the field specified
+ * ***********************************************/
 
-/*******************************************
- * Sort()
- * Remnant from project one.
- * Do we want to do something with this in week 2?
- * ****************************************/
 vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> theList, const int whatField)
+{
+    int lowestFirst;
+
+    for (unsigned int j = 0; j < theList.size(); j++)
+    {
+        lowestFirst = j;
+        for (unsigned int i = j+1; i < theList.size(); i++)
+            {
+                if (theList[i].field(whatField) < theList[lowestFirst].field(whatField))
+                {
+                    lowestFirst = i;
+                }
+            }
+
+        if(lowestFirst != j)
+        {
+            swap(theList[j], theList[lowestFirst]);
+        }
+    }
+        return theList;
+}
+
+vector <computer> MagicalDataClass::Sort(vector <computer> theList, const int whatField)
 {
     int lowestFirst;
 
@@ -108,6 +147,7 @@ void MagicalDataClass::GetAll(vector<ComputerScientist>& vec)
     vector< vector<string> > MyQuery;
     MyQuery = (*Database).DataSet(0);
     vec = stringtoscientist(MyQuery);
+    vec = Sort(vec,sortingOption);
 }
 /***************/
 void MagicalDataClass::GetAll(vector<computer>& vect)
@@ -116,6 +156,7 @@ void MagicalDataClass::GetAll(vector<computer>& vect)
     vector< vector<string> > MyQuery;
     MyQuery = (*Database).DataSet(1);
     vect = stringtocomputer(MyQuery);
+    vect = Sort(vect,compSortingOption);
 }
 
 /********************************************************************************
@@ -139,6 +180,7 @@ void MagicalDataClass::Search(vector<computer>& vect, string substring)
         vect.push_back(compsci);
     }
     vect = stringtocomputer(MyQuery);
+    vect = Sort(vect,compSortingOption);
 }
 
 //******************
@@ -158,6 +200,7 @@ void MagicalDataClass::Search(vector<ComputerScientist>& vect, string substring)
         vect.push_back(compsci);
     }
     vect = stringtoscientist(MyQuery);
+    vect = Sort(vect,sortingOption);
 }
 //****************************************************************************
 //StringToScientist(vector< vector<string> >)
@@ -247,7 +290,7 @@ void MagicalDataClass::remove(ComputerScientist vec)
 
 void MagicalDataClass::remove(computer vec)
 {
-    (*Database).RemoveComputers(vec.field(0));
+    (*Database).RemoveComputers(vec.field(1));
 }
 
 /***********************************************************************
@@ -270,12 +313,13 @@ vector<ComputerScientist> MagicalDataClass::getConnections(computer comp)
     vector<ComputerScientist> results;
    vector< vector<string> > connections;
    connections = (*Database).JoinTables(comp);
-   for(int i = 0; i < connections.size(); i++)
+   for(unsigned int i = 0; i < connections.size(); i++)
    {
        ComputerScientist smartGuy(connections[i][3],connections[i][4],connections[i][5],connections[i][6],
                connections[i][7], connections[i][8], connections[i][9], connections[i][10]);
        results.push_back(smartGuy);
    }
+   results = Sort(results,sortingOption);
    return results;
 }
 
@@ -284,11 +328,12 @@ vector<computer> MagicalDataClass::getConnections(ComputerScientist compsci)
     vector<computer> results;
    vector< vector<string> > connections;
    connections = (*Database).JoinTables(compsci);
-   for(int i = 0; i < connections.size(); i++)
+   for(unsigned int i = 0; i < connections.size(); i++)
    {
        computer smartGuy(connections[i][12],connections[i][13],connections[i][14],
                connections[i][15], connections[i][16]);
        results.push_back(smartGuy);
    }
+   results = Sort(results,compSortingOption);
    return results;
 }

@@ -229,7 +229,7 @@ vector< vector<string> > FileData::SearchScientists(string myString)
 void FileData::RemoveComputers(string myString)
 {
     QSqlQuery query(connection);
-    query.prepare("DELETE FROM Computers WHERE Name='?';");
+    query.prepare("DELETE FROM Computers WHERE Name= ?;");
 
     for(int i = 0; i < 1; i++)
     {
@@ -245,15 +245,16 @@ void FileData::RemoveComputers(string myString)
 void FileData::RemoveScientists(string myString, string myLastString)
 {
     QSqlQuery query(connection);
-    query.prepare("DELETE FROM Scientists WHERE FirstName = ? AND WHERE LastName = ?;");
+    query.prepare("DELETE FROM Scientists WHERE FirstName = ? AND LastName = ?;");
 
     string myStrings[2] = {myString, myLastString};
 
-    for(int i = 0; i < 1; i++)
+    for(int i = 0; i < 2; i++)
     {
-        query.bindValue(i, QString::fromStdString(myStrings[i]));
+        query.bindValue(i,QString::fromStdString(myStrings[i]));
     }
     query.exec();
+    cout << query.lastError().text().toStdString();
 }
 
 /*******************************************************

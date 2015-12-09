@@ -148,10 +148,11 @@ private:
         cout << compsci[0];
         cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
         char ent;
-        ent = getchar();
+        cin >> ent;
         if(ent == 'y' || ent == 'Y')
         {
             (*MyDataLayer).remove(compsci[0]);
+            cout <<endl << compsci[0].field(1) << " has been removed" << endl;
         }
     }
     
@@ -169,7 +170,7 @@ private:
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<ComputerScientist> vec;
-        (*MyDataLayer).Search(vec,term);
+        (*MyDataLayer).Search(vec,newSearchTerm[0]);
 
         for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
@@ -232,14 +233,15 @@ private:
             cout << "----- 4 Gender." << endl;
             cout << "----- 5 Year of birth." << endl;
             cout << "----- 6 Year of death." << endl;
+            cout << "----- 7 Fields of profession" << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-            if (operation == '1') (*MyDataLayer).SetSort(1);
-            if (operation == '2') (*MyDataLayer).SetSort(2);
-            if (operation == '3') (*MyDataLayer).SetSort(3);
-            if (operation == '4') (*MyDataLayer).SetSort(4);
-            if (operation == '5') (*MyDataLayer).SetSort(5);
-            if (operation == '6') (*MyDataLayer).SetSort(6);
+            if (operation == '1') (*MyDataLayer).SetSort(1,0);
+            if (operation == '2') (*MyDataLayer).SetSort(2,0);
+            if (operation == '3') (*MyDataLayer).SetSort(3,0);
+            if (operation == '4') (*MyDataLayer).SetSort(4,0);
+            if (operation == '5') (*MyDataLayer).SetSort(5,0);
+            if (operation == '6') (*MyDataLayer).SetSort(6,0);
             break;
         }
     }
@@ -432,18 +434,18 @@ private:
     {
         cout << "Please enter a Name, Type, Location or Year to search for." << endl;
         string term;
-        //cin.ignore(10000,'\n');
+        cin.ignore(10000,'\n');
         getline(cin, term);
         vector <string> newSearchTerm = explode(term, ' ');
         vector<computer> vec;
-        (*MyDataLayer).Search(vec,term);
+        (*MyDataLayer).Search(vec,newSearchTerm[0]);
 
         for(unsigned int i = 0; i < newSearchTerm.size(); i++)
         {
             (*MyDataLayer).thin(vec, newSearchTerm[i]);
         }
-        //cin.clear();
-        //cin.ignore(10000,'\n');
+       // cin.clear();
+       // cin.ignore(10000,'\n');
 
         printComputer(vec);
     }
@@ -487,13 +489,13 @@ private:
             cout << "----- 1 Name." << endl;
             cout << "----- 2 Year." << endl;
             cout << "----- 3 Type." << endl;
-            cout << "----- 4 Location." << endl;
+            cout << "----- 4 Nationality." << endl;
             cout << "----- Any other to go back." << endl;
             char operation = getChar();
-            if (operation == '1') {} else
-                if (operation == '2') {} else
-                    if (operation == '3') {} else
-                        if (operation == '4') {} else
+            if (operation == '1') {(*MyDataLayer).SetSort(1,1);} else
+                if (operation == '2') {(*MyDataLayer).SetSort(2,1);} else
+                    if (operation == '3') {(*MyDataLayer).SetSort(3,1);} else
+                        if (operation == '4') {(*MyDataLayer).SetSort(4,1);} else
                             break;
         }
     }
@@ -517,13 +519,16 @@ private:
             cin >> name;
             (*MyDataLayer).thin(comp,name);
         }
+        cout << "___________________________________________" << endl;
         cout << comp[0];
+        cout << "___________________________________________" << endl;
         cout << "Are you sure you wish to delete the above entry? (y/n)" << endl;
         char ent;
-        ent = getchar();
+        cin >> ent;
         if(ent == 'y' || ent == 'Y')
         {
             (*MyDataLayer).remove(comp[0]);
+            cout <<endl << comp[0].field(1) << " has been removed" << endl;
         }
     }
     

@@ -15,7 +15,9 @@ class MagicalDataClass
     private:
     FileData* Database;
     int sortingOption;
+    int compSortingOption;
     vector <ComputerScientist> Sort(vector <ComputerScientist> theList, const int whatField);
+    vector <computer> Sort(vector <computer> theList, const int whatField);
     public:
     MagicalDataClass();
     MagicalDataClass(string filename);
@@ -28,7 +30,7 @@ class MagicalDataClass
     void remove(ComputerScientist vec);
     void remove(computer vec);
     void Add(vector<string> entry);
-    void SetSort(int option);
+    void SetSort(int option,int mode);
     void AddConnection(ComputerScientist compsci,computer comp);
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
