@@ -90,7 +90,6 @@ void MagicalDataClass::Add(vector<string> entry)
  * Sort
  * Returns the passed vector sorted according to the field specified
  * ***********************************************/
-
 vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> theList, const int whatField)
 {
     int lowestFirst;
@@ -114,6 +113,10 @@ vector <ComputerScientist> MagicalDataClass::Sort(vector <ComputerScientist> the
         return theList;
 }
 
+/************************************************-
+ * Sort
+ * Returns the passed vector sorted according to the field specified
+ * ***********************************************/
 vector <computer> MagicalDataClass::Sort(vector <computer> theList, const int whatField)
 {
     int lowestFirst;
@@ -162,7 +165,7 @@ void MagicalDataClass::GetAll(vector<computer>& vect)
 /********************************************************************************
  * Search()
  * Takes in a substring
- * populates a vector with all the computers/scientists that fit the term
+ * populates a vector with all the computers that fit the term
  * ******************************************************************************/
 void MagicalDataClass::Search(vector<computer>& vect, string substring)
 {
@@ -183,8 +186,11 @@ void MagicalDataClass::Search(vector<computer>& vect, string substring)
     vect = Sort(vect,compSortingOption);
 }
 
-//******************
-
+/********************************************************************************
+ * Search()
+ * Takes in a substring
+ * populates a vector with all the scientists that fit the term
+ * ******************************************************************************/
 void MagicalDataClass::Search(vector<ComputerScientist>& vect, string substring)
 {
     vector< vector<string> > MyQuery;
@@ -202,11 +208,11 @@ void MagicalDataClass::Search(vector<ComputerScientist>& vect, string substring)
     vect = stringtoscientist(MyQuery);
     vect = Sort(vect,sortingOption);
 }
+
 //****************************************************************************
 //StringToScientist(vector< vector<string> >)
 //Takes a string matrix and jams it into a vector of computerscientist
 //****************************************************************************
-
 vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<string> > MyQuery)
 {
     vector<ComputerScientist> vec;
@@ -227,7 +233,6 @@ vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<stri
 //StringTocomputer(vector< vector<string> >)
 //Takes a string matrix and jams it into a vector of computers
 //****************************************************************************
-
 vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec)
 {
     vector<computer> ret;
@@ -263,6 +268,10 @@ void MagicalDataClass::thin(vector<computer>& vec, string term)
     vec = foundDudes;
 }
 
+/******************************************************************
+ * Thin()
+ * same as above, but for a vector of scientists instead of computers.
+ * ****************************************************************/
 void MagicalDataClass::thin(vector<ComputerScientist>& vec, string term)
 {
     vector <ComputerScientist> foundDudes;
@@ -282,7 +291,6 @@ void MagicalDataClass::thin(vector<ComputerScientist>& vec, string term)
  * Remove()
  * Takes in a computer or scientist and removes them from the SQL
  * ****************************************************************/
-
 void MagicalDataClass::remove(ComputerScientist vec)
 {
     (*Database).RemoveScientists(vec.field(1),vec.field(3));
@@ -297,7 +305,6 @@ void MagicalDataClass::remove(computer vec)
  * addConnection()
  * takes in a pair of scientist and computer and connects them
  * ***********************************************************************/
-
 void MagicalDataClass::AddConnection(ComputerScientist compsci, computer comp)
 {
     (*Database).addConnection(compsci,comp);
@@ -323,6 +330,10 @@ vector<ComputerScientist> MagicalDataClass::getConnections(computer comp)
    return results;
 }
 
+/*************************************************************************
+ * getconnection()
+ * same as above, but for scientists instead of computers.
+ * **********************************************************************/
 vector<computer> MagicalDataClass::getConnections(ComputerScientist compsci)
 {
     vector<computer> results;
