@@ -19,7 +19,8 @@ HEADERS += \
     include/FileData.h \
     include/magicaldataclass.h \
     include/ui.h \
-    include/computer.h
+    include/computer.h \
+    include/magic.h
 
 DISTFILES += \
     LOL.txt \

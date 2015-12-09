@@ -1,6 +1,7 @@
 #ifndef UI_H
 #define UI_H
 
+#include "magic.h"
 #include <iostream>
 #include "ComputerScientist.h"
 #include "magicaldataclass.h"
@@ -15,7 +16,7 @@ public:
     {
         MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
     }
-    
+
     /************************************************
      * start
      * actually runs the program
@@ -27,13 +28,15 @@ public:
             cout << "Which database would you like to access?" << endl;
             cout << "----- 1 Computer scientists." << endl;
             cout << "----- 2 Computers." << endl;
+            cout << "----- 3 for ~Magic~." << endl;
             cout << "----- q to quit" << endl;
             char operation = getChar();
             
             if (operation == '1')compSci(); else
                 if (operation == '2') _computer(); else
                     if (operation == 'q' || operation == 'Q') break;
-                    else cout << "Please choose a valid option." << endl;
+                      if(operation == '3') magic();
+                          else cout << "Please choose a valid option." << endl;
         }
     }
     
@@ -69,6 +72,7 @@ private:
             cout << "----- 5 for sorting options." << endl;
             cout << "----- 6 for connections." << endl;
             cout << "----- Any other to go back." << endl;
+
             char operation = getChar();
             
             if (operation == '1') addToCompSci();
@@ -119,7 +123,6 @@ private:
             char operation = getChar();
             if (operation == '1') addToCompSci();
             else break;
-            //ToDo: impliment this
         }
     }
     
@@ -573,6 +576,35 @@ private:
             result = (*MyDataLayer).getConnections(vec[0]);
             cout << vec[0].field(1) <<" Is connected to the following Scientist: "<< endl;
             printCompSci(result);
+        }
+    }
+
+    /*****************
+     * ~MaGiC~
+     * ****************/
+    void magic(){
+            cout << endl;
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << "Welcome to ~MaGiC~" << endl;
+            cout << "Please maximize the size of your command terminal for best effect." <<endl;
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << "Please make a selection" << endl << endl;
+            cout << "1. Magic David. \n";
+            cout << "2. Magic Sverrir. \n";
+            cout << "Anything else to go back." << endl;
+
+        while(true)
+        {
+            char input;
+            cin >> input;
+            if(input == '1'){
+                magicDavid();
+            } else
+            if(input == '2'){
+                magicSverrir();
+            } else
+            break;
+            cout << endl << endl << "Please make another selection (1,2) or press anything else to return\n";
         }
     }
 };
