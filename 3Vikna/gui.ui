@@ -46,7 +46,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/Add.svg</normaloff>../../../../Desktop/Icons/Add.svg</iconset>
+      <normaloff>Icons/Add.svg</normaloff>Icons/Add.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -83,7 +83,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../../Desktop/Icons/Scientists.svg</normaloff>../../../../Desktop/Icons/Scientists.svg</iconset>
+       <normaloff>Icons/Scientists.svg</normaloff>Icons/Scientists.svg</iconset>
      </property>
     </item>
     <item>
@@ -92,7 +92,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../../Desktop/Icons/Computers.svg</normaloff>../../../../Desktop/Icons/Computers.svg</iconset>
+       <normaloff>Icons/Computers.svg</normaloff>Icons/Computers.svg</iconset>
      </property>
     </item>
     <item>
@@ -101,7 +101,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../../Desktop/Icons/Favorite.svg</normaloff>../../../../Desktop/Icons/Favorite.svg</iconset>
+       <normaloff>Icons/Favorite.svg</normaloff>Icons/Favorite.svg</iconset>
      </property>
     </item>
     <item>
@@ -110,7 +110,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../../Desktop/Icons/Favorite.svg</normaloff>../../../../Desktop/Icons/Favorite.svg</iconset>
+       <normaloff>Icons/Favorite.svg</normaloff>Icons/Favorite.svg</iconset>
      </property>
     </item>
    </widget>
@@ -134,7 +134,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/remove.svg</normaloff>../../../../Desktop/Icons/remove.svg</iconset>
+      <normaloff>Icons/remove.svg</normaloff>Icons/remove.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -163,7 +163,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/Edit.svg</normaloff>../../../../Desktop/Icons/Edit.svg</iconset>
+      <normaloff>Icons/Edit.svg</normaloff>Icons/Edit.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -192,7 +192,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/Search.svg</normaloff>../../../../Desktop/Icons/Search.svg</iconset>
+      <normaloff>Icons/Search.svg</normaloff>Icons/Search.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -221,7 +221,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/fostudagur.svg</normaloff>../../../../Desktop/Icons/fostudagur.svg</iconset>
+      <normaloff>Icons/fostudagur.svg</normaloff>Icons/fostudagur.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -250,7 +250,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../Desktop/Icons/Favorite.svg</normaloff>../../../../Desktop/Icons/Favorite.svg</iconset>
+      <normaloff>Icons/Favorite.svg</normaloff>Icons/Favorite.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
