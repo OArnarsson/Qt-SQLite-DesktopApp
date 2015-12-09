@@ -29,8 +29,8 @@
    <widget class="QPushButton" name="Add">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>330</y>
+      <x>620</x>
+      <y>290</y>
       <width>32</width>
       <height>32</height>
      </rect>
@@ -60,7 +60,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>611</width>
+      <width>601</width>
       <height>381</height>
      </rect>
     </property>
@@ -68,38 +68,57 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>40</y>
-      <width>81</width>
+      <x>630</x>
+      <y>10</y>
+      <width>121</width>
       <height>21</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>test</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>testest</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QDial" name="dial">
-    <property name="geometry">
-     <rect>
-      <x>660</x>
-      <y>90</y>
-      <width>50</width>
-      <height>64</height>
-     </rect>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <item>
+     <property name="text">
+      <string>Scientists</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../Desktop/Icons/Scientists.svg</normaloff>../../../../Desktop/Icons/Scientists.svg</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Computers</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../Desktop/Icons/Computers.svg</normaloff>../../../../Desktop/Icons/Computers.svg</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Favorite Scientists</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../Desktop/Icons/Favorite.svg</normaloff>../../../../Desktop/Icons/Favorite.svg</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Favorite Computer</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../Desktop/Icons/Favorite.svg</normaloff>../../../../Desktop/Icons/Favorite.svg</iconset>
+     </property>
+    </item>
    </widget>
    <widget class="QPushButton" name="Remove">
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>330</y>
+      <y>290</y>
       <width>32</width>
       <height>32</height>
      </rect>
@@ -127,8 +146,8 @@
    <widget class="QPushButton" name="Edit">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>330</y>
+      <x>670</x>
+      <y>290</y>
       <width>32</width>
       <height>32</height>
      </rect>
@@ -156,8 +175,8 @@
    <widget class="QPushButton" name="Search">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>290</y>
+      <x>620</x>
+      <y>330</y>
       <width>32</width>
       <height>32</height>
      </rect>
@@ -185,8 +204,8 @@
    <widget class="QPushButton" name="Fostudagur">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>290</y>
+      <x>720</x>
+      <y>330</y>
       <width>32</width>
       <height>32</height>
      </rect>
@@ -214,8 +233,8 @@
    <widget class="QPushButton" name="Favorite">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>290</y>
+      <x>670</x>
+      <y>330</y>
       <width>32</width>
       <height>32</height>
      </rect>
