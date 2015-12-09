@@ -68,9 +68,9 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>610</x>
       <y>10</y>
-      <width>121</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
