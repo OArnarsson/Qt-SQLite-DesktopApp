@@ -33,3 +33,5 @@ FORMS    += gui.ui
 DISTFILES += \
     include/ComputerScientist.h.gch \
     include/FileData.h.gch
+
+RESOURCES = icons.qrc

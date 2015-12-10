@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/Icons">
+        <file>Icons/Add.svg</file>
+        <file>Icons/Computers.svg</file>
+        <file>Icons/Edit.svg</file>
+        <file>Icons/Favorite.svg</file>
+        <file>Icons/fostudagur.svg</file>
+        <file>Icons/remove.svg</file>
+        <file>Icons/Scientists.svg</file>
+        <file>Icons/Search.svg</file>
+    </qresource>
+</RCC>
