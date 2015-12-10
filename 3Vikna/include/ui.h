@@ -180,7 +180,8 @@ private:
 
     /************************************************
      * explode
-     *Creates a string arrray from the getline input
+     *Creates a string arrray by breaking apart a string
+     * Strings are seperated by a delimiter
      * ***********************************************/
     vector<string> explode(const string s, char delim)
     {

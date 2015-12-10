@@ -1,18 +1,11 @@
-#include "include/ComputerScientist.h"
-#include "include/FileData.h"
-#include "include/ui.h"
-#include <iostream>
-#include <string>
-#include <QtSql>
+#include "gui.h"
+#include <QApplication>
 
-
-
-int main()
+int main(int argc, char *argv[])
 {
-   UI ui;
-    ui.start();
-    FileData F("CompDataBase.sqlite");
-    ComputerScientist one("Alan","","Turing","","","","","");
-    computer two("Turing","1936","Transistorized");
-    F.addConnection(one,two);
+    QApplication a(argc, argv);
+    GUI w;
+    w.show();
+
+    return a.exec();
 }
