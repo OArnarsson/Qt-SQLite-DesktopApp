@@ -9,6 +9,7 @@ GUI::GUI(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
 GUI::~GUI()
 {
     delete ui;
