@@ -28,7 +28,8 @@ HEADERS  += gui.h \
     include/magicaldataclass.h \
     include/ui.h \
 
-FORMS    += gui.ui
+FORMS    += gui.ui \
+    addpopup.ui
 
 DISTFILES += \
     include/ComputerScientist.h.gch \
