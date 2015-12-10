@@ -27,6 +27,8 @@ private slots:
 
     void on_Table_clicked(const QModelIndex &index);
 
+    void on_Fostudagur_clicked();
+
 private:
     Ui::GUI *ui;
     MagicalDataClass* MyDataLayer;

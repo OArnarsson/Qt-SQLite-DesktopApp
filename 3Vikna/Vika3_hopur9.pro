@@ -19,6 +19,7 @@ SOURCES += main.cpp\
     src/ComputerScientist.cpp \
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
+    addpopup.cpp
 
 HEADERS  += gui.h \
     include/computer.h \
@@ -27,6 +28,7 @@ HEADERS  += gui.h \
     include/magic.h \
     include/magicaldataclass.h \
     include/ui.h \
+    addpopup.h
 
 FORMS    += gui.ui \
     addpopup.ui
@@ -36,3 +38,5 @@ DISTFILES += \
     include/FileData.h.gch
 
 RESOURCES = icons.qrc
+
+RC_FILE = thaIcon.rc

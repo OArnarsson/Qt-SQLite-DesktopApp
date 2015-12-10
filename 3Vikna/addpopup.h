@@ -17,8 +17,8 @@ public:
     ~Dialog();
 
 private slots:
-    void on_field1_textChanged();
 
+    void on_buttonBox_accepted();
 
 private:
     Ui::Dialog *ui;
