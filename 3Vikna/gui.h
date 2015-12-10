@@ -16,9 +16,9 @@ public:
     ~GUI();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_Table_cellChanged(int row, int column);
+
+    void on_Add_clicked();
 
 private:
     Ui::GUI *ui;
