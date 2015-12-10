@@ -496,3 +496,20 @@ void FileData::addConnection(ComputerScientist compsci, computer comp)
 
     cout << query.lastError().text().toStdString() << endl;
 }
+
+/***************************************
+ * update<thing>
+ * takes in a computer or scientist and a modified field
+ * changes the database to reflect this new value.
+ * ************************************/
+/*
+updateScienist(ComputerScientist compsci, field newValue)
+{
+    QSqlQuery query(connection);
+    query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
+}
+
+UPDATE table_name
+SET column1=value1,column2=value2,...
+WHERE some_column=some_value;
+*/
