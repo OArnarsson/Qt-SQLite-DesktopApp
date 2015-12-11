@@ -53,7 +53,7 @@
    <property name="tabChangesFocus">
     <bool>true</bool>
    </property>
-   <property name="plainText">
+   <property name="placeholderText">
     <string>Year</string>
    </property>
   </widget>
@@ -72,7 +72,7 @@
    <property name="tabChangesFocus">
     <bool>true</bool>
    </property>
-   <property name="plainText">
+   <property name="placeholderText">
     <string>Name</string>
    </property>
   </widget>
@@ -91,7 +91,7 @@
    <property name="tabChangesFocus">
     <bool>true</bool>
    </property>
-   <property name="plainText">
+   <property name="placeholderText">
     <string>Type</string>
    </property>
   </widget>
@@ -110,7 +110,7 @@
    <property name="tabChangesFocus">
     <bool>true</bool>
    </property>
-   <property name="plainText">
+   <property name="placeholderText">
     <string>Built</string>
    </property>
   </widget>
@@ -129,7 +129,7 @@
    <property name="tabChangesFocus">
     <bool>true</bool>
    </property>
-   <property name="plainText">
+   <property name="placeholderText">
     <string>Location</string>
    </property>
   </widget>
