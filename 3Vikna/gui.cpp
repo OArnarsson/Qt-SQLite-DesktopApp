@@ -19,7 +19,9 @@ GUI::GUI(QWidget *parent) :
     ui->mainTable->setColumnCount(5);
     ui->mainTable->setTabKeyNavigation(true);
 
-    ui->statusBar->showMessage("Ludwig van Beethoven was a German composer from the late 18th century.", 2000);
+    ui->statusBar->showMessage("This program was tested on animals.", 2000);
+
+    ui->mainTable->setSortingEnabled(true);
 }
 
 

@@ -20,6 +20,8 @@ Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     setTabOrder(ui->field4, ui->field5);
     setTabOrder(ui->field5, ui->buttonBox);
     setTabOrder(ui->buttonBox, ui->field1);
+
+    ui->field2->setMinimumDate(QDate(101, 1, 1));
 }
 
 Dialog::~Dialog()
@@ -33,7 +35,7 @@ void Dialog::on_buttonBox_accepted()
     //Reads the string in each field.
      QString myField1 = ui->field1->toPlainText();
      QString myField2 = ui->field2->text();
-     QString myField3 = ui->field3->toPlainText();
+     QString myField3 = ui->field3->currentText();
      QString myField4 = ui->field4->currentText();
      QString myField5 = ui->field5->toPlainText();
 
