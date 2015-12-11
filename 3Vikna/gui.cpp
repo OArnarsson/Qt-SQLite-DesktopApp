@@ -17,7 +17,7 @@ GUI::GUI(QWidget *parent) :
 
     ui->mainTable->setRowCount(0);
     ui->mainTable->setColumnCount(5);
-    ui->mainTable->setItem(0, 0, new QTableWidgetItem("Hello"));
+    ui->mainTable->setTabKeyNavigation(true);
 
     ui->statusBar->showMessage("Ludwig van Beethoven was a German composer from the late 18th century.", 2000);
 }
