@@ -55,7 +55,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QTableWidget" name="Table">
+   <widget class="QTableWidget" name="mainTable">
     <property name="geometry">
      <rect>
       <x>0</x>

@@ -15,17 +15,15 @@ class GUI : public QMainWindow
     Q_OBJECT
 
 public:
+    void AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5);
     explicit GUI(QWidget *parent = 0);
     ~GUI();
 
 private slots:
-    void on_Table_cellChanged(int row, int column);
 
     void on_Add_clicked();
 
     void on_Remove_clicked();
-
-    void on_Table_clicked(const QModelIndex &index);
 
     void on_Fostudagur_clicked();
 

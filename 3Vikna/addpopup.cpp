@@ -2,8 +2,11 @@
 #include "ui_addpopup.h"
 #include "include/computer.h"
 #include <iostream>
+#include <QTableWidget>
+#include "gui.h"
+#include "ui_gui.h"
 
-Dialog::Dialog(QWidget *parent) :
+Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
@@ -25,10 +28,5 @@ void Dialog::on_buttonBox_accepted()
      QString myField4 = ui->field4->toPlainText();
      QString myField5 = ui->field5->toPlainText();
 
-     //Debug to print them out
-     std::cout << myField1.toStdString() << endl;
-     std::cout << myField2.toStdString() << endl;
-     std::cout << myField3.toStdString() << endl;
-     std::cout << myField4.toStdString() << endl;
-     std::cout << myField5.toStdString() << endl;
+     Parent->AddToTable(myField1, myField2, myField3, myField4, myField5);
 }
