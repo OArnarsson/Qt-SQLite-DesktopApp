@@ -41,6 +41,12 @@
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
+    <property name="toolTip">
+     <string>Add new entry</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -129,6 +135,12 @@
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
+    <property name="toolTip">
+     <string>Remove entry</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -157,6 +169,12 @@
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
+    </property>
+    <property name="toolTip">
+     <string>Edit entry</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
     </property>
     <property name="text">
      <string/>
@@ -187,6 +205,12 @@
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
+    <property name="toolTip">
+     <string>Search entries</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -216,6 +240,12 @@
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
+    <property name="toolTip">
+     <string>Press for disco </string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -244,6 +274,12 @@
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
+    </property>
+    <property name="toolTip">
+     <string>Add entry to favorites</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>999999999</number>
     </property>
     <property name="text">
      <string/>

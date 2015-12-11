@@ -31,7 +31,7 @@ GUI::~GUI()
 
 void GUI::on_Add_clicked()
 {
-    Dialog addPopUp;
+    Dialog addPopUp(0, this);
     addPopUp.setModal(true);
     addPopUp.exec();
 }
@@ -43,7 +43,7 @@ void GUI::on_Remove_clicked()
 
 void GUI::on_Fostudagur_clicked()
 {
-    QString link = "http://erfostudagur.is/";
+    QString link = "http://bigassmessage.com/00f2e";
     QDesktopServices::openUrl(QUrl(link));
 }
 

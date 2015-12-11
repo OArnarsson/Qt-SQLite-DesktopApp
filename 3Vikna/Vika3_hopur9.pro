@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -19,7 +19,7 @@ SOURCES += main.cpp\
     src/ComputerScientist.cpp \
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
-    addpopup.cpp
+    addpopup.cpp \
 
 HEADERS  += gui.h \
     include/computer.h \
@@ -28,15 +28,15 @@ HEADERS  += gui.h \
     include/magic.h \
     include/magicaldataclass.h \
     include/ui.h \
-    addpopup.h
+    addpopup.h \
 
 FORMS    += gui.ui \
-    addpopup.ui
+    addpopup.ui \
 
 DISTFILES += \
     include/ComputerScientist.h.gch \
-    include/FileData.h.gch
+    include/FileData.h.gch \
 
-RESOURCES = icons.qrc
+RESOURCES = icons.qrc \
 
-RC_FILE = thaIcon.rc
+RC_FILE = thaIcon.rc \

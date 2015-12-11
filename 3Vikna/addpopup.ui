@@ -22,6 +22,12 @@
      <height>32</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
@@ -38,6 +44,15 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhDigitsOnly|Qt::ImhMultiLine</set>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
    <property name="plainText">
     <string>Year</string>
    </property>
@@ -50,6 +65,12 @@
      <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
    </property>
    <property name="plainText">
     <string>Name</string>
@@ -64,6 +85,12 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
    <property name="plainText">
     <string>Type</string>
    </property>
@@ -77,6 +104,12 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
    <property name="plainText">
     <string>Built</string>
    </property>
@@ -89,6 +122,12 @@
      <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
    </property>
    <property name="plainText">
     <string>Location</string>

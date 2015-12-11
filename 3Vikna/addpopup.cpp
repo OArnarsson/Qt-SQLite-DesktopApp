@@ -11,6 +11,15 @@ Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    Parent = daddyCool;
+
+    //Sets the order of things that are selected when 'tab' is pressed.
+    setTabOrder(ui->field1, ui->field2);
+    setTabOrder(ui->field2, ui->field3);
+    setTabOrder(ui->field3, ui->field4);
+    setTabOrder(ui->field4, ui->field5);
+    setTabOrder(ui->field5, ui->buttonBox);
+    setTabOrder(ui->buttonBox, ui->field1);
 }
 
 Dialog::~Dialog()
