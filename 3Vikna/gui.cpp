@@ -15,7 +15,7 @@ GUI::GUI(QWidget *parent) :
     ui->setupUi(this);
     MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
 
-    ui->mainTable->setRowCount(1);
+    ui->mainTable->setRowCount(0);
     ui->mainTable->setColumnCount(5);
     ui->mainTable->setItem(0, 0, new QTableWidgetItem("Hello"));
 
