@@ -32,10 +32,15 @@ void Dialog::on_buttonBox_accepted()
 {
     //Reads the string in each field.
      QString myField1 = ui->field1->toPlainText();
-     QString myField2 = ui->field2->toPlainText();
+     QString myField2 = ui->field2->text();
      QString myField3 = ui->field3->toPlainText();
-     QString myField4 = ui->field4->toPlainText();
+     QString myField4 = ui->field4->currentText();
      QString myField5 = ui->field5->toPlainText();
 
-     Parent->AddToTable(myField1, myField2, myField3, myField4, myField5);
+     if(myField1 != "")
+     {
+         Parent->AddToTable(myField1, myField2, myField3, myField4, myField5);
+     }
+     else Parent->ErrorMessage();
+
 }

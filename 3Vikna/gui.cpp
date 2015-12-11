@@ -47,6 +47,11 @@ void GUI::on_Fostudagur_clicked()
     QDesktopServices::openUrl(QUrl(link));
 }
 
+void GUI::ErrorMessage()
+{
+    ui->statusBar->showMessage("Please fill in all known fields.");
+}
+
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5)
 {
     ui->mainTable->setRowCount(ui->mainTable->rowCount()+1);

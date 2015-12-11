@@ -17,6 +17,7 @@ class GUI : public QMainWindow
 public:
     void AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5);
     explicit GUI(QWidget *parent = 0);
+    void ErrorMessage();
     ~GUI();
 
 private slots:
