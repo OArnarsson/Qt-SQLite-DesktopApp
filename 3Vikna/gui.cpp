@@ -19,7 +19,7 @@ GUI::GUI(QWidget *parent) :
     ui->mainTable->setColumnCount(5);
     ui->mainTable->setTabKeyNavigation(true);
 
-    ui->statusBar->showMessage("This program was tested on animals.", 2000);
+    ui->statusBar->showMessage("Error, no error.", 2000);
 
     ui->mainTable->setSortingEnabled(true);
 }
@@ -51,7 +51,7 @@ void GUI::on_Fostudagur_clicked()
 
 void GUI::ErrorMessage()
 {
-    ui->statusBar->showMessage("Please fill in all known fields.");
+    ui->statusBar->showMessage("Please input a valid name.");
 }
 
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5)
