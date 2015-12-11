@@ -7,7 +7,7 @@
 
 namespace Ui
 {
-class Dialog;
+    class Dialog;
 }
 
 class Dialog : public QDialog

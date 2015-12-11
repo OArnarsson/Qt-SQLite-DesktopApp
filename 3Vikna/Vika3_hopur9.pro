@@ -20,6 +20,7 @@ SOURCES += main.cpp\
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
     addpopup.cpp \
+    sciencepopup.cpp
 
 HEADERS  += gui.h \
     include/computer.h \
@@ -29,9 +30,11 @@ HEADERS  += gui.h \
     include/magicaldataclass.h \
     include/ui.h \
     addpopup.h \
+    sciencepopup.h
 
 FORMS    += gui.ui \
     addpopup.ui \
+    sciencepopup.ui
 
 DISTFILES += \
     include/ComputerScientist.h.gch \
