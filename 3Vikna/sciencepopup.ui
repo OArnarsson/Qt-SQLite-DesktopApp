@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>sciencePopUp</class>
+ <widget class="QDialog" name="sciencePopUp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>191</width>
+    <height>355</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>-170</x>
+     <y>310</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="field1">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="field6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Location</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="field3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>1777</year>
+     <month>12</month>
+     <day>16</day>
+    </datetime>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::YearSection</enum>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy</string>
+   </property>
+   <property name="date">
+    <date>
+     <year>1777</year>
+     <month>12</month>
+     <day>16</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="field2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Male</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QDateEdit" name="field4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2015</year>
+     <month>12</month>
+     <day>16</day>
+    </datetime>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::YearSection</enum>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="field5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="tabChangesFocus">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Location</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>sciencePopUp</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>sciencePopUp</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
