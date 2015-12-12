@@ -29,6 +29,10 @@ class FileData
           void RemoveScientists(string myString, string myLastString);
           vector< vector<string > > JoinTables(ComputerScientist compsci);
           vector< vector<string > > JoinTables(computer comp);
+          QString getId(computer comp);
+          QString getId(ComputerScientist compsci);
+          void update(ComputerScientist compsci, int field, string newValue);
+          void update(computer comp, int field, string newValue);
 };
 
 

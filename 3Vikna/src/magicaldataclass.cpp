@@ -155,7 +155,6 @@ void MagicalDataClass::GetAll(vector<ComputerScientist>& vec)
 /***************/
 void MagicalDataClass::GetAll(vector<computer>& vect)
 {
-    cout << 91<<endl;
     vector< vector<string> > MyQuery;
     MyQuery = (*Database).DataSet(1);
     vect = stringtocomputer(MyQuery);

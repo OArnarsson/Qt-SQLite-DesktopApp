@@ -54,6 +54,7 @@ FileData::FileData(string DataBaseFile)
      valid = open();
      if(valid)
      {
+         cout << "ISTHISLOADINGYET!!!!";
          Load();
      }
 }
@@ -68,6 +69,9 @@ bool FileData::open()
     connection = QSqlDatabase::addDatabase("QSQLITE");
     connection.setDatabaseName(QString::fromStdString(base));
     bool success = connection.open();
+    if(success){
+        cout << "WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+    }
     return success;
 }
 
@@ -312,24 +316,8 @@ vector< vector<string> > FileData::JoinTables(computer comp)
 {
 
     vector< vector<string> > ret;
+    QString compid = getId(comp);
     QSqlQuery query(connection);
-    query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
-    for(int i = 0; i < 3; i++)
-    {
-       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
-    }
-    query.exec();
-
-    cout << query.lastError().text().toStdString() << endl;
-    if(!query.next())
-    {
-        return ret;
-    }
-    QString compid;
-    compid = query.value(0).toString();
-
-    query = QSqlQuery(connection);
-
     query.prepare("SELECT * FROM Owners INNER JOIN Scientists ON Owners.ScientistID = Scientists.ID "
                   "INNER JOIN Computers ON Owners.ComputerID = Computers.ID AND Computers.ID = ?");
     query.bindValue(0,compid);
@@ -456,23 +444,9 @@ vector<vector<string> > FileData::DataSet(int mode = 0)
 
 void FileData::addConnection(ComputerScientist compsci, computer comp)
 {
-    QSqlQuery query(connection);
-    query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
-    for(int i = 0; i < 2; i++)
-    {
-       query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
-    }
-    query.exec();
 
-    cout << query.lastError().text().toStdString() << endl;
-    if(!query.next())
-    {
-        return;
-    }
-    QString sciid;
-    sciid = query.value(0).toString();
-
-    query = QSqlQuery(connection);
+    QString sciid = getId(compsci);
+    QSqlQuery query = QSqlQuery(connection);
 
     query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
     for(int i = 0; i < 3; i++)
@@ -502,14 +476,74 @@ void FileData::addConnection(ComputerScientist compsci, computer comp)
  * takes in a computer or scientist and a modified field
  * changes the database to reflect this new value.
  * ************************************/
-/*
-updateScienist(ComputerScientist compsci, field newValue)
+
+void FileData::update(ComputerScientist compsci, int field, string newValue)
 {
+    QString sciid;
+    sciid = getId(compsci);
     QSqlQuery query(connection);
-    query.prepare("Select * from Scientists where FirstName LIKE ? AND LastName LIKE ?");
+    cout << "ID : " << sciid.toStdString()<<endl;
+    QString column[8] = {"FirstName","MiddleName","LastName","Gender","YearOfBirth","YearOfDeath","Nationality","Fields"};
+
+    query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
+
+    query.bindValue(0,QString::fromStdString(newValue));
+    query.bindValue(1,sciid);
+    query.exec();
 }
 
-UPDATE table_name
-SET column1=value1,column2=value2,...
-WHERE some_column=some_value;
-*/
+void FileData::update(computer comp, int field, string newValue)
+{
+    QString compid;
+    compid = getId(comp);
+    QSqlQuery query(connection);
+    cout << "ID : " << compid.toStdString()<<endl;
+    QString column[5] = {"Name","Year","Type","Built","Location"};
+
+    query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
+
+    query.bindValue(0,QString::fromStdString(newValue));
+    query.bindValue(1,compid);
+    query.exec();
+}
+
+QString FileData::getId(ComputerScientist compsci)
+{
+    QSqlQuery query(connection);
+    query.prepare("Select ID from Scientists WHERE FirstName LIKE ? AND LastName LIKE ?");
+    for(int i = 0; i < 2; i++)
+    {
+       query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
+    }
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next())
+    {
+        return "-1";
+    }
+    QString sciid;
+    sciid = query.value(0).toString();
+    return sciid;
+}
+
+
+QString FileData::getId(computer comp)
+{
+    QSqlQuery query(connection);
+    query.prepare("Select ID from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
+    for(int i = 0; i < 3; i++)
+    {
+       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
+    }
+    query.exec();
+
+    cout << query.lastError().text().toStdString() << endl;
+    if(!query.next())
+    {
+        return "-1";
+    }
+    QString compid;
+    compid = query.value(0).toString();
+    return compid;
+}
