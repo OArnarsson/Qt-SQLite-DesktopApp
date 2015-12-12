@@ -28,9 +28,15 @@ private slots:
 
     void on_Fostudagur_clicked();
 
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_searchbar_returnPressed();
+
 private:
     Ui::GUI *ui;
     MagicalDataClass* MyDataLayer;
+    void searchCompSci();
+    void searchComputer();
 };
 
 #endif // GUI_H

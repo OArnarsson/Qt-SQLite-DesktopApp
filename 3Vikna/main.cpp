@@ -1,4 +1,6 @@
 #include "gui.h"
+#include "include/FileData.h"
+#include "include/ComputerScientist.h"
 #include <QApplication>
 
 

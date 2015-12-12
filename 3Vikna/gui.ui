@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
-    <height>432</height>
+    <width>769</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -295,13 +295,26 @@
      </size>
     </property>
    </widget>
+   <widget class="QLineEdit" name="searchbar">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>270</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Quick Search</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>768</width>
+     <width>769</width>
      <height>21</height>
     </rect>
    </property>
