@@ -1,14 +1,15 @@
-#include "sciencepopup.h"
+#include "../include/sciencepopup.h"
 #include "ui_sciencepopup.h"
 #include <QTableWidget>
-#include "gui.h"
+#include "../include/gui.h"
 #include "ui_gui.h"
 
-sciencePopUp::sciencePopUp(QWidget *parent) :
+sciencePopUp::sciencePopUp(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
     ui(new Ui::sciencePopUp)
 {
     ui->setupUi(this);
+    Parent = daddyCool;
 
     //Sets the order of things that are selected when 'tab' is pressed.
     setTabOrder(ui->field1, ui->field2);
@@ -26,4 +27,22 @@ sciencePopUp::sciencePopUp(QWidget *parent) :
 sciencePopUp::~sciencePopUp()
 {
     delete ui;
+}
+
+//When the "OK" button is pressed.
+void sciencePopUp::on_buttonBox_accepted()
+{
+    //Reads the string in each field.
+     QString myField1 = ui->field1->toPlainText();
+     QString myField2 = ui->field2->currentText();
+     QString myField3 = ui->field3->text();
+     QString myField4 = ui->field4->text();
+     QString myField5 = ui->field5->toPlainText();
+     QString myField6 = ui->field6->toPlainText();
+
+     if(myField1 != "")
+     {
+         Parent->AddToTable(myField1, myField2, myField3, myField4, myField5, myField6);
+     }
+     else Parent->ErrorMessage();
 }

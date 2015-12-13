@@ -14,8 +14,12 @@ class sciencePopUp : public QDialog
     Q_OBJECT
 
 public:
-    explicit sciencePopUp(QWidget *parent = 0);
+    explicit sciencePopUp(QWidget *parent = 0, GUI* daddyCool = NULL);
     ~sciencePopUp();
+
+private slots:
+
+    void on_buttonBox_accepted();
 
 private:
     Ui::sciencePopUp *ui;
