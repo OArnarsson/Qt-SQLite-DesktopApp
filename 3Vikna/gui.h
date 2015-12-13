@@ -37,6 +37,8 @@ private:
     MagicalDataClass* MyDataLayer;
     void searchCompSci();
     void searchComputer();
+    ComputerScientist getRowScientist(int rown);
+    computer getRowComputer(int rown);
 };
 
 #endif // GUI_H
