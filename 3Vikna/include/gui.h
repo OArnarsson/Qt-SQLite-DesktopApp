@@ -16,6 +16,8 @@ class GUI : public QMainWindow
 
 public:
     void AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5);
+    void AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6);
+    vector<string> explode(const string s, char delim);
     explicit GUI(QWidget *parent = 0);
     void ErrorMessage();
     ~GUI();
