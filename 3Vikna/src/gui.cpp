@@ -1,4 +1,4 @@
-#include "gui.h"
+#include "../include/gui.h"
 #include "ui_gui.h"
 #include <iostream>
 #include <QMessageBox>
@@ -7,7 +7,7 @@
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
-#include "addpopup.h"
+#include "../include/addpopup.h"
 
 
 /************************************************
@@ -84,7 +84,7 @@ void GUI::on_Add_clicked()
  * ***********************************************/
 void GUI::on_Remove_clicked()
 {
-     (*MyDataLayer).remove(ComputerScientist());
+    std::cout << ui->mainTable->currentRow();
 }
 
 /************************************************
@@ -112,18 +112,12 @@ void GUI::ErrorMessage()
  * ***********************************************/
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5)
 {
-   /* vector<string> data;
-    data.push_back(field1);
-    data.push_back(field1);
-    data.push_back(field1);
-    data.push_back(field1);*/
     ui->mainTable->setRowCount(ui->mainTable->rowCount()+1);
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(field1));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(field2));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(field3));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field4));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,4, new QTableWidgetItem(field5));
-    //MyDataLayer->Add();
 }
 
 /************************************************

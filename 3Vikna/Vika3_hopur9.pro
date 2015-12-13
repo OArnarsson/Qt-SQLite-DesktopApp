@@ -14,27 +14,27 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        gui.cpp \
+        src/gui.cpp \
     src/computer.cpp \
     src/ComputerScientist.cpp \
     src/FileDataBase.cpp \
     src/magicaldataclass.cpp \
-    addpopup.cpp \
-    sciencepopup.cpp
+    src/addpopup.cpp \
+    src/sciencepopup.cpp
 
-HEADERS  += gui.h \
+HEADERS  += include/gui.h \
     include/computer.h \
     include/ComputerScientist.h \
     include/FileData.h \
     include/magic.h \
     include/magicaldataclass.h \
     include/ui.h \
-    addpopup.h \
-    sciencepopup.h
+    include/addpopup.h \
+    include/sciencepopup.h
 
-FORMS    += gui.ui \
-    addpopup.ui \
-    sciencepopup.ui
+FORMS    += include/gui.ui \
+    include/addpopup.ui \
+    include/sciencepopup.ui
 
 DISTFILES += \
     include/ComputerScientist.h.gch \

@@ -1,7 +1,7 @@
-#include "sciencepopup.h"
+#include "../include/sciencepopup.h"
 #include "ui_sciencepopup.h"
 #include <QTableWidget>
-#include "gui.h"
+#include "../include/gui.h"
 #include "ui_gui.h"
 
 sciencePopUp::sciencePopUp(QWidget *parent) :

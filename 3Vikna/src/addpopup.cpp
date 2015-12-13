@@ -1,9 +1,9 @@
-#include "addpopup.h"
+#include "../include/addpopup.h"
 #include "ui_addpopup.h"
 #include "include/computer.h"
 #include <iostream>
 #include <QTableWidget>
-#include "gui.h"
+#include "../include/gui.h"
 #include "ui_gui.h"
 
 Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
