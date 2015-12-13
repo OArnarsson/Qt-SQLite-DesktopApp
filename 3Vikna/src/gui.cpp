@@ -5,10 +5,12 @@
 #include <QDesktopServices>
 #include <set>
 #include <sstream>
+#include <vector>
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
 #include "../include/addpopup.h"
+#include "../include/sciencepopup.h"
 using namespace std;
 
 /************************************************
@@ -16,7 +18,7 @@ using namespace std;
  *Creates a string arrray by breaking apart a string
  * Strings are seperated by a delimiter
  * ***********************************************/
-vector<string> explode(const string s, char delim)
+vector<string> GUI::explode(const string s, char delim)
 {
      vector<string> ret;
      stringstream stream(s);
@@ -55,8 +57,6 @@ GUI::GUI(QWidget *parent) :
         }
     }
 
-    ui->statusBar->showMessage("Error, no error.", 2000);
-
     ui->mainTable->setSortingEnabled(true);
 }
 
@@ -74,9 +74,22 @@ GUI::~GUI()
  * ***********************************************/
 void GUI::on_Add_clicked()
 {
-    Dialog addPopUp(0, this);
-    addPopUp.setModal(true);
-    addPopUp.exec();
+        if(ui->comboBox->currentIndex() == 0)
+        {
+            ui->statusBar->showMessage("Index is 0", 2000);
+            sciencePopUp sciPop(0, this);
+            sciPop.setModal(true);
+            sciPop.exec();
+
+        }
+
+        if(ui->comboBox->currentIndex() == 1)
+        {
+            ui->statusBar->showMessage("Index is 1", 2000);
+            Dialog addPopUp(0, this);
+            addPopUp.setModal(true);
+            addPopUp.exec();
+        }
 }
 
 /************************************************
@@ -138,6 +151,39 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(field3));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field4));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,4, new QTableWidgetItem(field5));
+}
+
+void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
+{
+    ui->mainTable->setRowCount(ui->mainTable->rowCount()+1);
+
+    string utf8_nameString = field1.toUtf8().constData();
+    vector <string> fullNameString = explode(utf8_nameString, ' ');
+    vector <QString> fullName;
+
+    for(int i = 0; i < fullNameString.size(); i++)
+    {
+        fullName.push_back(QString::fromStdString(fullNameString[i]));
+    }
+
+    if(fullName.size() == 3)
+    {
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(fullName[1]));
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[2]));
+    }
+
+    else if(fullName.size() == 2)
+    {
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[1]));
+    }
+
+    ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field2));
+    ui->mainTable->setItem(ui->mainTable->rowCount()-1,4, new QTableWidgetItem(field3));
+    ui->mainTable->setItem(ui->mainTable->rowCount()-1,5, new QTableWidgetItem(field4));
+    ui->mainTable->setItem(ui->mainTable->rowCount()-1,6, new QTableWidgetItem(field5));
+    ui->mainTable->setItem(ui->mainTable->rowCount()-1,7, new QTableWidgetItem(field6));
 }
 
 /************************************************
