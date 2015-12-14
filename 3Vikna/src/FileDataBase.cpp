@@ -483,6 +483,7 @@ void FileData::update(ComputerScientist compsci, int field, string newValue)
     sciid = getId(compsci);
     QSqlQuery query(connection);
     cout << "ID : " << sciid.toStdString()<<endl;
+    if(sciid == "-1") return;
     QString column[9] = {"FirstName","MiddleName","LastName","Gender","YearOfBirth","YearOfDeath","Nationality","Fields","Favorite"};
 
     query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
@@ -490,6 +491,7 @@ void FileData::update(ComputerScientist compsci, int field, string newValue)
     query.bindValue(0,QString::fromStdString(newValue));
     query.bindValue(1,sciid);
     query.exec();
+    cout << query.lastError().text().toStdString();
 }
 
 void FileData::update(computer comp, int field, string newValue)
@@ -498,6 +500,7 @@ void FileData::update(computer comp, int field, string newValue)
     compid = getId(comp);
     QSqlQuery query(connection);
     cout << "ID : " << compid.toStdString()<<endl;
+    if(compid == "-1") return;
     QString column[6] = {"Name","Year","Type","Built","Location","Favorite"};
 
     query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
@@ -505,6 +508,7 @@ void FileData::update(computer comp, int field, string newValue)
     query.bindValue(0,QString::fromStdString(newValue));
     query.bindValue(1,compid);
     query.exec();
+    cout << query.lastError().text().toStdString();
 }
 
 QString FileData::getId(ComputerScientist compsci)
@@ -514,7 +518,9 @@ QString FileData::getId(ComputerScientist compsci)
     for(int i = 0; i < 2; i++)
     {
        query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
+       cout << "."<< compsci.field(1 + 2*i) << "." << endl;
     }
+    cout << "end"<<endl;
     query.exec();
 
     cout << query.lastError().text().toStdString() << endl;
@@ -535,6 +541,7 @@ QString FileData::getId(computer comp)
     for(int i = 0; i < 3; i++)
     {
        query.bindValue(i,QString::fromStdString(comp.field(i+1)));
+              cout << "."<< comp.field(1 + 2*i) << "." << endl;
     }
     query.exec();
 

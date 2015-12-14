@@ -347,3 +347,18 @@ vector<computer> MagicalDataClass::getConnections(ComputerScientist compsci)
    results = Sort(results,compSortingOption);
    return results;
 }
+
+
+/***************************************
+ * setfavorite()
+ * sets the favorite marker
+ * *************************************/
+
+void MagicalDataClass::setFavorite(ComputerScientist compsci, bool marker)
+{
+    Database->update(compsci,9,(marker) ? "true":"false");
+}
+void MagicalDataClass::setFavorite(computer comp, bool marker)
+{
+    Database->update(comp,9,(marker) ? "true":"false");
+}
