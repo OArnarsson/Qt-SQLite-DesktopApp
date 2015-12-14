@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>191</width>
-    <height>341</height>
+    <width>192</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>-170</x>
-     <y>300</y>
+     <y>360</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -51,11 +51,11 @@
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="field6">
+  <widget class="QPlainTextEdit" name="field5">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>260</y>
+     <y>270</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -77,7 +77,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
+     <y>140</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -130,7 +130,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>160</y>
+     <y>220</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -152,11 +152,11 @@
     <string>yyyy</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="field5">
+  <widget class="QPlainTextEdit" name="field6">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
+     <y>320</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -171,7 +171,33 @@
     <bool>true</bool>
    </property>
    <property name="placeholderText">
-    <string>Location</string>
+    <string>Field</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Year of death, if applicable</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Year of birth</string>
    </property>
   </widget>
  </widget>
