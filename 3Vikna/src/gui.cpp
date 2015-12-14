@@ -225,6 +225,10 @@ void GUI::on_comboBox_currentIndexChanged(int index)
                     entry = QString::fromStdString(Data[i].field(j+1));
                     ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
                 }
+                if(Data[i].getFavorite())
+                {
+                    setRowColor(i);
+                }
             }
             break;
         }
@@ -427,7 +431,7 @@ void GUI::on_Favorite_clicked()
     for(set<int>::reverse_iterator I = distinctRows.rbegin(); I != distinctRows.rend();++I)
     {
         int i = (*I);
-        if(ui->comboBox->currentIndex() == 0)
+        if(ui->comboBox->currentIndex() % 2 == 0)
         {
             MyDataLayer->setFavorite(getRowScientist(i),setRowColor(i));
         }

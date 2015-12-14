@@ -27,6 +27,7 @@ ComputerScientist::ComputerScientist()
     gender = "None";
     bornYear = DEFAULT_YEAR;
     diedYear = DEFAULT_YEAR;
+    favorite = false;
 }
 
 //****************************************************************
@@ -42,6 +43,7 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     fields = field;
     bornYear = born;
     diedYear = died;
+    favorite = false;
 }
 
 //****************************************************************
@@ -55,6 +57,7 @@ ComputerScientist::ComputerScientist(string first, string middle, string last, s
     gender = gen;
     bornYear = born;
     diedYear = died;
+    favorite = false;
 }
 
 //****************************************************************
@@ -68,6 +71,7 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, stri
     gender = gen;
     bornYear = born;
     diedYear = died;
+    favorite = false;
 }
 
 //****************************************************************
@@ -81,6 +85,7 @@ ComputerScientist::ComputerScientist(string first, string last, string gen, stri
     gender = gen;
     bornYear = born;
     diedYear = "0";
+    favorite = false;
 }
 
 //****************************************************************
@@ -229,3 +234,12 @@ string ComputerScientist::field(const int whatField)
     else return "Error";
 }
 
+void ComputerScientist::setFavorite(bool newvalue)
+{
+    favorite = newvalue;
+}
+
+bool ComputerScientist::getFavorite()
+{
+    return favorite;
+}

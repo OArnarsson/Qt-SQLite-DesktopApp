@@ -6,6 +6,7 @@
 
 QT += core gui
 QT += sql
+QT += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -41,5 +42,6 @@ DISTFILES += \
     include/FileData.h.gch \
 
 RESOURCES = icons.qrc \
+    audio.qrc
 
 RC_FILE = thaIcon.rc \

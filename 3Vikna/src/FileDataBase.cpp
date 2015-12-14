@@ -163,7 +163,7 @@ bool FileData::Add(computer mycomp)
  * ***********************************************/
 vector< vector<string> > FileData::SearchComputers(string myString)
 {
-    int numberofcolumns = 6;
+    int numberOfColumns = 7;
     vector< vector<string> > result;
 
     QSqlQuery query(connection);
@@ -171,7 +171,7 @@ vector< vector<string> > FileData::SearchComputers(string myString)
                   "OR Type LIKE  ? OR Built LIKE  ? OR Location LIKE  ?");
 
     myString = '%' + myString + '%';
-    for(int i = 0; i < numberofcolumns-1; i++)
+    for(int i = 0; i < numberOfColumns-1; i++)
     {
         query.bindValue(i, QString::fromStdString(myString));
     }
@@ -181,7 +181,7 @@ vector< vector<string> > FileData::SearchComputers(string myString)
     while(query.next())
     {
         vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++)
+        for(int i = 0; i < numberOfColumns; i++)
         {
             row.push_back(query.value(i).toString().toStdString());
         }
@@ -195,7 +195,7 @@ vector< vector<string> > FileData::SearchComputers(string myString)
  * ***********************************************/
 vector< vector<string> > FileData::SearchScientists(string myString)
 {
-    int numberofcolumns = 9;
+    int numberOfColumns = 10;
     vector< vector<string> > result;
     QSqlQuery query(connection);
     query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE (?) OR MiddleName LIKE  (?) "
@@ -203,7 +203,7 @@ vector< vector<string> > FileData::SearchScientists(string myString)
                   "OR YearOfDeath LIKE  (?) OR Nationality LIKE  (?) OR Field LIKE (?)");
 
     myString = '%' + myString + '%';
-    for(int i = 0; i < numberofcolumns-1; i++)
+    for(int i = 0; i < numberOfColumns-1; i++)
     {
         query.bindValue(i,QString::fromStdString(myString));
     }
@@ -214,7 +214,7 @@ vector< vector<string> > FileData::SearchScientists(string myString)
     while(query.next())
     {
     vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++)
+        for(int i = 0; i < numberOfColumns; i++)
         {
             row.push_back(query.value(i).toString().toStdString());
         }
@@ -295,11 +295,11 @@ vector< vector<string> > FileData::JoinTables(ComputerScientist compsci)
                   "INNER JOIN Computers ON Owners.ComputerID = Computers.ID AND Scientists.ID = ?");
     query.bindValue(0,sciid);
     query.exec();
-    int numberofcolumns = 17;
+    int numberOfColumns = 17;
     while(query.next())
     {
     vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++)
+        for(int i = 0; i < numberOfColumns; i++)
         {
             row.push_back(query.value(i).toString().toStdString());
         }
@@ -322,11 +322,11 @@ vector< vector<string> > FileData::JoinTables(computer comp)
                   "INNER JOIN Computers ON Owners.ComputerID = Computers.ID AND Computers.ID = ?");
     query.bindValue(0,compid);
     query.exec();
-    int numberofcolumns = 17;
+    int numberOfColumns = 17;
     while(query.next())
     {
     vector<string> row;
-        for(int i = 0; i < numberofcolumns; i++)
+        for(int i = 0; i < numberOfColumns; i++)
         {
             row.push_back(query.value(i).toString().toStdString());
         }
@@ -411,14 +411,14 @@ vector<vector<string> > FileData::DataSet(int mode = 0)
     {
         case 0:
         {
-            numberOfColumns = 9;
+            numberOfColumns = 10;
             query.prepare("Select * from Scientists");
             query.exec();
             break;
         }
         case 1:
         {
-            numberOfColumns = 6;
+            numberOfColumns = 7;
             query.prepare("Select * from Computers");
             query.exec();
             break;
@@ -580,14 +580,14 @@ vector< vector<string> > FileData::favorite(int mode)
     {
         case 0:
         {
-            numberOfColumns = 9;
+            numberOfColumns = 10;
             query.prepare("Select * from Scientists WHERE Favorite = 'true'");
             query.exec();
             break;
         }
         case 1:
         {
-            numberOfColumns = 6;
+            numberOfColumns = 7;
             query.prepare("Select * from Computers WHERE Favorite = 'true'");
             query.exec();
             break;
