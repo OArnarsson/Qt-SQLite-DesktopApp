@@ -32,6 +32,8 @@ private slots:
 
     void on_searchbar_returnPressed();
 
+    void on_Favorite_clicked();
+
 private:
     Ui::GUI *ui;
     MagicalDataClass* MyDataLayer;
@@ -39,6 +41,7 @@ private:
     void searchComputer();
     ComputerScientist getRowScientist(int rown);
     computer getRowComputer(int rown);
+    void setRowColor(int row);
 };
 
 #endif // GUI_H

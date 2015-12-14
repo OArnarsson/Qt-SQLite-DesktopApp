@@ -32,6 +32,8 @@ class MagicalDataClass
     void Add(vector<string> entry);
     void SetSort(int option,int mode);
     void AddConnection(ComputerScientist compsci,computer comp);
+    void setfavorite(ComputerScientist compsci, bool marker);
+    void setfavorite(computer comp, bool marker);
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
     vector<computer> getConnections(ComputerScientist compsci);

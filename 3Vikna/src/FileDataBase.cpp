@@ -483,7 +483,7 @@ void FileData::update(ComputerScientist compsci, int field, string newValue)
     sciid = getId(compsci);
     QSqlQuery query(connection);
     cout << "ID : " << sciid.toStdString()<<endl;
-    QString column[8] = {"FirstName","MiddleName","LastName","Gender","YearOfBirth","YearOfDeath","Nationality","Fields"};
+    QString column[9] = {"FirstName","MiddleName","LastName","Gender","YearOfBirth","YearOfDeath","Nationality","Fields","Favorite"};
 
     query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
 
@@ -498,7 +498,7 @@ void FileData::update(computer comp, int field, string newValue)
     compid = getId(comp);
     QSqlQuery query(connection);
     cout << "ID : " << compid.toStdString()<<endl;
-    QString column[5] = {"Name","Year","Type","Built","Location"};
+    QString column[6] = {"Name","Year","Type","Built","Location","Favorite"};
 
     query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
 
