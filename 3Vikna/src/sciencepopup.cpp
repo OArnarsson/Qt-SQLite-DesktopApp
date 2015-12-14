@@ -3,7 +3,7 @@
 #include <QTableWidget>
 #include "../include/gui.h"
 #include "ui_gui.h"
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 sciencePopUp::sciencePopUp(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
@@ -24,9 +24,9 @@ sciencePopUp::sciencePopUp(QWidget *parent, GUI* daddyCool) :
     ui->field3->setMinimumDate(QDate(101, 1, 1));
     ui->field4->setMinimumDate(QDate(102, 1, 1));
 
-    QMediaPlayer * music = new QMediaPlayer();
+    /*QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/audio/ping.wav"));
-    music->play();
+    music->play();*/
 }
 
 sciencePopUp::~sciencePopUp()

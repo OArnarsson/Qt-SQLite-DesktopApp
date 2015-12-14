@@ -24,6 +24,8 @@ class ComputerScientist
                 return firstName + " "+ middleName +  " " + lastName < other.OrderedName();
             }
         string field(const int whatField);
+        void setFavorite(bool newvalue);
+        bool getFavorite();
 
     protected:
     private:
@@ -35,6 +37,7 @@ class ComputerScientist
         string fields;
         string bornYear;
         string diedYear;
+        bool favorite;
 
 };
 

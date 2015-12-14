@@ -217,12 +217,13 @@ vector<ComputerScientist> MagicalDataClass::stringtoscientist(vector<vector<stri
     vector<ComputerScientist> vec;
     for(unsigned int i = 0; i < MyQuery.size(); i++)
     {
-        string info[9];
+        string info[10];
         for(unsigned int j = 0; j < MyQuery[i].size();j++)
         {
             info[j] = MyQuery[i][j];
         }
         ComputerScientist compsci(info[1],info[2],info[3],info[4],info[5],info[6],info[7],info[8]);
+        compsci.setFavorite(info[9] == "true");
         vec.push_back(compsci);
     }
     return vec;
@@ -237,7 +238,7 @@ vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec
     vector<computer> ret;
     for(unsigned int i = 0; i < vec.size(); i++)
     {
-        string info[6];
+        string info[7];
         for(unsigned int j = 0; j < vec[i].size();j++)
         {
             info[j] = vec[i][j];
@@ -360,7 +361,7 @@ void MagicalDataClass::setFavorite(ComputerScientist compsci, bool marker)
 }
 void MagicalDataClass::setFavorite(computer comp, bool marker)
 {
-    Database->update(comp,9,(marker) ? "true":"false");
+    Database->update(comp,6,(marker) ? "true":"false");
 }
 
 /************************************************
