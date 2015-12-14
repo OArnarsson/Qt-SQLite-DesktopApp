@@ -65,6 +65,11 @@ GUI::GUI(QWidget *parent) :
     }
 
     ui->mainTable->setSortingEnabled(true);
+
+    //Database stats coming soon!
+    //
+    //
+    //
 }
 
 void GUI::showTime()
