@@ -14,6 +14,7 @@ computer::computer(string Name, string Year, string Type, string Built, string L
     type = Type;
     built = Built;
     nationality = Location;
+    favorite = false;
 }
 
 //****************************************************************
@@ -57,3 +58,4 @@ ostream& operator <<(ostream& outs, const computer mycomp)
     outs << "Nationality: " << mycomp.nationality << endl;
     return outs;
 }
+

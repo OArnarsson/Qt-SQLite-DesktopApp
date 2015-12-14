@@ -14,11 +14,14 @@ class computer
     string type;
     string built;
     string nationality;
+    bool favorite;
 
     public:
     computer(string Name = "", string Year = "", string Type = "", string Built = "true", string Location = "");
     string field(int whatField) const;
     string OrderedName() const;
+    void setFavorite(bool newvalue);
+    bool getFavorite();
     bool operator < (computer other) const
     {
             return OrderedName() < other.OrderedName();

@@ -163,7 +163,7 @@ bool FileData::Add(computer mycomp)
  * ***********************************************/
 vector< vector<string> > FileData::SearchComputers(string myString)
 {
-    int numberOfColumns = 7;
+    int numberOfColumns = 6;
     vector< vector<string> > result;
 
     QSqlQuery query(connection);
@@ -195,7 +195,7 @@ vector< vector<string> > FileData::SearchComputers(string myString)
  * ***********************************************/
 vector< vector<string> > FileData::SearchScientists(string myString)
 {
-    int numberOfColumns = 10;
+    int numberOfColumns = 9;
     vector< vector<string> > result;
     QSqlQuery query(connection);
     query.prepare("SELECT * FROM Scientists WHERE FirstName LIKE (?) OR MiddleName LIKE  (?) "
@@ -503,7 +503,7 @@ void FileData::update(computer comp, int field, string newValue)
     if(compid == "-1") return;
     QString column[6] = {"Name","Year","Type","Built","Location","Favorite"};
 
-    query.prepare("UPDATE Scientists SET " + column[field-1] + " = ? WHERE ID = ?");
+    query.prepare("UPDATE Computers SET " + column[field-1] + " = ? WHERE ID = ?");
 
     query.bindValue(0,QString::fromStdString(newValue));
     query.bindValue(1,compid);
