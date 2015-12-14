@@ -362,3 +362,22 @@ void MagicalDataClass::setFavorite(computer comp, bool marker)
 {
     Database->update(comp,9,(marker) ? "true":"false");
 }
+
+/************************************************
+ *
+ * **********************************************/
+void MagicalDataClass::GetFavorite(vector<ComputerScientist>& vec)
+{
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).favorite(0);
+    vec = stringtoscientist(MyQuery);
+    vec = Sort(vec,compSortingOption);
+}
+
+void MagicalDataClass::GetFavorite(vector<computer>& vec)
+{
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).favorite(1);
+    vec = stringtocomputer(MyQuery);
+    vec = Sort(vec,compSortingOption);
+}

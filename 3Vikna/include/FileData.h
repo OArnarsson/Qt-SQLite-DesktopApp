@@ -21,6 +21,7 @@ class FileData
           bool Add(computer scientist);
           bool Load(string filename = "");
           vector< vector<string> > DataSet(int mode);
+          vector< vector<string> > favorite(int mode);
           vector<string> explode(const string s, char delim);
           vector< vector<string> > SearchComputers(string myString);
           vector< vector<string> > SearchScientists(string myString);
@@ -33,6 +34,7 @@ class FileData
           QString getId(ComputerScientist compsci);
           void update(ComputerScientist compsci, int field, string newValue);
           void update(computer comp, int field, string newValue);
+
 };
 
 
