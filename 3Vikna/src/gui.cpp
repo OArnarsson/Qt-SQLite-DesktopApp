@@ -361,21 +361,25 @@ computer GUI::getRowComputer(int rown)
  * SetRowColor
  * ***********************************************/
 
-void GUI::setRowColor(int row)
+bool GUI::setRowColor(int row)
 {
     int colcount = ui->mainTable->columnCount();
+    bool ret = false;
     for(int i = 0; i < colcount; i++)
     {
         QTableWidgetItem* currenTable = ui->mainTable->item(row,i);
         if(currenTable->backgroundColor() != QColor(255,200,200,255))
         {
             currenTable->setBackgroundColor(QColor(255,200,200,255));
+            ret = true;
         }
         else
         {
             currenTable->setBackgroundColor(QColor(255,255,255,255));
+            ret = false;
         }
     }
+    return ret;
 }
 
 void GUI::on_Favorite_clicked()
@@ -389,6 +393,13 @@ void GUI::on_Favorite_clicked()
     for(set<int>::reverse_iterator I = distinctRows.rbegin(); I != distinctRows.rend();++I)
     {
         int i = (*I);
-        setRowColor(i);
+        if(ui->comboBox->currentIndex() == 0)
+        {
+            MyDataLayer->setFavorite(getRowScientist(i),setRowColor(i));
+        }
+        else
+        {
+            MyDataLayer->setFavorite(getRowComputer(i),setRowColor(i));
+        }
     }
 }

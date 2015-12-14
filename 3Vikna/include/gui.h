@@ -43,7 +43,7 @@ private:
     void searchComputer();
     ComputerScientist getRowScientist(int rown);
     computer getRowComputer(int rown);
-    void setRowColor(int row);
+    bool setRowColor(int row);
 };
 
 #endif // GUI_H
