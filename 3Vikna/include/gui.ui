@@ -51,7 +51,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
+     <iconset resource="../icons.qrc">
       <normaloff>:/new/Icons/Icons/Add.svg</normaloff>:/new/Icons/Icons/Add.svg</iconset>
     </property>
     <property name="iconSize">
@@ -88,7 +88,7 @@
       <string>Scientists</string>
      </property>
      <property name="icon">
-      <iconset resource="icons.qrc">
+      <iconset resource="../icons.qrc">
        <normaloff>:/new/Icons/Icons/Scientists.svg</normaloff>:/new/Icons/Icons/Scientists.svg</iconset>
      </property>
     </item>
@@ -97,7 +97,7 @@
       <string>Computers</string>
      </property>
      <property name="icon">
-      <iconset resource="icons.qrc">
+      <iconset resource="../icons.qrc">
        <normaloff>:/new/Icons/Icons/Computers.svg</normaloff>:/new/Icons/Icons/Computers.svg</iconset>
      </property>
     </item>
@@ -106,7 +106,7 @@
       <string>Favorite Scientists</string>
      </property>
      <property name="icon">
-      <iconset resource="icons.qrc">
+      <iconset resource="../icons.qrc">
        <normaloff>:/new/Icons/Icons/Favorite.svg</normaloff>:/new/Icons/Icons/Favorite.svg</iconset>
      </property>
     </item>
@@ -115,7 +115,7 @@
       <string>Favorite Computer</string>
      </property>
      <property name="icon">
-      <iconset resource="icons.qrc">
+      <iconset resource="../icons.qrc">
        <normaloff>:/new/Icons/Icons/Favorite.svg</normaloff>:/new/Icons/Icons/Favorite.svg</iconset>
      </property>
     </item>
@@ -145,7 +145,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
+     <iconset resource="../icons.qrc">
       <normaloff>:/new/Icons/Icons/remove.svg</normaloff>:/new/Icons/Icons/remove.svg</iconset>
     </property>
     <property name="iconSize">
@@ -180,7 +180,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
+     <iconset resource="../icons.qrc">
       <normaloff>:/new/Icons/Icons/Edit.svg</normaloff>:/new/Icons/Icons/Edit.svg</iconset>
     </property>
     <property name="iconSize">
@@ -190,7 +190,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="Search">
+   <widget class="QPushButton" name="Connections">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -206,7 +206,7 @@
      <bool>true</bool>
     </property>
     <property name="toolTip">
-     <string>Search entries</string>
+     <string>Get connections</string>
     </property>
     <property name="toolTipDuration">
      <number>999999999</number>
@@ -215,8 +215,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
-      <normaloff>:/new/Icons/Icons/Search.svg</normaloff>:/new/Icons/Icons/Search.svg</iconset>
+     <iconset resource="../icons.qrc">
+      <normaloff>:/new/Icons/Icons/connect.png</normaloff>:/new/Icons/Icons/connect.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -250,7 +250,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
+     <iconset resource="../icons.qrc">
       <normaloff>:/new/Icons/Icons/fostudagur.svg</normaloff>:/new/Icons/Icons/fostudagur.svg</iconset>
     </property>
     <property name="iconSize">
@@ -285,7 +285,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="icons.qrc">
+     <iconset resource="../icons.qrc">
       <normaloff>:/new/Icons/Icons/Favorite.svg</normaloff>:/new/Icons/Icons/Favorite.svg</iconset>
     </property>
     <property name="iconSize">
@@ -331,7 +331,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="../icons.qrc"/>
  </resources>
  <connections/>
 </ui>

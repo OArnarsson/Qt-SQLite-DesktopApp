@@ -8,5 +8,6 @@
         <file>Icons/remove.svg</file>
         <file>Icons/Scientists.svg</file>
         <file>Icons/Search.svg</file>
+	<file>Icons/connect.png</file>
     </qresource>
 </RCC>
