@@ -232,6 +232,25 @@ void GUI::on_comboBox_currentIndexChanged(int index)
             }
             break;
         }
+        case 2:
+        {
+            vector<ComputerScientist> Data;
+            MyDataLayer->GetFavorite(Data);
+
+            ui->mainTable->setRowCount(Data.size());
+            ui->mainTable->setColumnCount(8);
+
+            for(unsigned int i = 0; i < Data.size(); i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    QString entry;
+                    entry = QString::fromStdString(Data[i].field(j+1));
+                    ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
+                }
+            }
+           break;
+        }
     }
 }
 

@@ -554,3 +554,53 @@ QString FileData::getId(computer comp)
     compid = query.value(0).toString();
     return compid;
 }
+
+/***********************************************
+ * favorite<>()
+ * Returns all the things marked favorite
+ * **********************************************/
+vector< vector<string> > FileData::favorite(int mode)
+{
+    vector<vector<string> > result;
+    int numberOfColumns = 0;
+    //Test if there is a valid connection
+    if(!valid)
+    {
+        if(open())
+        {
+            return DataSet(mode);
+        }
+        else
+        {
+            return result;
+        }
+    }
+    QSqlQuery query(connection);
+    switch(mode)
+    {
+        case 0:
+        {
+            numberOfColumns = 9;
+            query.prepare("Select * from Scientists WHERE Favorite = 'true'");
+            query.exec();
+            break;
+        }
+        case 1:
+        {
+            numberOfColumns = 6;
+            query.prepare("Select * from Computers WHERE Favorite = 'true'");
+            query.exec();
+            break;
+        }
+    }
+    while(query.next())
+    {
+        vector<string> row;
+        for(int i = 0; i < numberOfColumns; i++)
+        {
+            row.push_back(query.value(i).toString().toStdString());
+        }
+        result.push_back(row);
+    }
+    return result;
+}
