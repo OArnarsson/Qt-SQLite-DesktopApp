@@ -45,8 +45,14 @@ void sciencePopUp::on_buttonBox_accepted()
      QString myField5 = ui->field5->toPlainText();
      QString myField6 = ui->field6->toPlainText();
 
-     if(myField1 != "" && myField3<myField4)
+     if(myField4 == "2015")
      {
+         myField4 = "";
+     }
+
+     if(myField1 != "")
+     {
+         if(myField4 == "" || myField4>myField3)
          Parent->AddToTable(myField1, myField2, myField3, myField4, myField5, myField6);
      }
      else Parent->ErrorMessage();
