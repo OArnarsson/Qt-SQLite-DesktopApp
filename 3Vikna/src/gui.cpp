@@ -176,7 +176,7 @@ void GUI::on_Fostudagur_clicked()
  * ***********************************************/
 void GUI::ErrorMessage()
 {
-    ui->statusBar->showMessage("Please input a valid name.");
+    ui->statusBar->showMessage("Could not add to database! Please input a valid name, year of birth and year death.");
 }
 
 /************************************************
