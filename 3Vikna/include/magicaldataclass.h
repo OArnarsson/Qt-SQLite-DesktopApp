@@ -34,8 +34,8 @@ class MagicalDataClass
     void AddConnection(ComputerScientist compsci,computer comp);
     void setFavorite(ComputerScientist compsci, bool marker);
     void setFavorite(computer comp, bool marker);
-    void MagicalDataClass::GetFavorite(vector<ComputerScientist>& vec);
-    void MagicalDataClass::GetFavorite(vector<computer>& vec);
+    void GetFavorite(vector<ComputerScientist>& vec);
+    void GetFavorite(vector<computer>& vec);
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
     vector<computer> getConnections(ComputerScientist compsci);
