@@ -5,6 +5,8 @@
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
+#include <QTimer>
+#include <QDateTime>
 
 namespace Ui {
 class GUI;
@@ -25,6 +27,8 @@ public:
 private slots:
 
     void on_Add_clicked();
+
+    void showTime();
 
     void on_Remove_clicked();
 

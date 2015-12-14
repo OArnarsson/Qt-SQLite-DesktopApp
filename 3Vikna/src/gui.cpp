@@ -6,6 +6,8 @@
 #include <set>
 #include <sstream>
 #include <vector>
+#include <QTimer>
+#include <QDateTime>
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
@@ -39,6 +41,11 @@ GUI::GUI(QWidget *parent) :
 {
     ui->setupUi(this);
     MyDataLayer = new MagicalDataClass("CompDataBase.sqlite");
+    QTimer *timer=new QTimer(this);
+    connect(timer ,SIGNAL(timeout()),this,SLOT(showTime()));
+    timer->start();
+
+    //showTime();
 
     vector<ComputerScientist> initialData;
     MyDataLayer->GetAll(initialData);
@@ -58,6 +65,14 @@ GUI::GUI(QWidget *parent) :
     }
 
     ui->mainTable->setSortingEnabled(true);
+}
+
+void GUI::showTime()
+{
+    QTime time=QTime::currentTime();
+    QString time_text=time.toString("hh : mm : ss");
+    ui->Clock->setText(time_text);
+    //ui->Clock->setStyleSheet("(color: #6394d5)");
 }
 
 /************************************************
