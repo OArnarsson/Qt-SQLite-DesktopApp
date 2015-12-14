@@ -8,6 +8,7 @@ INPUT(
 ./debug\addpopup.o
 ./debug\sciencepopup.o
 ./debug\qrc_icons.o
+./debug\qrc_audio.o
 ./debug\moc_gui.o
 ./debug\moc_addpopup.o
 ./debug\moc_sciencepopup.o

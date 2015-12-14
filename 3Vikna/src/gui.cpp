@@ -8,11 +8,13 @@
 #include <vector>
 #include <QTimer>
 #include <QDateTime>
+#include <QLCDNumber>
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
 #include "../include/addpopup.h"
 #include "../include/sciencepopup.h"
+#include "../include/FileData.h"
 using namespace std;
 
 /************************************************
@@ -67,9 +69,17 @@ GUI::GUI(QWidget *parent) :
     ui->mainTable->setSortingEnabled(true);
 
     //Database stats coming soon!
-    //
-    //
-    //
+    ui->SciNumber->setDigitCount(3);
+    ui->FavSciNumber->setDigitCount(3);
+    ui->CompNumber->setDigitCount(3);
+    ui->FavCompNumber->setDigitCount(3);
+
+
+
+    ui->SciNumber->display(MyDataLayer->sciNumber());
+    ui->FavSciNumber->display(MyDataLayer->favSciNumber());
+    ui->CompNumber->display(MyDataLayer->compNumber());
+    ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }
 
 void GUI::showTime()
@@ -110,6 +120,11 @@ void GUI::on_Add_clicked()
             addPopUp.setModal(true);
             addPopUp.exec();
         }
+
+        ui->SciNumber->display(MyDataLayer->sciNumber());
+        ui->FavSciNumber->display(MyDataLayer->favSciNumber());
+        ui->CompNumber->display(MyDataLayer->compNumber());
+        ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }
 
 /************************************************
@@ -137,6 +152,11 @@ void GUI::on_Remove_clicked()
         }
         ui->mainTable->removeRow(i);
     }
+
+    ui->SciNumber->display(MyDataLayer->sciNumber());
+    ui->FavSciNumber->display(MyDataLayer->favSciNumber());
+    ui->CompNumber->display(MyDataLayer->compNumber());
+    ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 
 }
 
@@ -445,4 +465,9 @@ void GUI::on_Favorite_clicked()
             MyDataLayer->setFavorite(getRowComputer(i),setRowColor(i));
         }
     }
+
+    ui->SciNumber->display(MyDataLayer->sciNumber());
+    ui->FavSciNumber->display(MyDataLayer->favSciNumber());
+    ui->CompNumber->display(MyDataLayer->compNumber());
+    ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }

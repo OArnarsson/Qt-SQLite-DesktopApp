@@ -40,6 +40,10 @@ class MagicalDataClass
     vector<computer> stringtocomputer(vector< vector<string> > vect);
     vector<computer> getConnections(ComputerScientist compsci);
     vector<ComputerScientist> getConnections(computer comp);
+    int sciNumber();
+    int compNumber();
+    int favSciNumber();
+    int favCompNumber();
 
 };
 

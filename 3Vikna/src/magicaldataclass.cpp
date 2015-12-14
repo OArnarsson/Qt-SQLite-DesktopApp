@@ -382,3 +382,23 @@ void MagicalDataClass::GetFavorite(vector<computer>& vec)
     vec = stringtocomputer(MyQuery);
     vec = Sort(vec,compSortingOption);
 }
+
+int MagicalDataClass::sciNumber()
+{
+    return (*Database).howManySci();
+}
+
+int MagicalDataClass::favSciNumber()
+{
+    return (*Database).howManyFavSci();
+}
+
+int MagicalDataClass::compNumber()
+{
+    return (*Database).howManyComp();
+}
+
+int MagicalDataClass::favCompNumber()
+{
+    return (*Database).howManyFavComp();
+}

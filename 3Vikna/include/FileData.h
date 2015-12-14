@@ -34,6 +34,10 @@ class FileData
           QString getId(ComputerScientist compsci);
           void update(ComputerScientist compsci, int field, string newValue);
           void update(computer comp, int field, string newValue);
+          int howManySci();
+          int howManyFavSci();
+          int howManyComp();
+          int howManyFavComp();
 
 };
 

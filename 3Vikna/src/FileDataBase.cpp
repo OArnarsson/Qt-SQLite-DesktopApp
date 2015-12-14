@@ -604,3 +604,56 @@ vector< vector<string> > FileData::favorite(int mode)
     }
     return result;
 }
+
+
+int FileData::howManySci()
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT COUNT(*) FROM Scientists");
+    query.exec();
+    query.first();
+
+    int myInt;
+    myInt = query.value(0).toInt();
+
+    return myInt;
+}
+
+int FileData::howManyFavSci()
+{
+    QSqlQuery query(connection);
+    query.prepare("Select COUNT(*) FROM Scientists WHERE Favorite = 'true'");
+    query.exec();
+    query.first();
+
+    int myInt;
+    myInt = query.value(0).toInt();
+
+    return myInt;
+}
+
+int FileData::howManyComp()
+{
+    QSqlQuery query(connection);
+    query.prepare("SELECT COUNT(*) FROM Computers");
+    query.exec();
+    query.first();
+
+    int myInt;
+    myInt = query.value(0).toInt();
+
+    return myInt;
+}
+
+int FileData::howManyFavComp()
+{
+    QSqlQuery query(connection);
+    query.prepare("Select COUNT(*) FROM Computers WHERE Favorite = 'true'");
+    query.exec();
+    query.first();
+
+    int myInt;
+    myInt = query.value(0).toInt();
+
+    return myInt;
+}
