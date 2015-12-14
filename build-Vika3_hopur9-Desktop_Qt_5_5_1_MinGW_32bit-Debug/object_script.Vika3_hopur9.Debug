@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\gui.o
+./debug\computer.o
+./debug\ComputerScientist.o
+./debug\FileDataBase.o
+./debug\magicaldataclass.o
+./debug\addpopup.o
+./debug\sciencepopup.o
+./debug\qrc_icons.o
+./debug\moc_gui.o
+./debug\moc_addpopup.o
+./debug\moc_sciencepopup.o
+);
