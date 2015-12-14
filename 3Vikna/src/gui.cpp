@@ -168,8 +168,14 @@ void GUI::on_Remove_clicked()
  * ***********************************************/
 void GUI::on_Fostudagur_clicked()
 {
+    vector <QString> links;
+
+    QString otherLink = "http://erfostudagur.is/";
+    links.push_back(otherLink);
     QString link = "http://bigassmessage.com/00f2e";
-    QDesktopServices::openUrl(QUrl(link));
+    links.push_back(link);
+
+    QDesktopServices::openUrl(QUrl(links[qrand()%2]));
 }
 
 /************************************************
