@@ -68,18 +68,29 @@ GUI::GUI(QWidget *parent) :
 
     ui->mainTable->setSortingEnabled(true);
 
-    //Database stats coming soon!
+    //Sets the format on LCD counter
     ui->SciNumber->setDigitCount(3);
     ui->FavSciNumber->setDigitCount(3);
     ui->CompNumber->setDigitCount(3);
     ui->FavCompNumber->setDigitCount(3);
 
 
-
+    //Sets the count on LCD counter
     ui->SciNumber->display(MyDataLayer->sciNumber());
     ui->FavSciNumber->display(MyDataLayer->favSciNumber());
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
+
+
+    //Column names
+    if(ui->comboBox->currentIndex() == 0 || ui->comboBox->currentIndex() == 3)
+    {
+        ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender name"<<"Year of birth"<<"Year of death"<<"Nationality"<<"Field");
+    }
+    else if(ui->comboBox->currentIndex() == 1 || ui->comboBox->currentIndex() == 4)
+    {
+         ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"Name"<<"Year"<<"Type"<<"Built"<<"Location");
+    }
 }
 
 void GUI::showTime()
