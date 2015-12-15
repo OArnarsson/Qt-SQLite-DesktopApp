@@ -215,6 +215,8 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field4));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,4, new QTableWidgetItem(field5));
     MyDataLayer->Add(data);
+    ui->searchbar->setText(field1 + " " + field2);
+    on_searchbar_returnPressed();
 }
 
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
@@ -271,6 +273,8 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     entrydata.push_back(field5.toStdString());
     entrydata.push_back(field6.toStdString());
     MyDataLayer->Add(entrydata);
+    ui->searchbar->setText(fullName[0] + " " + fullName[fullName.size()-1]);
+    on_searchbar_returnPressed();
 }
 
 /************************************************

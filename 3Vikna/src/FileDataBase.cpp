@@ -11,6 +11,14 @@
 const string DEFAULT_YEAR = "-2015";
 const int NUMBER_OF_COLUMNS = 6;
 
+string trim(string s)
+{
+    std::stringstream trimmer;
+    trimmer << s;
+    s.clear();
+    trimmer >> s;
+    return s;
+}
 
 //********************************************
 //sanitize(string pointer)
@@ -447,20 +455,7 @@ void FileData::addConnection(ComputerScientist compsci, computer comp)
 
     QString sciid = getId(compsci);
     QSqlQuery query = QSqlQuery(connection);
-
-    query.prepare("Select * from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
-    for(int i = 0; i < 3; i++)
-    {
-       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
-    }
-    query.exec();
-    cout << query.lastError().text().toStdString() << endl;
-    if(!query.next())
-    {
-        return;
-    }
-    QString compid;
-    compid = query.value(0).toString();
+    QString compid = getId(comp);
 
     query = QSqlQuery(connection);
     query.prepare("Insert into Owners(ScientistID,ComputerID) values (?,?);");
@@ -517,8 +512,8 @@ QString FileData::getId(ComputerScientist compsci)
     query.prepare("Select ID from Scientists WHERE FirstName LIKE ? AND LastName LIKE ?");
     for(int i = 0; i < 2; i++)
     {
-       query.bindValue(i,"%" + QString::fromStdString(compsci.field(1 + 2*i)) + "%");
-       cout << "."<< compsci.field(1 + 2*i) << "." << endl;
+       query.bindValue(i,"%" + QString::fromStdString(trim(compsci.field(1 + 2*i))) + "%");
+       cout << "."<< trim(compsci.field(1 + 2*i)) << "." << endl;
     }
     cout << "end"<<endl;
     query.exec();
@@ -540,8 +535,8 @@ QString FileData::getId(computer comp)
     query.prepare("Select ID from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
     for(int i = 0; i < 3; i++)
     {
-       query.bindValue(i,"%" + QString::fromStdString(comp.field(i+1)) + "%");
-              cout << "."<< comp.field(1 + i) << "." << endl;
+       query.bindValue(i,"%" + QString::fromStdString(trim(comp.field(i+1))) + "%");
+              cout << "."<< trim(comp.field(1 + i)) << "." << endl;
     }
     query.exec();
 
