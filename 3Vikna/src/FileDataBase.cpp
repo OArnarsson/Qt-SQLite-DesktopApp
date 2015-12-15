@@ -540,8 +540,8 @@ QString FileData::getId(computer comp)
     query.prepare("Select ID from Computers where Name LIKE ? AND Year LIKE ? AND Type LIKE ?");
     for(int i = 0; i < 3; i++)
     {
-       query.bindValue(i,QString::fromStdString(comp.field(i+1)));
-              cout << "."<< comp.field(1 + 2*i) << "." << endl;
+       query.bindValue(i,"%" + QString::fromStdString(comp.field(i+1)) + "%");
+              cout << "."<< comp.field(1 + i) << "." << endl;
     }
     query.exec();
 
@@ -656,4 +656,17 @@ int FileData::howManyFavComp()
     myInt = query.value(0).toInt();
 
     return myInt;
+}
+
+void FileData::removeConnection(ComputerScientist compsci, computer comp)
+{
+    QString compid = getId(comp);
+    QString sciid = getId(compsci);
+    cout << compid.toStdString() << " : " << sciid.toStdString();
+    QSqlQuery query(connection);
+    query.prepare("DELETE FROM Owners WHERE ScientistID = ? AND ComputerID = ?;");
+    query.bindValue(0,sciid);
+    query.bindValue(1,compid);
+    query.exec();
+    cout << " Err: " << query.lastError().text().toStdString() << endl;
 }

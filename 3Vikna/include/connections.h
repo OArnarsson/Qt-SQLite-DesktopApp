@@ -38,6 +38,8 @@ private:
     MagicalDataClass* dataLayer;
     void addTable(ComputerScientist compsci);
     void addTable(computer compsci);
+    computer parseComputer(string term);
+    ComputerScientist parseScientist(string term);
 };
 
 #endif // CONNECTIONS_H

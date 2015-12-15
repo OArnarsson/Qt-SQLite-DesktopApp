@@ -403,3 +403,9 @@ int MagicalDataClass::favCompNumber()
 {
     return (*Database).howManyFavComp();
 }
+
+
+void MagicalDataClass::removeConnection(ComputerScientist compsci, computer comp)
+{
+    Database->removeConnection(compsci,comp);
+}

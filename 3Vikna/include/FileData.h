@@ -28,12 +28,17 @@ class FileData
           void addConnection(ComputerScientist compsci, computer comp);
           void RemoveComputers(string myString);
           void RemoveScientists(string myString, string myLastString);
+
+          void removeConnection(ComputerScientist compsci,computer comp);
           vector< vector<string > > JoinTables(ComputerScientist compsci);
           vector< vector<string > > JoinTables(computer comp);
+
           QString getId(computer comp);
           QString getId(ComputerScientist compsci);
+
           void update(ComputerScientist compsci, int field, string newValue);
           void update(computer comp, int field, string newValue);
+
           int howManySci();
           int howManyFavSci();
           int howManyComp();
