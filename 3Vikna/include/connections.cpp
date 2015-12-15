@@ -1,6 +1,7 @@
 #include "connections.h"
 #include "ui_connections.h"
 #include "gui.h"
+#include <QMediaPlayer>
 
 Connections::Connections(GUI *parent,MagicalDataClass* dataThief) :
     QDialog(parent),
@@ -102,6 +103,10 @@ void Connections::on_comboBox_currentIndexChanged(int index)
 
 void Connections::on_Remove_clicked()
 {
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/audio/trashcan.wav"));
+    music->play();
+
     QList<QListWidgetItem*> rightlist = ui->Right->selectedItems();
     QList<QListWidgetItem*> leftlist = ui->Left->selectedItems();
     if(rightlist.size() > 0 && leftlist.size() > 0)
@@ -186,6 +191,10 @@ void Connections::on_rightsearch_returnPressed()
 
 void Connections::on_Add_clicked()
 {
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/audio/ping.wav"));
+    music->play();
+
     QList<QListWidgetItem*> rightlist = ui->right2->selectedItems();
     QList<QListWidgetItem*> leftlist = ui->left2->selectedItems();
     cout << rightlist.size();
