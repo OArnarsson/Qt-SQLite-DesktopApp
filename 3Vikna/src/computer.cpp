@@ -59,3 +59,20 @@ ostream& operator <<(ostream& outs, const computer mycomp)
     return outs;
 }
 
+/********************************
+ * SetFavorite()
+ * Sets if this is a favorite computer
+ * ******************************/
+void computer::setFavorite(bool newvalue)
+{
+    favorite = newvalue;
+}
+
+/*******************************
+ * GetFavorite()
+ * Gets if this is a favorite
+ * ******************************/
+bool computer::getFavorite()
+{
+    return favorite;
+}

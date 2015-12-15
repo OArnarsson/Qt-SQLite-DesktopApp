@@ -40,6 +40,8 @@ private slots:
 
     void on_Favorite_clicked();
 
+    void on_Connections_clicked();
+
 private:
     Ui::GUI *ui;
     MagicalDataClass* MyDataLayer;

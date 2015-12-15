@@ -244,6 +244,7 @@ vector<computer> MagicalDataClass::stringtocomputer(vector< vector<string> > vec
             info[j] = vec[i][j];
         }
         computer compsci(info[1],info[2],info[3],info[4],info[5]);
+        compsci.setFavorite(info[6] == "true");
         ret.push_back(compsci);
     }
     return ret;

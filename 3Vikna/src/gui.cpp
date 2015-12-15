@@ -15,6 +15,7 @@
 #include "../include/addpopup.h"
 #include "../include/sciencepopup.h"
 #include "../include/FileData.h"
+#include "../include/connections.h"
 using namespace std;
 
 /************************************************
@@ -208,6 +209,7 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     string utf8_nameString = field1.toUtf8().constData();
     vector <string> fullNameString = explode(utf8_nameString, ' ');
     vector <QString> fullName;
+    vector<string> entrydata;
 
     for(int i = 0; i < fullNameString.size(); i++)
     {
@@ -219,12 +221,19 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(fullName[1]));
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[2]));
+
+        entrydata.push_back(fullName[0].toStdString());
+        entrydata.push_back(fullName[1].toStdString());
+        entrydata.push_back(fullName[2].toStdString());
     }
 
     else if(fullName.size() == 2)
     {
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[1]));
+        entrydata.push_back(fullName[0].toStdString());
+        entrydata.push_back("");
+        entrydata.push_back(fullName[1].toStdString());
     }
 
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field2));
@@ -232,6 +241,13 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,5, new QTableWidgetItem(field4));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,6, new QTableWidgetItem(field5));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,7, new QTableWidgetItem(field6));
+
+    entrydata.push_back(field2.toStdString());
+    entrydata.push_back(field3.toStdString());
+    entrydata.push_back(field4.toStdString());
+    entrydata.push_back(field5.toStdString());
+    entrydata.push_back(field6.toStdString());
+    MyDataLayer->Add(entrydata);
 }
 
 /************************************************
@@ -240,6 +256,7 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
  * ***********************************************/
 void GUI::on_comboBox_currentIndexChanged(int index)
 {
+    ui->mainTable->clear();
     switch(index)
     {
         case 0:
@@ -281,6 +298,10 @@ void GUI::on_comboBox_currentIndexChanged(int index)
                     entry = QString::fromStdString(Data[i].field(j+1));
                     ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
                 }
+                if(Data[i].getFavorite())
+                {
+                    setRowColor(i);
+                }
             }
             break;
         }
@@ -299,6 +320,33 @@ void GUI::on_comboBox_currentIndexChanged(int index)
                     QString entry;
                     entry = QString::fromStdString(Data[i].field(j+1));
                     ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
+                }
+                if(Data[i].getFavorite())
+                {
+                    setRowColor(i);
+                }
+            }
+           break;
+        }
+        case 3:
+        {
+            vector<computer> Data;
+            MyDataLayer->GetFavorite(Data);
+
+            ui->mainTable->setRowCount(Data.size());
+            ui->mainTable->setColumnCount(5);
+
+            for(unsigned int i = 0; i < Data.size(); i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    QString entry;
+                    entry = QString::fromStdString(Data[i].field(j+1));
+                    ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
+                }
+                if(Data[i].getFavorite())
+                {
+                    setRowColor(i);
                 }
             }
            break;
@@ -489,3 +537,12 @@ void GUI::on_Favorite_clicked()
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }
+
+void GUI::on_Connections_clicked()
+{
+    Connections Connect(this,MyDataLayer);
+    Connect.setModal(true);
+    Connect.exec();
+}
+
+
