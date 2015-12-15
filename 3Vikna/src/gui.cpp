@@ -48,7 +48,7 @@ GUI::GUI(QWidget *parent) :
     connect(timer ,SIGNAL(timeout()),this,SLOT(showTime()));
     timer->start();
 
-    //showTime();
+    this->setFixedSize(769,459);
 
     vector<ComputerScientist> initialData;
     MyDataLayer->GetAll(initialData);
@@ -216,7 +216,7 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
     vector <QString> fullName;
     vector<string> entrydata;
 
-    for(int i = 0; i < fullNameString.size(); i++)
+    for(unsigned int i = 0; i < fullNameString.size(); i++)
     {
         fullName.push_back(QString::fromStdString(fullNameString[i]));
     }

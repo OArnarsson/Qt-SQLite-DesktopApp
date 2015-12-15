@@ -22,6 +22,8 @@ Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     setTabOrder(ui->buttonBox, ui->field1);
 
     ui->field2->setMinimumDate(QDate(101, 1, 1));
+
+    this->setFixedSize(192,341);
 }
 
 Dialog::~Dialog()

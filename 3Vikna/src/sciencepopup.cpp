@@ -27,6 +27,8 @@ sciencePopUp::sciencePopUp(QWidget *parent, GUI* daddyCool) :
     /*QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/audio/ping.wav"));
     music->play();*/
+
+    this->setFixedSize(192,401);
 }
 
 sciencePopUp::~sciencePopUp()

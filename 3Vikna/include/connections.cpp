@@ -9,6 +9,8 @@ Connections::Connections(GUI *parent,MagicalDataClass* dataThief) :
     ui->setupUi(this);
     daddy = parent;
     dataLayer = dataThief;
+
+    this->setFixedSize(455,345);
 }
 
 Connections::~Connections()
