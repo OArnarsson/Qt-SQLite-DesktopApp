@@ -594,3 +594,67 @@ void GUI::on_Connections_clicked()
 }
 
 
+
+void GUI::on_Edit_clicked()
+{
+    QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
+    ComputerScientist scifi = getRowScientist(selected[0]->row());
+    sciencePopUp sciPop(0, this);
+    sciPop.setModal(true);
+    sciPop.mode(scifi);
+    sciPop.exec();
+}
+
+void GUI::change(QString field1,QString field2, QString field3, QString field4, QString field5)
+{
+
+}
+void GUI::change(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
+{
+    string utf8_nameString = field1.toUtf8().constData();
+    vector <string> fullNameString = explode(utf8_nameString, ' ');
+    vector <QString> fullName;
+    vector<string> entrydata;
+    QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
+    int row = selected[0]->row();
+    ComputerScientist oldscifi = getRowScientist(row);
+
+    for(unsigned int i = 0; i < fullNameString.size(); i++)
+    {
+        fullName.push_back(QString::fromStdString(fullNameString[i]));
+    }
+
+    if(fullName.size() == 3)
+    {
+        ui->mainTable->setItem(row,0, new QTableWidgetItem(fullName[0]));
+        ui->mainTable->setItem(row,1, new QTableWidgetItem(fullName[1]));
+        ui->mainTable->setItem(row,2, new QTableWidgetItem(fullName[2]));
+
+        entrydata.push_back(fullName[0].toStdString());
+        entrydata.push_back(fullName[1].toStdString());
+        entrydata.push_back(fullName[2].toStdString());
+    }
+
+    else if(fullName.size() == 2)
+    {
+        ui->mainTable->setItem(row,0, new QTableWidgetItem(fullName[0]));
+        ui->mainTable->setItem(row,2, new QTableWidgetItem(fullName[1]));
+        entrydata.push_back(fullName[0].toStdString());
+        entrydata.push_back("");
+        entrydata.push_back(fullName[1].toStdString());
+    }
+
+    ui->mainTable->setItem(row,3, new QTableWidgetItem(field2));
+    ui->mainTable->setItem(row,4, new QTableWidgetItem(field3));
+    ui->mainTable->setItem(row,5, new QTableWidgetItem(field4));
+    ui->mainTable->setItem(row,6, new QTableWidgetItem(field5));
+    ui->mainTable->setItem(row,7, new QTableWidgetItem(field6));
+
+    entrydata.push_back(field2.toStdString());
+    entrydata.push_back(field3.toStdString());
+    entrydata.push_back(field4.toStdString());
+    entrydata.push_back(field5.toStdString());
+    entrydata.push_back(field6.toStdString());
+    ComputerScientist newscifi(entrydata[0],entrydata[1],entrydata[2],entrydata[3],entrydata[4],entrydata[5],entrydata[6],entrydata[7]);
+    MyDataLayer->update(oldscifi,newscifi);
+}

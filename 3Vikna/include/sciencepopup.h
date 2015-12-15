@@ -16,6 +16,7 @@ class sciencePopUp : public QDialog
 public:
     explicit sciencePopUp(QWidget *parent = 0, GUI* daddyCool = NULL);
     ~sciencePopUp();
+    void mode(ComputerScientist newMode);
 
 private slots:
 
@@ -24,6 +25,7 @@ private slots:
 private:
     Ui::sciencePopUp *ui;
     GUI* Parent;
+    ComputerScientist editing;
 };
 
 #endif // SCIENCEPOPUP_H

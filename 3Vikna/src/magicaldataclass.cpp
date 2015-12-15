@@ -407,5 +407,21 @@ int MagicalDataClass::favCompNumber()
 
 void MagicalDataClass::removeConnection(ComputerScientist compsci, computer comp)
 {
-    Database->removeConnection(compsci,comp);
+    (*Database).removeConnection(compsci,comp);
+}
+
+void MagicalDataClass::update(ComputerScientist original,ComputerScientist newone)
+{
+    for(int i = 8; i >= 1; i--)
+    {
+        (*Database).update(original,i,newone.field(i));
+    }
+}
+
+void MagicalDataClass::update(computer original,computer newone)
+{
+    for(int i = 5; i >= 1; i--)
+    {
+        (*Database).update(original,i,newone.field(i));
+    }
 }

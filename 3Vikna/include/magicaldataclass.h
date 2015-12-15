@@ -38,6 +38,9 @@ class MagicalDataClass
     void GetFavorite(vector<ComputerScientist>& vec);
     void GetFavorite(vector<computer>& vec);
 
+    void update(ComputerScientist original,ComputerScientist newone);
+    void update(computer original,computer newone);
+
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
 
