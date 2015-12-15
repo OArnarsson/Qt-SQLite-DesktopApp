@@ -32,6 +32,12 @@ private slots:
 
     void on_Remove_clicked();
 
+    void on_leftsearch_returnPressed();
+
+    void on_rightsearch_returnPressed();
+
+    void on_Add_clicked();
+
 private:
     Ui::Connections *ui;
     GUI* daddy;

@@ -112,6 +112,12 @@ void Connections::on_Remove_clicked()
             computer Compfi = parseComputer(rightlist[0]->text().toStdString());
             dataLayer->removeConnection(Scifi,Compfi);
         }
+        else
+        {
+            ComputerScientist Scifi = parseScientist(rightlist[0]->text().toStdString());
+            computer Compfi = parseComputer(leftlist[0]->text().toStdString());
+            dataLayer->removeConnection(Scifi,Compfi);
+        }
     }
 }
 
@@ -121,11 +127,18 @@ computer Connections::parseComputer(string term)
     vector<string> name;
     vector<string> years;
     vector<string> soTired;
+    cout << 130 << endl;
     allWeNeed = daddy->explode(term,'(');
     // 0 name, 1 date
+        cout << 133 << endl;
     name = daddy->explode(allWeNeed[0],' ');
+        cout << 135 << endl;
     years = daddy->explode(allWeNeed[1],',');
+        cout << 137 << endl;
+        cout << years[0] << endl;
     soTired = daddy->explode(years[1],')');
+
+    cout << 140 << endl;
     computer entry(name[0],years[0],soTired[0],"true","");
     return entry;
 }
@@ -142,4 +155,48 @@ ComputerScientist Connections::parseScientist(string term)
     ComputerScientist entry(name[0],"",name[name.size()-1],"",years[0],"","","");
     cout << name[0] << ";" << endl;
     return entry;
+}
+
+void Connections::on_leftsearch_returnPressed()
+{
+    vector<ComputerScientist> vecvec;
+    dataLayer->Search(vecvec,ui->leftsearch->text().toStdString());
+    ui->left2->clear();
+    for(int i = 0; i < vecvec.size();i++)
+    {
+        QString name;
+        name = QString::fromStdString(vecvec[i].field(1) + " " + vecvec[i].field(2) + " " + vecvec[i].field(3)
+             + " ("+vecvec[i].field(5)+"-"+vecvec[i].field(6)+ ")");
+            ui->left2->insertItem(ui->left2->count(),new QListWidgetItem(name));
+    }
+}
+
+void Connections::on_rightsearch_returnPressed()
+{
+    vector<computer> vecvec;
+    dataLayer->Search(vecvec,ui->rightsearch->text().toStdString());
+    ui->right2->clear();
+    for(int i = 0; i < vecvec.size();i++)
+    {
+        QString name;
+        name = QString::fromStdString(vecvec[i].field(1) + " (" + vecvec[i].field(2) + ","+vecvec[i].field(3)+")");
+            ui->right2->insertItem(ui->right2->count(),new QListWidgetItem(name));
+    }
+}
+
+void Connections::on_Add_clicked()
+{
+    QList<QListWidgetItem*> rightlist = ui->right2->selectedItems();
+    QList<QListWidgetItem*> leftlist = ui->left2->selectedItems();
+    cout << rightlist.size();
+    cout << leftlist.size();
+    if(rightlist.size() > 0 && leftlist.size() > 0)
+    {
+        cout << 188 << endl;
+        ComputerScientist Scifi = parseScientist(leftlist[0]->text().toStdString());
+                cout << 190 << endl;
+        computer Compfi = parseComputer(rightlist[0]->text().toStdString());
+                cout << 192 << endl;
+        dataLayer->AddConnection(Scifi,Compfi);
+    }
 }
