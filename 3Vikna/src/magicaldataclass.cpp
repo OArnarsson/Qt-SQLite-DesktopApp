@@ -415,6 +415,7 @@ void MagicalDataClass::update(ComputerScientist original,ComputerScientist newon
     for(int i = 8; i >= 1; i--)
     {
         (*Database).update(original,i,newone.field(i));
+        original.setField(i,newone.field(i));
     }
 }
 
@@ -423,5 +424,6 @@ void MagicalDataClass::update(computer original,computer newone)
     for(int i = 5; i >= 1; i--)
     {
         (*Database).update(original,i,newone.field(i));
+        original.setField(i,newone.field(i));
     }
 }

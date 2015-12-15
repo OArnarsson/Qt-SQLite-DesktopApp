@@ -10,6 +10,7 @@ class ComputerScientist
     public:
         string ToString(bool LastNameFirst) const;
         string OrderedName() const;
+        void setField(int whatField,string whatValue);
         ComputerScientist();
         ComputerScientist(string first, string middle, string last, string gen, string born, string died,string nation,string field);
         ComputerScientist(string first, string middle, string last, string gen, string born, string died);

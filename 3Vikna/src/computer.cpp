@@ -76,3 +76,21 @@ bool computer::getFavorite()
 {
     return favorite;
 }
+
+/**********************************
+ * setField()
+ * Changes a specific property of the class
+ * ************************************/
+
+void computer::setField(int whatField,string whatValue)
+{
+    switch(whatField)
+    {
+        case 1: name = whatValue; break;
+        case 2: year = whatValue; break;
+        case 3: type = whatValue; break;
+        case 4: built = whatValue; break;
+        case 5: nationality = whatValue; break;
+            default: return;
+    }
+}

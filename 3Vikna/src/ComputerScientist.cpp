@@ -234,12 +234,60 @@ string ComputerScientist::field(const int whatField)
     else return "Error";
 }
 
+/***********************************
+ * setFavorite()
+ * sets if this is a favorite scientist
+ * **********************************/
 void ComputerScientist::setFavorite(bool newvalue)
 {
     favorite = newvalue;
 }
 
+/******************************************
+ * getFavorite
+ * gets if this is a favorite scientist
+ * ***************************************/
 bool ComputerScientist::getFavorite()
 {
     return favorite;
 }
+
+/******************************************
+ * setField
+ * changes a specific property of the clasee
+ * ***************************************/
+void ComputerScientist::setField(int whatField,string whatValue)
+{
+    if(whatField == 1)
+    {
+        firstName = whatValue;
+    }
+    else if(whatField == 2)
+    {
+        middleName = whatValue;
+    }
+    else if(whatField == 3)
+    {
+        lastName = whatValue;
+    }
+    else if(whatField == 4)
+    {
+       gender = whatValue;
+    }
+    else if(whatField == 5)
+    {
+        bornYear = whatValue;
+    }
+    else if(whatField == 6)
+    {
+        diedYear = whatValue;
+    }
+    else if(whatField == 7){
+        nationality = whatValue;
+    }
+    else if(whatField == 8){
+        fields = whatValue;
+    }
+    else return;
+}
+

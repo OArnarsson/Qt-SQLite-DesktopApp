@@ -234,15 +234,20 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
         fullName.push_back(QString::fromStdString(fullNameString[i]));
     }
 
-    if(fullName.size() == 3)
+    if(fullName.size() > 3)
     {
+        QString middlename;
+        for(int i = 1; i < fullName.size()-1;i++)
+        {
+            middlename += fullName[i] + " ";
+        }
         ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
-        ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(fullName[1]));
-        ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[2]));
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(middlename));
+        ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[fullName.size()-1]));
 
         entrydata.push_back(fullName[0].toStdString());
-        entrydata.push_back(fullName[1].toStdString());
-        entrydata.push_back(fullName[2].toStdString());
+        entrydata.push_back(middlename.toStdString());
+        entrydata.push_back(fullName[fullName.size()-1].toStdString());
     }
 
     else if(fullName.size() == 2)
@@ -654,15 +659,20 @@ void GUI::change(QString field1,QString field2, QString field3, QString field4, 
         fullName.push_back(QString::fromStdString(fullNameString[i]));
     }
 
-    if(fullName.size() == 3)
+    if(fullName.size() > 2)
     {
+        QString middlename;
+        for(int i = 1; i < fullName.size()-1;i++)
+        {
+            middlename += fullName[i] + " ";
+        }
         ui->mainTable->setItem(row,0, new QTableWidgetItem(fullName[0]));
-        ui->mainTable->setItem(row,1, new QTableWidgetItem(fullName[1]));
-        ui->mainTable->setItem(row,2, new QTableWidgetItem(fullName[2]));
+        ui->mainTable->setItem(row,1, new QTableWidgetItem(middlename));
+        ui->mainTable->setItem(row,2, new QTableWidgetItem(fullName[fullName.size()-1]));
 
         entrydata.push_back(fullName[0].toStdString());
-        entrydata.push_back(fullName[1].toStdString());
-        entrydata.push_back(fullName[2].toStdString());
+        entrydata.push_back(middlename.toStdString());
+        entrydata.push_back(fullName[fullName.size()-1].toStdString());
     }
 
     else if(fullName.size() == 2)

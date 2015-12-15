@@ -19,6 +19,7 @@ class computer
     public:
     computer(string Name = "", string Year = "", string Type = "", string Built = "true", string Location = "");
     string field(int whatField) const;
+    void setField(int whatField,string whatValue);
     string OrderedName() const;
     void setFavorite(bool newvalue);
     bool getFavorite();
