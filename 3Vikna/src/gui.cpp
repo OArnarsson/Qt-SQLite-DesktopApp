@@ -48,7 +48,7 @@ GUI::GUI(QWidget *parent) :
     connect(timer ,SIGNAL(timeout()),this,SLOT(showTime()));
     timer->start();
 
-    this->setFixedSize(769,459);
+    this->setFixedSize(1029,459);
 
     vector<ComputerScientist> initialData;
     MyDataLayer->GetAll(initialData);
@@ -82,12 +82,21 @@ GUI::GUI(QWidget *parent) :
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 
-    //Initialize column names
-    ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender name"<<"Year of birth"<<"Year of death"<<"Nationality"<<"Field");
+    //Initialize column name
+    ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender"<<"Born"<<"Died"<<"Nationality"<<"Field");
+    ui->mainTable->setColumnWidth(0, 80);
+    ui->mainTable->setColumnWidth(1, 105);
+    ui->mainTable->setColumnWidth(2, 80);
+    ui->mainTable->setColumnWidth(3, 50);
+    ui->mainTable->setColumnWidth(4, 40);
+    ui->mainTable->setColumnWidth(5, 40);
+    ui->mainTable->setColumnWidth(6, 90);
+    ui->mainTable->setColumnWidth(7, 315);
 
     QFont myFont;
     myFont.setBold(true);
     ui->mainTable->horizontalHeader()->setFont(myFont);
+
 }
 
 void GUI::showTime()
@@ -365,13 +374,28 @@ void GUI::on_comboBox_currentIndexChanged(int index)
     //Column names
     if(ui->comboBox->currentIndex() == 0 || ui->comboBox->currentIndex() == 2)
     {
-        ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender name"<<"Year of birth"<<"Year of death"<<"Nationality"<<"Field");
+        ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender"<<"Born"<<"Died"<<"Nationality"<<"Field");
         ui->mainTable->horizontalHeader()->setFont(myFont);
+
+        ui->mainTable->setColumnWidth(0, 80);
+        ui->mainTable->setColumnWidth(1, 105);
+        ui->mainTable->setColumnWidth(2, 80);
+        ui->mainTable->setColumnWidth(3, 50);
+        ui->mainTable->setColumnWidth(4, 40);
+        ui->mainTable->setColumnWidth(5, 40);
+        ui->mainTable->setColumnWidth(6, 90);
+        ui->mainTable->setColumnWidth(7, 315);
     }
     else if(ui->comboBox->currentIndex() == 1 || ui->comboBox->currentIndex() == 3)
     {
          ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"Name"<<"Year"<<"Type"<<"Built"<<"Location");
          ui->mainTable->horizontalHeader()->setFont(myFont);
+
+         ui->mainTable->setColumnWidth(0, 180);
+         ui->mainTable->setColumnWidth(1, 152);
+         ui->mainTable->setColumnWidth(2, 165);
+         ui->mainTable->setColumnWidth(3, 150);
+         ui->mainTable->setColumnWidth(4, 152);
     }
 }
 
