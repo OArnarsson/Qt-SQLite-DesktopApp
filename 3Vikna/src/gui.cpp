@@ -377,6 +377,7 @@ void GUI::on_comboBox_currentIndexChanged(int index)
  * ***********************************************/
 void GUI::on_searchbar_returnPressed()
 {
+    ui->mainTable->clear();
     if(ui->comboBox->currentIndex() == 0)
     {
         searchCompSci();
