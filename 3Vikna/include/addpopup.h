@@ -18,6 +18,7 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = 0, GUI* daddyCool = NULL);
     ~Dialog();
+    void mode(computer newcomputer);
 
 private slots:
 
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::Dialog *ui;
     GUI* Parent;
+    computer editing;
 };
 
 #endif // ADDPOPUP_H

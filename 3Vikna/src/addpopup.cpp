@@ -5,6 +5,7 @@
 #include <QTableWidget>
 #include "../include/gui.h"
 #include "ui_gui.h"
+#include <sstream>
 
 Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
@@ -43,8 +44,29 @@ void Dialog::on_buttonBox_accepted()
 
      if(myField1 != "")
      {
-         Parent->AddToTable(myField1, myField2, myField3, myField4, myField5);
+         if(editing.field(1).size() < 1 && editing.field(2).size()<1)
+         {
+            Parent->AddToTable(myField1, myField2, myField3, myField4, myField5);
+         }
+         else
+         {
+             Parent->change(myField1,myField2,myField3,myField4,myField5);
+         }
      }
      else Parent->ErrorMessage();
 
+}
+
+void Dialog::mode(computer newMode)
+{
+    editing = newMode;
+    ui->field1->document()->setPlainText(QString::fromStdString(editing.field(1)));
+    ui->field3->setCurrentIndex((editing.field(3) == "Mechanical computer") ? 0:((editing.field(3) == "Transistorized") ? 1:2));
+    ui->field4->setCurrentIndex((editing.field(4) == "true") ? 0:1);
+    stringstream S;
+    S << editing.field(2);
+    int I;
+    S >> I;
+    ui->field2->setDate(QDate(I,1,1));
+    ui->field5->document()->setPlainText(QString::fromStdString(editing.field(5)));
 }

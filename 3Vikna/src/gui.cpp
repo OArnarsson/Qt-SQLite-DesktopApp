@@ -201,12 +201,20 @@ void GUI::ErrorMessage()
  * ***********************************************/
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5)
 {
+    vector<string> data;
+    data.push_back(field1.toStdString());
+    data.push_back(field2.toStdString());
+    data.push_back(field3.toStdString());
+    data.push_back(field4.toStdString());
+    data.push_back(field5.toStdString());
+
     ui->mainTable->setRowCount(ui->mainTable->rowCount()+1);
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(field1));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,1, new QTableWidgetItem(field2));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(field3));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field4));
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,4, new QTableWidgetItem(field5));
+    MyDataLayer->Add(data);
 }
 
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
@@ -597,17 +605,39 @@ void GUI::on_Connections_clicked()
 
 void GUI::on_Edit_clicked()
 {
-    QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
-    ComputerScientist scifi = getRowScientist(selected[0]->row());
-    sciencePopUp sciPop(0, this);
-    sciPop.setModal(true);
-    sciPop.mode(scifi);
-    sciPop.exec();
+    if(ui->comboBox->currentIndex() % 2 == 0)
+    {
+        QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
+        ComputerScientist scifi = getRowScientist(selected[0]->row());
+        sciencePopUp sciPop(0, this);
+        sciPop.setModal(true);
+        sciPop.mode(scifi);
+        sciPop.exec();
+    }
+    else
+    {
+        QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
+        computer scifi = getRowComputer(selected[0]->row());
+        Dialog sciPop(0, this);
+        sciPop.setModal(true);
+        sciPop.mode(scifi);
+        sciPop.exec();
+    }
 }
 
 void GUI::change(QString field1,QString field2, QString field3, QString field4, QString field5)
 {
+    computer newdata(field1.toStdString(),field2.toStdString(),field3.toStdString(),field4.toStdString(),field5.toStdString());
+    QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
+    int row = selected[0]->row();
+    computer olddata = getRowComputer(row);
 
+    ui->mainTable->setItem(row,0, new QTableWidgetItem(field1));
+    ui->mainTable->setItem(row,1, new QTableWidgetItem(field2));
+    ui->mainTable->setItem(row,2, new QTableWidgetItem(field3));
+    ui->mainTable->setItem(row,3, new QTableWidgetItem(field4));
+    ui->mainTable->setItem(row,4, new QTableWidgetItem(field5));
+    MyDataLayer->update(olddata,newdata);
 }
 void GUI::change(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
 {
