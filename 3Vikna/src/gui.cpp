@@ -50,22 +50,7 @@ GUI::GUI(QWidget *parent) :
 
     this->setFixedSize(1029,459);
 
-    vector<ComputerScientist> initialData;
-    MyDataLayer->GetAll(initialData);
-
-    ui->mainTable->setRowCount(initialData.size());
-    ui->mainTable->setColumnCount(8);
-    ui->mainTable->setTabKeyNavigation(true);
-
-    for(unsigned int i = 0; i < initialData.size(); i++)
-    {
-        for(int j = 0; j < 8; j++)
-        {
-            QString entry;
-            entry = QString::fromStdString(initialData[i].field(j+1));
-            ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
-        }
-    }
+    on_comboBox_currentIndexChanged(0);
 
     ui->mainTable->setSortingEnabled(true);
 
@@ -81,21 +66,6 @@ GUI::GUI(QWidget *parent) :
     ui->FavSciNumber->display(MyDataLayer->favSciNumber());
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
-
-    //Initialize column name
-    ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender"<<"Born"<<"Died"<<"Nationality"<<"Field");
-    ui->mainTable->setColumnWidth(0, 80);
-    ui->mainTable->setColumnWidth(1, 105);
-    ui->mainTable->setColumnWidth(2, 80);
-    ui->mainTable->setColumnWidth(3, 50);
-    ui->mainTable->setColumnWidth(4, 40);
-    ui->mainTable->setColumnWidth(5, 40);
-    ui->mainTable->setColumnWidth(6, 90);
-    ui->mainTable->setColumnWidth(7, 315);
-
-    QFont myFont;
-    myFont.setBold(true);
-    ui->mainTable->horizontalHeader()->setFont(myFont);
 
 }
 
