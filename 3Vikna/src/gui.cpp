@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QLCDNumber>
+#include <QMediaPlayer>
 #include "include/ComputerScientist.h"
 #include "include/magicaldataclass.h"
 #include "include/computer.h"
@@ -120,6 +121,11 @@ void GUI::on_Add_clicked()
  * ***********************************************/
 void GUI::on_Remove_clicked()
 {
+
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/audio/trashcan.wav"));
+    music->play();
+
     QList<QTableWidgetItem *> selected = ui->mainTable->selectedItems();
     set<int> distinctRows;
     for(int i = 0; i < selected.size();i++)
@@ -155,12 +161,26 @@ void GUI::on_Fostudagur_clicked()
 {
     vector <QString> links;
 
-    QString otherLink = "http://erfostudagur.is/";
+    QString otherLink = "https://en.wikipedia.org/wiki/Edsger_W._Dijkstra/";
     links.push_back(otherLink);
-    QString link = "http://bigassmessage.com/00f2e";
-    links.push_back(link);
+    otherLink = "https://en.wikipedia.org/wiki/Bill_Gates";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/Donald_Knuth";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/Alan_Turing";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/Anita_Borg";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/John_Mauchly";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/Steve_Wozniak";
+    links.push_back(otherLink);
+    otherLink = "https://en.wikipedia.org/wiki/Tim_Cook";
+    links.push_back(otherLink);
 
-    QDesktopServices::openUrl(QUrl(links[qrand()%2]));
+
+
+    QDesktopServices::openUrl(QUrl(links[qrand()%8]));
 }
 
 /************************************************
