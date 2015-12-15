@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/new/audio">
         <file>ping.wav</file>
+        <file>trashcan.wav</file>
     </qresource>
 </RCC>
