@@ -82,7 +82,12 @@ GUI::GUI(QWidget *parent) :
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 
+    //Initialize column names
     ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender name"<<"Year of birth"<<"Year of death"<<"Nationality"<<"Field");
+
+    QFont myFont;
+    myFont.setBold(true);
+    ui->mainTable->horizontalHeader()->setFont(myFont);
 }
 
 void GUI::showTime()
@@ -353,14 +358,20 @@ void GUI::on_comboBox_currentIndexChanged(int index)
         }
     }
 
+    QFont myFont;
+    myFont.setBold(true);
+
+
     //Column names
-    if(ui->comboBox->currentIndex() == 0 || ui->comboBox->currentIndex() == 3)
+    if(ui->comboBox->currentIndex() == 0 || ui->comboBox->currentIndex() == 2)
     {
         ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"First name"<<"Middle name"<<"Last name"<<"Gender name"<<"Year of birth"<<"Year of death"<<"Nationality"<<"Field");
+        ui->mainTable->horizontalHeader()->setFont(myFont);
     }
-    else if(ui->comboBox->currentIndex() == 1 || ui->comboBox->currentIndex() == 4)
+    else if(ui->comboBox->currentIndex() == 1 || ui->comboBox->currentIndex() == 3)
     {
          ui->mainTable->setHorizontalHeaderLabels(QStringList()<<"Name"<<"Year"<<"Type"<<"Built"<<"Location");
+         ui->mainTable->horizontalHeader()->setFont(myFont);
     }
 }
 
