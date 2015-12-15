@@ -32,6 +32,7 @@ void Connections::on_quicksearch_returnPressed()
         vector<ComputerScientist> vecvec;
         dataLayer->Search(vecvec,ui->quicksearch->text().toStdString());
         ui->Right->clear();
+        ui->Left->clear();
         for(int i = 0; i < vecvec.size();i++)
         {
             addTable(vecvec[i]);
@@ -42,6 +43,7 @@ void Connections::on_quicksearch_returnPressed()
         vector<computer> vecvec;
         dataLayer->Search(vecvec,ui->quicksearch->text().toStdString());
         ui->Right->clear();
+        ui->Left->clear();
         for(int i = 0; i < vecvec.size();i++)
         {
             addTable(vecvec[i]);
@@ -80,7 +82,7 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
         ui->Right->clear();
         for(int i = 0; i < connected.size();i++)
         {
-            QString compdata = QString::fromStdString(connected[i].field(2) + " ("+connected[i].field(3)+")");
+            QString compdata = QString::fromStdString(connected[i].field(2) + " ("+connected[i].field(3)+","+connected[i].field(4)+")");
             ui->Right->insertItem(ui->Right->count(),new QListWidgetItem(compdata));
         }
     }
@@ -112,4 +114,11 @@ void Connections::on_comboBox_currentIndexChanged(int index)
 {
     ui->Left->clear();
     ui->Right->clear();
+}
+
+void Connections::on_Remove_clicked()
+{
+    /*QList rightlist<QListWidgetItem*> = ui->Right->selectedItems();
+    QList leftlist<QListWidgetItem*> = ui->Right->selectedItems();*/
+
 }

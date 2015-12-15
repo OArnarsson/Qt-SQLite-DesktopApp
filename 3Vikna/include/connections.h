@@ -30,6 +30,8 @@ private slots:
 
     void on_comboBox_currentIndexChanged(int index);
 
+    void on_Remove_clicked();
+
 private:
     Ui::Connections *ui;
     GUI* daddy;
