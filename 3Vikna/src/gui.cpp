@@ -51,7 +51,11 @@ GUI::GUI(QWidget *parent) :
 
     this->setFixedSize(1029,459);
 
+    ui->statusBar->showMessage("Now with sounds!", 5000);
+
     on_comboBox_currentIndexChanged(0);
+
+
 
     ui->mainTable->setSortingEnabled(true);
 
@@ -94,7 +98,6 @@ void GUI::on_Add_clicked()
 {
         if(ui->comboBox->currentIndex() == 0)
         {
-            ui->statusBar->showMessage("Index is 0", 2000);
             sciencePopUp sciPop(0, this);
             sciPop.setModal(true);
             sciPop.exec();
@@ -103,7 +106,6 @@ void GUI::on_Add_clicked()
 
         if(ui->comboBox->currentIndex() == 1)
         {
-            ui->statusBar->showMessage("Index is 1", 2000);
             Dialog addPopUp(0, this);
             addPopUp.setModal(true);
             addPopUp.exec();
@@ -150,6 +152,8 @@ void GUI::on_Remove_clicked()
     ui->FavSciNumber->display(MyDataLayer->favSciNumber());
     ui->CompNumber->display(MyDataLayer->compNumber());
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
+
+    ui->statusBar->showMessage("Index removed!", 2500);
 
 }
 
@@ -208,6 +212,9 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
 
 void GUI::AddToTable(QString field1,QString field2, QString field3, QString field4, QString field5, QString field6)
 {
+
+    ui->statusBar->showMessage("Index added!", 2500);
+
     ui->mainTable->setRowCount(ui->mainTable->rowCount()+1);
 
     string utf8_nameString = field1.toUtf8().constData();
