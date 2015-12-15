@@ -9,7 +9,6 @@ Connections::Connections(GUI *parent,MagicalDataClass* dataThief) :
     ui->setupUi(this);
     daddy = parent;
     dataLayer = dataThief;
-
     this->setFixedSize(455,345);
 }
 
@@ -72,14 +71,7 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
 {
     if(ui->comboBox->currentIndex() == 0)
     {
-        vector<string> allWeNeed;
-        vector<string> name;
-        vector<string> years;
-        allWeNeed = daddy->explode(item->text().toStdString(),'(');
-        // 0 name, 1 date
-        name = daddy->explode(allWeNeed[0],' ');
-        years = daddy->explode(allWeNeed[1],'-');
-        ComputerScientist entry(name[0],"",name[name.size()-1],"",years[0],"","","");
+        ComputerScientist entry = parseScientist(item->text().toStdString());
         vector<computer> connected = dataLayer->getConnections(entry);
         ui->Right->clear();
         for(int i = 0; i < connected.size();i++)
@@ -90,17 +82,7 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
     }
     else
     {
-        vector<string> allWeNeed;
-        vector<string> name;
-        vector<string> years;
-        vector<string> soTired;
-        allWeNeed = daddy->explode(item->text().toStdString(),'(');
-        // 0 name, 1 date
-        name = daddy->explode(allWeNeed[0],' ');
-        years = daddy->explode(allWeNeed[1],',');
-        soTired = daddy->explode(years[1],')');
-        computer entry(name[0],years[0],soTired[0],"true","");
-        cout << years[0];
+        computer entry = parseComputer(item->text().toStdString());
         vector<ComputerScientist> connected = dataLayer->getConnections(entry);
         ui->Right->clear();
         for(int i = 0; i < connected.size();i++)
@@ -120,7 +102,44 @@ void Connections::on_comboBox_currentIndexChanged(int index)
 
 void Connections::on_Remove_clicked()
 {
-    /*QList rightlist<QListWidgetItem*> = ui->Right->selectedItems();
-    QList leftlist<QListWidgetItem*> = ui->Right->selectedItems();*/
+    QList<QListWidgetItem*> rightlist = ui->Right->selectedItems();
+    QList<QListWidgetItem*> leftlist = ui->Left->selectedItems();
+    if(rightlist.size() > 0 && leftlist.size() > 0)
+    {
+        if(ui->comboBox->currentIndex() == 0)
+        {
+            ComputerScientist Scifi = parseScientist(leftlist[0]->text().toStdString());
+            computer Compfi = parseComputer(rightlist[0]->text().toStdString());
+            dataLayer->removeConnection(Scifi,Compfi);
+        }
+    }
+}
 
+computer Connections::parseComputer(string term)
+{
+    vector<string> allWeNeed;
+    vector<string> name;
+    vector<string> years;
+    vector<string> soTired;
+    allWeNeed = daddy->explode(term,'(');
+    // 0 name, 1 date
+    name = daddy->explode(allWeNeed[0],' ');
+    years = daddy->explode(allWeNeed[1],',');
+    soTired = daddy->explode(years[1],')');
+    computer entry(name[0],years[0],soTired[0],"true","");
+    return entry;
+}
+
+ComputerScientist Connections::parseScientist(string term)
+{
+    vector<string> allWeNeed;
+    vector<string> name;
+    vector<string> years;
+    allWeNeed = daddy->explode(term,'(');
+    // 0 name, 1 date
+    name = daddy->explode(allWeNeed[0],' ');
+    years = daddy->explode(allWeNeed[1],'-');
+    ComputerScientist entry(name[0],"",name[name.size()-1],"",years[0],"","","");
+    cout << name[0] << ";" << endl;
+    return entry;
 }

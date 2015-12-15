@@ -21,6 +21,7 @@ class MagicalDataClass
     public:
     MagicalDataClass();
     MagicalDataClass(string filename);
+
     void GetAll(vector<ComputerScientist>& vec);
     void GetAll(vector<computer>& vect);
     void Search(vector<ComputerScientist>&vec, string substring);
@@ -31,15 +32,20 @@ class MagicalDataClass
     void remove(computer vec);
     void Add(vector<string> entry);
     void SetSort(int option,int mode);
-    void AddConnection(ComputerScientist compsci,computer comp);
+
     void setFavorite(ComputerScientist compsci, bool marker);
     void setFavorite(computer comp, bool marker);
     void GetFavorite(vector<ComputerScientist>& vec);
     void GetFavorite(vector<computer>& vec);
+
     vector<ComputerScientist> stringtoscientist(vector< vector<string> > vect);
     vector<computer> stringtocomputer(vector< vector<string> > vect);
+
+    void removeConnection(ComputerScientist compsci, computer comp);
+    void AddConnection(ComputerScientist compsci,computer comp);
     vector<computer> getConnections(ComputerScientist compsci);
     vector<ComputerScientist> getConnections(computer comp);
+
     int sciNumber();
     int compNumber();
     int favSciNumber();
