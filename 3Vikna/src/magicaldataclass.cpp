@@ -366,7 +366,8 @@ void MagicalDataClass::setFavorite(computer comp, bool marker)
 }
 
 /************************************************
- *
+ *  GEtfavorite
+ * gets every favorite entry
  * **********************************************/
 void MagicalDataClass::GetFavorite(vector<ComputerScientist>& vec)
 {
@@ -384,6 +385,10 @@ void MagicalDataClass::GetFavorite(vector<computer>& vec)
     vec = Sort(vec,compSortingOption);
 }
 
+/******************************************
+ * <>Number
+ * returns how many <> are in the database
+ * **************************************/
 int MagicalDataClass::sciNumber()
 {
     return (*Database).howManySci();
@@ -409,7 +414,11 @@ void MagicalDataClass::removeConnection(ComputerScientist compsci, computer comp
 {
     (*Database).removeConnection(compsci,comp);
 }
-
+/**************************************
+ * Update
+ * Updates an entry in the SQL
+ * Takes in original entry and changed entry
+ * **************************************/
 void MagicalDataClass::update(ComputerScientist original,ComputerScientist newone)
 {
     for(int i = 8; i >= 1; i--)
@@ -426,4 +435,24 @@ void MagicalDataClass::update(computer original,computer newone)
         (*Database).update(original,i,newone.field(i));
         original.setField(i,newone.field(i));
     }
+}
+
+/***********************************************
+ * allConnections
+ * returns all connected components in the database
+ * *********************************************/
+void MagicalDataClass::allConnections(vector<computer>& myVector)
+{
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).Connections(1);
+    myVector = stringtocomputer(MyQuery);
+    cout << "size : " << myVector.size();
+}
+
+void MagicalDataClass::allConnections(vector<ComputerScientist>& myVector)
+{
+    vector< vector<string> > MyQuery;
+    MyQuery = (*Database).Connections(0);
+    myVector = stringtoscientist(MyQuery);
+    cout << "size : " << myVector.size();
 }

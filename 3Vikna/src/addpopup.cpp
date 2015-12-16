@@ -3,10 +3,14 @@
 #include "include/computer.h"
 #include <iostream>
 #include <QTableWidget>
+#include <QMediaPlayer>
 #include "../include/gui.h"
 #include "ui_gui.h"
 #include <sstream>
 
+/*****************************
+ * constructing constructors
+ * *******************************/
 Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
     ui(new Ui::Dialog)
@@ -25,6 +29,10 @@ Dialog::Dialog(QWidget *parent, GUI* daddyCool) :
     ui->field2->setMinimumDate(QDate(101, 1, 1));
 
     this->setFixedSize(192,341);
+
+    QMediaPlayer * music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/new/audio/ping.wav"));
+    music->play();
 }
 
 Dialog::~Dialog()
@@ -56,7 +64,10 @@ void Dialog::on_buttonBox_accepted()
      else Parent->ErrorMessage();
 
 }
-
+/***************************************
+ * mode
+ * changes add mode to editing mode
+ * ***********************************/
 void Dialog::mode(computer newMode)
 {
     editing = newMode;

@@ -20,9 +20,6 @@ public:
     ~Connections();
 
 private slots:
-    void on_OkButton_2_clicked();
-
-    void on_OkButton_clicked();
 
     void on_quicksearch_returnPressed();
 

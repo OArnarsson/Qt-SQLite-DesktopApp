@@ -665,3 +665,51 @@ void FileData::removeConnection(ComputerScientist compsci, computer comp)
     query.exec();
     cout << " Err: " << query.lastError().text().toStdString() << endl;
 }
+
+vector< vector<string> > FileData::Connections(int mode)
+{
+    vector<vector<string> > result;
+    int numberOfColumns = 0;
+    //Test if there is a valid connection
+    if(!valid)
+    {
+        if(open())
+        {
+            return DataSet(mode);
+        }
+        else
+        {
+            return result;
+        }
+    }
+    QSqlQuery query(connection);
+    switch(mode)
+    {
+        case 0:
+        {
+            numberOfColumns = 10;
+            query.prepare("SELECT DISTINCT ID, FirstName,MiddleName,LastName,Gender,YearOfBirth,YearOfDeath,Nationality,Field,Favorite "
+                          "FROM Scientists JOIN Owners where Scientists.ID = Owners.ScientistID order by Scientists.ID");
+            query.exec();
+            break;
+        }
+        case 1:
+        {
+            numberOfColumns = 7;
+            query.prepare("SELECT DISTINCT ID, Name,Year,Type,Built,Location,Favorite "
+                          "FROM Computers JOIN Owners where Computers.ID = Owners.ComputerID order by Computers.ID");
+            query.exec();
+            break;
+        }
+    }
+    while(query.next())
+    {
+        vector<string> row;
+        for(int i = 0; i < numberOfColumns; i++)
+        {
+            row.push_back(query.value(i).toString().toStdString());
+        }
+        result.push_back(row);
+    }
+    return result;
+}

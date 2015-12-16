@@ -46,6 +46,8 @@ class MagicalDataClass
 
     void removeConnection(ComputerScientist compsci, computer comp);
     void AddConnection(ComputerScientist compsci,computer comp);
+    void allConnections(vector<computer> &myVector);
+    void allConnections(vector<ComputerScientist>& myVector);
     vector<computer> getConnections(ComputerScientist compsci);
     vector<ComputerScientist> getConnections(computer comp);
 

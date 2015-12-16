@@ -73,6 +73,11 @@ GUI::GUI(QWidget *parent) :
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }
 
+
+/*****************************
+ * showTime()
+ * Updates the clock
+ * **************************/
 void GUI::showTime()
 {
     QTime time=QTime::currentTime();
@@ -82,7 +87,7 @@ void GUI::showTime()
 }
 
 /************************************************
- * Destructure
+ * Destructure[sic]
  * ***********************************************/
 GUI::~GUI()
 {
@@ -123,6 +128,7 @@ void GUI::on_Add_clicked()
 void GUI::on_Remove_clicked()
 {
 
+    if(ui->mainTable->selectedItems().size() == 0) return;
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/audio/trashcan.wav"));
     music->play();
@@ -236,10 +242,10 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
         fullName.push_back(QString::fromStdString(fullNameString[i]));
     }
 
-    if(fullName.size() > 3)
+    if(fullName.size() >= 3)
     {
         QString middlename;
-        for(int i = 1; i < fullName.size()-1;i++)
+        for(unsigned int i = 1; i < fullName.size()-1;i++)
         {
             middlename += fullName[i] + " ";
         }
@@ -251,14 +257,22 @@ void GUI::AddToTable(QString field1,QString field2, QString field3, QString fiel
         entrydata.push_back(middlename.toStdString());
         entrydata.push_back(fullName[fullName.size()-1].toStdString());
     }
-
-    else if(fullName.size() == 2)
+    else
     {
-        ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
-        ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[1]));
-        entrydata.push_back(fullName[0].toStdString());
-        entrydata.push_back("");
-        entrydata.push_back(fullName[1].toStdString());
+        if(fullName.size() == 2)
+        {
+            ui->mainTable->setItem(ui->mainTable->rowCount()-1,0, new QTableWidgetItem(fullName[0]));
+            ui->mainTable->setItem(ui->mainTable->rowCount()-1,2, new QTableWidgetItem(fullName[1]));
+            entrydata.push_back(fullName[0].toStdString());
+            entrydata.push_back("");
+            entrydata.push_back(fullName[1].toStdString());
+        }
+        else
+        {
+            ErrorMessage();
+            cout << 270  << " : " << fullName.size();
+            return;
+        }
     }
 
     ui->mainTable->setItem(ui->mainTable->rowCount()-1,3, new QTableWidgetItem(field2));
@@ -421,11 +435,11 @@ void GUI::on_comboBox_currentIndexChanged(int index)
 void GUI::on_searchbar_returnPressed()
 {
     ui->mainTable->clear();
-    if(ui->comboBox->currentIndex() == 0)
+    if(ui->comboBox->currentIndex() % 2 == 0)
     {
         searchCompSci();
     }
-    if(ui->comboBox->currentIndex() == 1)
+    if(ui->comboBox->currentIndex()% 2 == 1)
     {
         searchComputer();
     }
@@ -483,7 +497,6 @@ void GUI::searchCompSci()
             ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
         }
     }
-
 }
 
 /************************
@@ -519,6 +532,10 @@ void GUI::searchComputer()
             QString entry;
             entry = QString::fromStdString(vec[i].field(j+1));
             ui->mainTable->setItem(i,j, new QTableWidgetItem(entry));
+        }
+        if(vec[i].getFavorite())
+        {
+            setRowColor(i);
         }
     }
 }
@@ -578,6 +595,8 @@ bool GUI::setRowColor(int row)
 
 void GUI::on_Favorite_clicked()
 {
+
+    if(ui->mainTable->selectedItems().size() == 0) return;
     QList<QTableWidgetItem *> selected = ui->mainTable->selectedItems();
     set<int> distinctRows;
     for(int i = 0; i < selected.size();i++)
@@ -603,6 +622,11 @@ void GUI::on_Favorite_clicked()
     ui->FavCompNumber->display(MyDataLayer->favCompNumber());
 }
 
+/*************************************
+ * On_Connections_clicked
+ * Opens a new connections windows
+ * when the connections button is triggered
+ * **************************************/
 void GUI::on_Connections_clicked()
 {
     Connections Connect(this,MyDataLayer);
@@ -610,10 +634,15 @@ void GUI::on_Connections_clicked()
     Connect.exec();
 }
 
-
+/*********************************************
+ * on_Edit_click
+ * Copies data from one row
+ * opens the add dialog to edit the entry
+ * *******************************************/
 
 void GUI::on_Edit_clicked()
 {
+    if(ui->mainTable->selectedItems().size() == 0) return;
     if(ui->comboBox->currentIndex() % 2 == 0)
     {
         QList<QTableWidgetItem*> selected = ui->mainTable->selectedItems();
@@ -634,6 +663,10 @@ void GUI::on_Edit_clicked()
     }
 }
 
+/********************************************
+ * change
+ * Takes in parameters and changes an entry
+ * ******************************************/
 void GUI::change(QString field1,QString field2, QString field3, QString field4, QString field5)
 {
     computer newdata(field1.toStdString(),field2.toStdString(),field3.toStdString(),field4.toStdString(),field5.toStdString());
@@ -666,7 +699,7 @@ void GUI::change(QString field1,QString field2, QString field3, QString field4, 
     if(fullName.size() > 2)
     {
         QString middlename;
-        for(int i = 1; i < fullName.size()-1;i++)
+        for(unsigned int i = 1; i < fullName.size()-1;i++)
         {
             middlename += fullName[i] + " ";
         }

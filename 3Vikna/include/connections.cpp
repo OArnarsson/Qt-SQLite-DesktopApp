@@ -3,6 +3,9 @@
 #include "gui.h"
 #include <QMediaPlayer>
 
+/***********************************
+ * construct
+ * ***********************************/
 Connections::Connections(GUI *parent,MagicalDataClass* dataThief) :
     QDialog(parent),
     ui(new Ui::Connections)
@@ -11,6 +14,7 @@ Connections::Connections(GUI *parent,MagicalDataClass* dataThief) :
     daddy = parent;
     dataLayer = dataThief;
     this->setFixedSize(455,345);
+    on_comboBox_currentIndexChanged(0);
 }
 
 Connections::~Connections()
@@ -18,16 +22,10 @@ Connections::~Connections()
     delete ui;
 }
 
-void Connections::on_OkButton_2_clicked()
-{
-    on_OkButton_clicked();
-}
-
-void Connections::on_OkButton_clicked()
-{
-   // close();
-}
-
+/***********************************
+ * Quicksearch
+ * Searches the database and fills in table
+ * ***********************************/
 void Connections::on_quicksearch_returnPressed()
 {
     if(ui->comboBox->currentIndex() == 0){
@@ -35,7 +33,7 @@ void Connections::on_quicksearch_returnPressed()
         dataLayer->Search(vecvec,ui->quicksearch->text().toStdString());
         ui->Right->clear();
         ui->Left->clear();
-        for(int i = 0; i < vecvec.size();i++)
+        for(unsigned int i = 0; i < vecvec.size();i++)
         {
             addTable(vecvec[i]);
         }
@@ -46,13 +44,16 @@ void Connections::on_quicksearch_returnPressed()
         dataLayer->Search(vecvec,ui->quicksearch->text().toStdString());
         ui->Right->clear();
         ui->Left->clear();
-        for(int i = 0; i < vecvec.size();i++)
+        for(unsigned int i = 0; i < vecvec.size();i++)
         {
             addTable(vecvec[i]);
         }
     }
 }
 
+/***********************************
+ * Adds an item to the table
+ * ***********************************/
 void Connections::addTable(ComputerScientist compsci)
 {
     QString name;
@@ -68,6 +69,11 @@ void Connections::addTable(computer compsci)
         ui->Left->insertItem(ui->Left->count(),new QListWidgetItem(name));
 }
 
+/***********************************
+ * When something is selected on the left
+ * finds and displays all connections
+ * ,parsing them to the correct form
+ * ***********************************/
 void Connections::on_Left_itemClicked(QListWidgetItem *item)
 {
     if(ui->comboBox->currentIndex() == 0)
@@ -75,7 +81,7 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
         ComputerScientist entry = parseScientist(item->text().toStdString());
         vector<computer> connected = dataLayer->getConnections(entry);
         ui->Right->clear();
-        for(int i = 0; i < connected.size();i++)
+        for(unsigned int i = 0; i < connected.size();i++)
         {
             QString compdata = QString::fromStdString(connected[i].field(2) + " ("+connected[i].field(3)+","+connected[i].field(4)+")");
             ui->Right->insertItem(ui->Right->count(),new QListWidgetItem(compdata));
@@ -86,7 +92,7 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
         computer entry = parseComputer(item->text().toStdString());
         vector<ComputerScientist> connected = dataLayer->getConnections(entry);
         ui->Right->clear();
-        for(int i = 0; i < connected.size();i++)
+        for(unsigned int i = 0; i < connected.size();i++)
         {
             QString compdata = QString::fromStdString(connected[i].field(1) + " " + connected[i].field(2) + " " + connected[i].field(3)
                              + " ("+connected[i].field(5)+"-"+connected[i].field(6)+ ")");
@@ -95,12 +101,46 @@ void Connections::on_Left_itemClicked(QListWidgetItem *item)
     }
 }
 
+/***********************************
+ * when the dropdown is changed
+ * fills the table with all items connected to something
+ * ***********************************/
 void Connections::on_comboBox_currentIndexChanged(int index)
 {
     ui->Left->clear();
     ui->Right->clear();
+    if(index == 0)
+    {
+        vector<ComputerScientist> vecvec;
+        dataLayer->allConnections(vecvec);
+        cout << "Size k:" << vecvec.size()<<endl;
+        ui->Left->clear();
+        for(unsigned int i = 0; i < vecvec.size();i++)
+        {
+            QString name;
+            name = QString::fromStdString(vecvec[i].field(1) + " " + vecvec[i].field(2) + " " + vecvec[i].field(3)
+                 + " ("+vecvec[i].field(5)+"-"+vecvec[i].field(6)+ ")");
+                ui->Left->insertItem(ui->Left->count(),new QListWidgetItem(name));
+        }
+    }
+    else
+    {
+        vector<computer> vecvec;
+        dataLayer->allConnections(vecvec);
+        ui->Left->clear();
+        for(unsigned int i = 0; i < vecvec.size();i++)
+        {
+            QString name;
+            name = QString::fromStdString(vecvec[i].field(1) + " (" + vecvec[i].field(2) + ","+vecvec[i].field(3)+")");
+                ui->Left->insertItem(ui->Left->count(),new QListWidgetItem(name));
+        }
+    }
 }
 
+/***********************************
+ * Destroyes a connection
+ * parses the item in the table to remove it
+ * ***********************************/
 void Connections::on_Remove_clicked()
 {
     QMediaPlayer * music = new QMediaPlayer();
@@ -126,28 +166,28 @@ void Connections::on_Remove_clicked()
     }
 }
 
+/***********************************
+ * Turns the table string to a computer
+ * ***********************************/
 computer Connections::parseComputer(string term)
 {
     vector<string> allWeNeed;
     vector<string> name;
     vector<string> years;
     vector<string> soTired;
-    cout << 130 << endl;
+
     allWeNeed = daddy->explode(term,'(');
-    // 0 name, 1 date
-        cout << 133 << endl;
     name = daddy->explode(allWeNeed[0],' ');
-        cout << 135 << endl;
     years = daddy->explode(allWeNeed[1],',');
-        cout << 137 << endl;
-        cout << years[0] << endl;
     soTired = daddy->explode(years[1],')');
 
-    cout << 140 << endl;
     computer entry(name[0],years[0],soTired[0],"true","");
     return entry;
 }
 
+/***********************************
+ * Turns the string into a scientist
+ * ***********************************/
 ComputerScientist Connections::parseScientist(string term)
 {
     vector<string> allWeNeed;
@@ -162,12 +202,16 @@ ComputerScientist Connections::parseScientist(string term)
     return entry;
 }
 
+/***********************************
+ * Searches the database for scientist
+ * fills the left table
+ * ***********************************/
 void Connections::on_leftsearch_returnPressed()
 {
     vector<ComputerScientist> vecvec;
     dataLayer->Search(vecvec,ui->leftsearch->text().toStdString());
     ui->left2->clear();
-    for(int i = 0; i < vecvec.size();i++)
+    for(unsigned int i = 0; i < vecvec.size();i++)
     {
         QString name;
         name = QString::fromStdString(vecvec[i].field(1) + " " + vecvec[i].field(2) + " " + vecvec[i].field(3)
@@ -176,12 +220,16 @@ void Connections::on_leftsearch_returnPressed()
     }
 }
 
+/***********************************
+ * searches the database on the right
+ * fills right table with computers
+ * ***********************************/
 void Connections::on_rightsearch_returnPressed()
 {
     vector<computer> vecvec;
     dataLayer->Search(vecvec,ui->rightsearch->text().toStdString());
     ui->right2->clear();
-    for(int i = 0; i < vecvec.size();i++)
+    for(unsigned int i = 0; i < vecvec.size();i++)
     {
         QString name;
         name = QString::fromStdString(vecvec[i].field(1) + " (" + vecvec[i].field(2) + ","+vecvec[i].field(3)+")");
@@ -189,6 +237,11 @@ void Connections::on_rightsearch_returnPressed()
     }
 }
 
+/***********************************
+ * Adds a connection
+ * finds what is selected either side
+ * connects them
+ * ***********************************/
 void Connections::on_Add_clicked()
 {
     QMediaPlayer * music = new QMediaPlayer();
@@ -201,11 +254,8 @@ void Connections::on_Add_clicked()
     cout << leftlist.size();
     if(rightlist.size() > 0 && leftlist.size() > 0)
     {
-        cout << 188 << endl;
         ComputerScientist Scifi = parseScientist(leftlist[0]->text().toStdString());
-                cout << 190 << endl;
         computer Compfi = parseComputer(rightlist[0]->text().toStdString());
-                cout << 192 << endl;
         dataLayer->AddConnection(Scifi,Compfi);
     }
 }

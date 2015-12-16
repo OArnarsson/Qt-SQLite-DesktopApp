@@ -7,6 +7,9 @@
 #include <sstream>
 //#include <QMediaPlayer>
 
+/*****************************
+ * consructing
+ * ****************************/
 sciencePopUp::sciencePopUp(QWidget *parent, GUI* daddyCool) :
     QDialog(parent),
     ui(new Ui::sciencePopUp)
@@ -39,7 +42,11 @@ sciencePopUp::~sciencePopUp()
     delete ui;
 }
 
-//When the "OK" button is pressed.
+/*********************************************
+ * When the "OK" button is pressed.
+ * parses the information given
+ *  calls dad to add it to table
+ * *******************************************/
 void sciencePopUp::on_buttonBox_accepted()
 {
      //Reads the string in each field.
@@ -67,11 +74,24 @@ void sciencePopUp::on_buttonBox_accepted()
                  Parent->change(myField1,myField2,myField3,myField4,myField5,myField6);
              }
          }
+         else
+         {
+             cout << 79;
+            Parent->ErrorMessage();
+         }
      }
-     else Parent->ErrorMessage();
+     else
+     {
+         Parent->ErrorMessage();
+         cout << 86;
+     }
 
 }
 
+/*********************************
+ * mode
+ * changes this add dialogue to edit dialogue
+ * **********************************/
 void sciencePopUp::mode(ComputerScientist newMode)
 {
     editing = newMode;

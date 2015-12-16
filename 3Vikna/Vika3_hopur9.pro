@@ -43,6 +43,7 @@ FORMS    += include/gui.ui \
 DISTFILES += \
     include/ComputerScientist.h.gch \
     include/FileData.h.gch \
+    CompDataBase.sqlite \
 
 RESOURCES = icons.qrc \
     audio.qrc

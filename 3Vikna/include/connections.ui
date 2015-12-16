@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Connections</string>
   </property>
   <widget class="QTabWidget" name="ConnectionTab">
    <property name="geometry">
@@ -23,29 +23,16 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
      <string>Search Connections</string>
     </attribute>
-    <widget class="QPushButton" name="OkButton_2">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>280</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ok</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Remove">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>410</x>
        <y>280</y>
        <width>31</width>
        <height>31</height>
@@ -86,6 +73,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="placeholderText">
+      <string>Quicksearch</string>
+     </property>
     </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
@@ -117,24 +107,6 @@
         <normaloff>:/new/Icons/Icons/Computers.svg</normaloff>:/new/Icons/Icons/Computers.svg</iconset>
       </property>
      </item>
-     <item>
-      <property name="text">
-       <string>Favorite Scientists</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../icons.qrc">
-        <normaloff>:/new/Icons/Icons/Favorite.svg</normaloff>:/new/Icons/Icons/Favorite.svg</iconset>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Favorite Computer</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../icons.qrc">
-        <normaloff>:/new/Icons/Icons/Favorite.svg</normaloff>:/new/Icons/Icons/Favorite.svg</iconset>
-      </property>
-     </item>
     </widget>
     <widget class="QListWidget" name="Left">
      <property name="geometry">
@@ -154,6 +126,19 @@
        <width>211</width>
        <height>241</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>311</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select an item in the left window to get all its connections</string>
      </property>
     </widget>
    </widget>
@@ -190,6 +175,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="placeholderText">
+      <string>Scientist Search</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="rightsearch">
      <property name="geometry">
@@ -200,24 +188,14 @@
        <height>21</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QPushButton" name="OkButton">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>280</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ok</string>
+     <property name="placeholderText">
+      <string>Computer Search</string>
      </property>
     </widget>
     <widget class="QPushButton" name="Add">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>410</x>
        <y>280</y>
        <width>31</width>
        <height>31</height>
@@ -247,6 +225,19 @@
        <width>30</width>
        <height>30</height>
       </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>331</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select an item from both windows to establish a connection</string>
      </property>
     </widget>
    </widget>
